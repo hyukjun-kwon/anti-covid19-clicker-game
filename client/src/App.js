@@ -1,18 +1,23 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React from 'react';
+import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import LogInOut from './components/LogInOut/LogInOut';
+import Home from './components/Home/Home';
+import HowToPlay from './components/HowToPlay/HowToPlay';
+import Game from './components/Game/Game';
 
 function App() {
   return (
-    <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Welcome to React</h2>
+    <Router>
+      <div>
+        <Route exact path='/' component={LogInOut} />
+        <Route exact path='/home' component={Home} />
+        <Route exact path='/how-to-play' component={HowToPlay} />
+        <Route exact path='/game' component={Game} />
+        <Route exact path='/logout' component={LogInOut} />
       </div>
-      <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
-      </p>
-    </div>
+    </Router>
+
   );
 }
 
