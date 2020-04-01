@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Upgrades from './Upgrades';
+// import Upgrades from './Upgrades';
 import NavBar from './NavBar';
 import Main from './Main';
 
@@ -8,7 +8,7 @@ function Game() {
         <Fragment>
             <NavBar />
             <Main />
-            <Upgrades />
+            {/* <Upgrades /> */}
         </Fragment>
 
 
