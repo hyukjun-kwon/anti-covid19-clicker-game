@@ -8,6 +8,7 @@ function Game() {
         <Fragment>
             <NavBar />
             <Main />
+            <HowToPlayModal />
             <Upgrades />
         </Fragment>
 
