@@ -4,6 +4,8 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
+import MenuItem from '@material-ui/core/MenuItem';
+
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
@@ -32,9 +34,9 @@ function HowToPlayModal() {
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
+      <MenuItem type="button" onClick={handleOpen}>
         How To Play
-      </button>
+      </MenuItem>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

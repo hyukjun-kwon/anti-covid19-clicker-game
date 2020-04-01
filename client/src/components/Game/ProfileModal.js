@@ -4,6 +4,8 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
+import MenuItem from '@material-ui/core/MenuItem';
+
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
@@ -32,9 +34,9 @@ function ProfileModal() {
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
-        How To Play
-      </button>
+      <MenuItem type="button" onClick={handleOpen}>
+        Profile
+      </MenuItem>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -49,8 +51,8 @@ function ProfileModal() {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">How To Play</h2>
-            <p id="transition-modal-description">Here is how to play the game <hr/> Just click the button. </p>
+            <h2 id="transition-modal-title">Your Profile</h2>
+            <p id="transition-modal-description">Here are your stats from previous games. <hr/> High score: </p>
           </div>
         </Fade>
       </Modal>

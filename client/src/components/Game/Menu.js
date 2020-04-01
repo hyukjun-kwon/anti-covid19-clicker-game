@@ -9,6 +9,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
+import HowToPlay from './HowToPlayModal';
+import ProfileModal from './ProfileModal';
+
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -62,17 +65,16 @@ function MenuListComposition() {
                     ref={anchorRef} aria-controls={open ? 'menu-list-grow' : undefined} aria-haspopup="true" onClick={handleToggle}>
                     <ArrowDropDownIcon />
                 </IconButton>
-                {/* <Button ref={anchorRef} aria-controls={open ? 'menu-list-grow' : undefined} aria-haspopup="true" onClick={handleToggle}>
-                    Toggle Menu Grow
-                </Button> */}
                 <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                     {({ TransitionProps, placement }) => (
                         <Grow {...TransitionProps} style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}>
                             <Paper>
                                 <ClickAwayListener onClickAway={handleClose}>
                                     <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                        <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                        <MenuItem onClick={handleClose}>My account</MenuItem>
+                                        {/* <MenuItem onClick={handleClose}>Profile</MenuItem> */}
+                                        <ProfileModal />
+                                        {/* <MenuItem onClick={handleClose}>How To Play</MenuItem> */}
+                                        <HowToPlay />
                                         <MenuItem onClick={handleClose}>Logout</MenuItem>
                                     </MenuList>
                                 </ClickAwayListener>
