@@ -8,3 +8,5 @@ function Uprgrades() {
         </Fragment>
     )
 }
+
+export default Uprgrades;
