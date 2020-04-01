@@ -8,4 +8,6 @@ function Upgrades() {
     )
 }
 
+
 export default Upgrades;
+

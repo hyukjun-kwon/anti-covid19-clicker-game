@@ -10,8 +10,6 @@ function Game() {
             <Main />
             {/* <Upgrades /> */}
         </Fragment>
-
-
     )
 }
 export default Game;
