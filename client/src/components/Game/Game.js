@@ -8,6 +8,7 @@ import PandemicContext from '../../contexts/PandemicContext';
 function Game() {
     const [pandemic, setPandemic] = useState({
         infected: 5000,
+        infectionRate: 1.05,
         cured: 0,
         dead: 0,
         funding: 2500
