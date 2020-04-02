@@ -1,11 +1,13 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import NavBar from '../Game/Navigation/NavBar';
 import Button from '@material-ui/core/button';
 import Box from '@material-ui/core/box';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-
+import PandemicContext from '../../contexts/PandemicContext';
 
 function Home() {
+    const {dispatch} = useContext(PandemicContext)
+
     return (
         <Fragment>
             <NavBar />
@@ -38,9 +40,9 @@ function Home() {
                     variant="contained"
                     color="primary"
                     aria-label="contained primary button group">
-                    <Button>Easy</Button>
-                    <Button>Medium</Button>
-                    <Button>Hard</Button>
+                    <Button onClick={() => dispatch({type: 'SET_DIFFICULTY', payload: 'EASY_SETTINGS'})}>Easy</Button>
+                    <Button onClick={() => dispatch({type: 'SET_DIFFICULTY', payload:'MEDIUM_SETTINGS'})}>Medium</Button>
+                    <Button onClick={() => dispatch({type: 'SET_DIFFICULTY', payload:'HARD_SETTINGS'})}>Hard</Button>
                 </ButtonGroup>
                 <Button
                     type="submit"
