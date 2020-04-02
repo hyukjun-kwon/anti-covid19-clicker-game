@@ -45,6 +45,7 @@ function NavBar () {
   );
 }
 
+export default NavBar;
 
 // export default function NavBar() {
   
