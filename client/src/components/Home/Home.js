@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import NavBar from '../Game/NavBar';
+import NavBar from '../Game/Navigation/NavBar';
 import Button from '@material-ui/core/button';
 import Box from '@material-ui/core/box';
 import ButtonGroup from '@material-ui/core/ButtonGroup';

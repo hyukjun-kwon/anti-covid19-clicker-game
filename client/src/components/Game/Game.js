@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import Container from '@material-ui/core/Container';
-import Upgrades from './Upgrades';
-import NavBar from './NavBar';
-import Main from './Main';
+import Upgrades from './Upgrades/Upgrades';
+import NavBar from './Navigation/NavBar';
+import Main from './Main/Main';
 import PandemicContext from '../../contexts/PandemicContext';
 
 function Game() {
