@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
+import NavBottom from './NavBottom';
 
 function Upgrades() {
     return (
         <Fragment>
-            <h1>Upgrades panel</h1>
+            <NavBottom />
         </Fragment>
     )
 }
