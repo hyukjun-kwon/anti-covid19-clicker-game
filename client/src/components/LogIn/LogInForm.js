@@ -1,42 +1,73 @@
-import React from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import React from 'react';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        flexgrow: 1
+    paper: {
+        marginTop: theme.spacing(25),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
     },
     form: {
-        position: 'absolute',
-        left: '50%',
-        top: '42%',
-        transform: 'translate(-50%, -50%)',
-        width: 'auto'
-    }
+        width: '100%',
+        marginTop: theme.spacing(7),
+    },
+    submit: {
+        margin: theme.spacing(3, 0, 2),
+    },
 }));
 
-function LogIn() {
+export default function LogIn() {
     const classes = useStyles();
-    return (
-        <MDBContainer className={classes.root}>
-            <MDBRow>
-                <MDBCol md="6" className={classes.form}>
-                    <form>
-                        <p className="h5 text-center mb-4">Sign in</p>
-                        <div className="grey-text">
-                            <MDBInput label="Type your email" icon="envelope" group type="email" validate error="wrong"
-                                success="right" />
-                            <MDBInput label="Type your password" icon="lock" group type="password" validate />
-                        </div>
-                        <div className="text-center">
-                            <MDBBtn>Login</MDBBtn>
-                        </div>
-                    </form>
-                </MDBCol>
-            </MDBRow>
-        </MDBContainer>
-    );
-};
 
-export default LogIn;
+    return (
+        <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <div className={classes.paper}>
+                <form className={classes.form} noValidate>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id="email"
+                                label="Email Address"
+                                name="email"
+                                autoComplete="email"
+                                style={{ backgroundColor: 'white' }}
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                name="password"
+                                label="Password"
+                                type="password"
+                                id="password"
+                                autoComplete="current-password"
+                                style={{ backgroundColor: 'white' }}
+                            />
+                        </Grid>
+                    </Grid>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.submit}
+                    >Log In</Button>
+                </form>
+            </div>
+        </Container>
+    );
+}

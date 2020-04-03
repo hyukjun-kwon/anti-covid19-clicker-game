@@ -30,7 +30,7 @@ function Main({ setPandemic }) {
                     <Box className={classes.Box} style={{ backgroundColor: 'orange' }}>Infected: {pandemic.infected}</Box>
                 </Grid>
                 <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ backgroundColor: 'red' }}>Dead: {pandemic.dead}</Box>
+                    <Box className={classes.Box} style={{ backgroundColor: 'red' }}>Deceased: {pandemic.dead}</Box>
                 </Grid>
                 <Grid item xs={3}>
                     <Box className={classes.Box} style={{ backgroundColor: 'yellow' }}>Cured: {pandemic.cured}</Box>

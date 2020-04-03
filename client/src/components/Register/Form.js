@@ -1,42 +1,73 @@
-import React from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
+import React from 'react';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        flexgrow: 1
+    paper: {
+        marginTop: theme.spacing(25),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
     },
     form: {
-        position: 'absolute',
-        left: '50%',
-        top: '42%',
-        transform: 'translate(-50%, -50%)'
-    }
+        width: '100%',
+        marginTop: theme.spacing(7),
+    },
+    submit: {
+        margin: theme.spacing(3, 0, 2),
+    },
 }));
 
-function Register() {
+export default function Register() {
     const classes = useStyles();
-    return (
-        <MDBContainer className={classes.root}>
-            <MDBRow>
-                <MDBCol md="6" className={classes.form}>
-                    <form>
-                        <p className="h5 text-center mb-4">Sign up</p>
-                        <div className="grey-text">
-                            <MDBInput label="Your username" icon="user" group type="text" validate error="wrong"
-                                success="right" />
-                            <MDBInput label="Your password" icon="lock" group type="email" validate error="wrong"
-                                success="right" />
-                        </div>
-                        <div className="text-center">
-                            <MDBBtn color="primary">Register</MDBBtn>
-                        </div>
-                    </form>
-                </MDBCol>
-            </MDBRow>
-        </MDBContainer>
-    );
-};
 
-export default Register;
+    return (
+        <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <div className={classes.paper}>
+                <form className={classes.form} noValidate>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id="email"
+                                label="Email Address"
+                                name="email"
+                                autoComplete="email"
+                                style={{ backgroundColor: 'white' }}
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                name="password"
+                                label="Password"
+                                type="password"
+                                id="password"
+                                autoComplete="current-password"
+                                style={{ backgroundColor: 'white' }}
+                            />
+                        </Grid>
+                    </Grid>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.submit}
+                    >Register</Button>
+                </form>
+            </div>
+        </Container>
+    );
+}
