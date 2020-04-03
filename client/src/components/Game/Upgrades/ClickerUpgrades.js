@@ -26,9 +26,6 @@ const style = {
     height: '70px'
 }
 
-const avi = {
-    margin: '13px'
-}
 
 export default function ClickerUpgrades() {
     const classes = avatarStyles();
@@ -38,7 +35,7 @@ return (
     <Grid item xs={12}>
                 <Paper style={style} className={classes.paper}>
                     <div className={classes.root}>
-                        <Avatar style={avi} className={classes.orange}>C</Avatar>
+                        <button><Avatar className={classes.orange}>C</Avatar></button>
                         <p>Clicker Lv.23</p>
                     </div>
 
@@ -48,7 +45,7 @@ return (
             <Grid item xs={12}>
                 <Paper style={style} className={classes.paper}>
                     <div className={classes.root}>
-                        <Avatar style={avi} className={classes.orange}>Q</Avatar>
+                        <button><Avatar className={classes.orange}>Q</Avatar></button>
 
                         <p>Vaccine Quantity Lv.17</p>
                         <button>Upgrade: $112k</button>
@@ -60,7 +57,7 @@ return (
             <Grid item xs={12}>
                 <Paper style={style} className={classes.paper}>
                     <div className={classes.root}>
-                        <Avatar style={avi} className={classes.orange}>PR</Avatar>
+                        <button><Avatar className={classes.orange}>PR</Avatar></button>
 
                         <p>Production Rate Lv.6</p>
                         <button>Upgrade: $70k</button>

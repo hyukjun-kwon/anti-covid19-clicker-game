@@ -26,10 +26,6 @@ const style = {
     height: '70px'
 }
 
-const avi = {
-    margin: '13px'
-}
-
 export default function SpecialsUpgrades() {
     const classes = avatarStyles();
 
@@ -38,7 +34,7 @@ return (
     <Grid item xs={12}>
                 <Paper style={style} className={classes.paper}>
                     <div className={classes.root}>
-                        <Avatar style={avi} className={classes.orange}>DP</Avatar>
+                        <button><Avatar className={classes.orange}>DP</Avatar></button>
                         <p>Double Production Lv.10</p>
                     </div>
 
@@ -48,7 +44,7 @@ return (
             <Grid item xs={12}>
                 <Paper style={style} className={classes.paper}>
                     <div className={classes.root}>
-                        <Avatar style={avi} className={classes.orange}>Q</Avatar>
+                        <button><Avatar className={classes.orange}>Q</Avatar></button>
 
                         <p>Double Margin Lv.1</p>
                         
