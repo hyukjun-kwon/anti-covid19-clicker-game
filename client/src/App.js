@@ -6,6 +6,7 @@ import Home from './components/Home/Home';
 import HowToPlay from './components/HowToPlay/HowToPlay';
 import Game from './components/Game/Game';
 import PandemicContext from './contexts/PandemicContext';
+import RegisterForm from '../src/components/Register/Form';
 
 function appReducer(state, action) {
   console.log(action);
@@ -62,6 +63,7 @@ function App() {
           <Route exact path='/how-to-play' component={HowToPlay} />
           <Route exact path='/game' render={(props) => <Game {...props} setPandemic={setPandemic} />} />
           <Route exact path='/logout' component={LogInOut} />
+          <Route exact path='/register' component={RegisterForm} />
         </PandemicContext.Provider>
       </div>
     </Router>
