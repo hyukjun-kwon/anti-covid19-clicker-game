@@ -1,7 +1,7 @@
 import React, { Fragment, useContext, useState } from 'react';
 import NavBar from '../Game/Navigation/NavBar';
-import Button from '@material-ui/core/button';
-import Box from '@material-ui/core/box';
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import PandemicContext from '../../contexts/PandemicContext';
 import { makeStyles } from '@material-ui/core/styles';

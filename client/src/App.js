@@ -1,11 +1,14 @@
 import React, { useState, useReducer } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import LogInOut from './components/LogInOut/LogInOut';
+import LogIn from './components/LogIn/LogInForm';
 import Home from './components/Home/Home';
 import HowToPlay from './components/HowToPlay/HowToPlay';
 import Game from './components/Game/Game';
 import PandemicContext from './contexts/PandemicContext';
+import Landing from '../src/components/Landing/Landing';
+import Register from '../src/components/Register/Form';
+
 
 // function appReducer(state, action) {
 //   console.log(action);
@@ -57,6 +60,7 @@ function App() {
   return (
     <Router>
       <div>
+
         {/* <PandemicContext.Provider value={{ ...pandemic,state, dispatch }} > */}
         <PandemicContext.Provider value={pandemic} >
           <Route exact path='/' component={LogInOut} />
@@ -64,7 +68,9 @@ function App() {
           <Route exact path='/home' render={(props) => <Home {...props} setPandemic={setPandemic} />} />
           <Route exact path='/how-to-play' component={HowToPlay} />
           <Route exact path='/game' render={(props) => <Game {...props} setPandemic={setPandemic} />} />
-          <Route exact path='/logout' component={LogInOut} />
+          <Route exact path='/logout' component={Landing} />
+          <Route exact path='/login' component={LogIn} />
+          <Route exact path='/register' component={Register} />
         </PandemicContext.Provider>
       </div>
     </Router>
