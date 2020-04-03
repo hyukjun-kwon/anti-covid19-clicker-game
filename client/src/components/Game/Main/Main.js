@@ -11,11 +11,11 @@ const useStyles = makeStyles((theme) => ({
     Box: {
         padding: theme.spacing(1),
         textAlign: 'left',
-        width: '100%',
+        width: 'auto',
         padding: '3px',
         marginTop: '15px',
         border: '1px solid',
-        font: 'white'
+        font: 'white',
     },
 }));
 
