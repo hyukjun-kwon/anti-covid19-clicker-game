@@ -4,22 +4,22 @@ import Upgrades from './Upgrades/Upgrades';
 import NavBar from './Navigation/NavBar';
 import Main from './Main/Main';
 
-function Game( {setPandemic}) {
+function Game({ setPandemic }) {
 
 
     return (
         <Fragment>
             <NavBar />
-             <Container>
-                    <Container>
-                        <Main setPandemic={setPandemic}/>
-                    </Container>
-                    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-                    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-                    <Container>
-                        <Upgrades />
-                    </Container>
+            <Container>
+                <Container>
+                    <Main setPandemic={setPandemic} />
                 </Container>
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <Container>
+                    <Upgrades />
+                </Container>
+            </Container>
         </Fragment>
 
 
