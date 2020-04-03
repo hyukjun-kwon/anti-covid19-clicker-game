@@ -14,12 +14,12 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         padding: '3px',
         marginTop: '15px',
-
-
+        border: '1px solid',
+        font: 'white'
     },
 }));
 
-function Main({setPandemic}) {
+function Main({ setPandemic }) {
     const pandemic = useContext(PandemicContext);
     const classes = useStyles();
 
@@ -27,19 +27,19 @@ function Main({setPandemic}) {
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ color: 'orange' }}>Infected: {pandemic.infected}</Box>
+                    <Box className={classes.Box} style={{ backgroundColor: 'orange' }}>Infected: {pandemic.infected}</Box>
                 </Grid>
                 <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ color: 'red' }}>Dead: {pandemic.dead}</Box>
+                    <Box className={classes.Box} style={{ backgroundColor: 'red' }}>Dead: {pandemic.dead}</Box>
                 </Grid>
                 <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ color: 'blue' }}>Cured: {pandemic.cured}</Box>
+                    <Box className={classes.Box} style={{ backgroundColor: 'yellow' }}>Cured: {pandemic.cured}</Box>
                 </Grid>
                 <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ color: 'green' }}>Funding: {pandemic.funding}</Box>
+                    <Box className={classes.Box} style={{ backgroundColor: 'green' }}>Funding: {pandemic.funding}</Box>
                 </Grid>
             </Grid>
-            <Clicker setPandemic={setPandemic}/>
+            <Clicker setPandemic={setPandemic} />
         </div>
     )
 }
