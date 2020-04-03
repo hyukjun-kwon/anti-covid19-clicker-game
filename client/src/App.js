@@ -41,6 +41,7 @@ import Register from '../src/components/Register/Form';
 
 function App() {
   const [pandemic, setPandemic] = useState({
+    difficulty:"easy",
     infected: 5000,
     infectionRate: 1.05,
     cured: 0,
@@ -54,16 +55,13 @@ function App() {
   //   dead: 0,
   //   funding: 2500
   // }
-
   // const [state, dispatch] = useReducer(appReducer, initialState)
-
   return (
     <Router>
       <div>
-
         {/* <PandemicContext.Provider value={{ ...pandemic,state, dispatch }} > */}
         <PandemicContext.Provider value={pandemic} >
-          <Route exact path='/' component={LogInOut} />
+          <Route exact path='/' component={LogIn} />
           {/* <Route exact path='/home' component={Home} /> */}
           <Route exact path='/home' render={(props) => <Home {...props} setPandemic={setPandemic} />} />
           <Route exact path='/how-to-play' component={HowToPlay} />
@@ -74,9 +72,7 @@ function App() {
         </PandemicContext.Provider>
       </div>
     </Router>
-
   );
 }
-
 
 export default App;

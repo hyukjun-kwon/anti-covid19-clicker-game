@@ -35,18 +35,9 @@ function Home({ setPandemic }) {
     const pandemic = useContext(PandemicContext)
     console.log(pandemic)
     const classes = useStyles();
-    // extra step for db purposes ////////////////////////////////////////
-    const [difficulty,setDifficulty] = useState()
-    function clickHandler (e) {
-        e.preventDefault();
-        switch(difficulty){
-            case "easy": setPandemic(easySettings); break;
-            case "medium": setPandemic(mediumSettings); break;
-            case "hard": setPandemic(hardSettings); break;
-        }
-    }
 
     const easySettings = {
+        difficulty:"easy",
         infected: 5000,
         infectionRate: 1.05,
         cured: 0,
@@ -54,6 +45,7 @@ function Home({ setPandemic }) {
         funding: 2500
     }
     const mediumSettings = {
+        difficulty:"medium",
         infected: 100000,
         infectionRate: 1.10,
         cured: 0,
@@ -61,6 +53,7 @@ function Home({ setPandemic }) {
         funding: 2500
     }
     const hardSettings = {
+        difficulty:"hard",
         infected: 100000,
         infectionRate: 1.15,
         cured: 0,
@@ -87,9 +80,9 @@ function Home({ setPandemic }) {
                     {/* <Button onClick={() => dispatch({ type: 'SET_DIFFICULTY', payload: 'EASY_SETTINGS' })}>Easy</Button>
                     <Button onClick={() => dispatch({ type: 'SET_DIFFICULTY', payload: 'MEDIUM_SETTINGS' })}>Medium</Button>
                     <Button onClick={() => dispatch({ type: 'SET_DIFFICULTY', payload: 'HARD_SETTINGS' })}>Hard</Button> */}
-                    <Button onClick={(e) => {  setDifficulty("easy"); }}>Easy</Button>
-                    <Button onClick={(e) => {  setDifficulty("medium"); }}>Medium</Button>
-                    <Button onClick={(e) => {  setDifficulty("hard"); }}>Hard</Button>
+                    <Button onClick={event => {event.preventDefault(); setPandemic(easySettings)}}>Easy</Button>
+                    <Button onClick={event => {event.preventDefault(); setPandemic(mediumSettings)}}>Medium</Button>
+                    <Button onClick={event => {event.preventDefault(); setPandemic(hardSettings)}}>Hard</Button>
                 </ButtonGroup>
                 <Link to="/game">
                     <Button
