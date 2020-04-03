@@ -1,12 +1,10 @@
 import React, { Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
-import { deepOrange, deepPurple } from '@material-ui/core/colors';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Progress from '../Progress/Progress';
-import UpgradeTab from '../Tab/Tab';
-import Header from '../Header/Header';
+import { deepOrange, deepPurple } from '@material-ui/core/colors';
 
 const avatarStyles = makeStyles((theme) => ({
     root: {
@@ -33,21 +31,17 @@ const avi = {
     margin: '13px'
 }
 
-export default function NavBottom(props) {
+export default function FacilityUpgrades() {
     const classes = avatarStyles();
 
-    return (
-        <Fragment>
-
-            <Header amount={'1,000'}/>
-
-
-            <Grid item xs={12}>
+return (   
+    <Fragment> 
+    <Grid item xs={12}>
                 <Paper style={style} className={classes.paper}>
                     <div className={classes.root}>
-                        <Avatar style={avi} className={classes.orange}>{props.avatar}</Avatar>
+                        <Avatar style={avi} className={classes.orange}>H</Avatar>
 
-                        <Progress upgrade={'Hospital Lv.5 (+50 vaccines / 30 sec)'}/>
+                        <Progress upgrade={'Hospital Lv.5'}/>
                     </div>
 
                 </Paper>
@@ -56,9 +50,9 @@ export default function NavBottom(props) {
             <Grid item xs={12}>
                 <Paper style={style} className={classes.paper}>
                     <div className={classes.root}>
-                        <Avatar style={avi} className={classes.orange}>{props.avatar}</Avatar>
+                        <Avatar style={avi} className={classes.orange}>L</Avatar>
 
-                        <Progress upgrade={'Lab Lv.1 (+500 vaccines / 3 min)'}/>
+                        <Progress upgrade={'Lab Lv.1'}/>
                     </div>
 
                 </Paper>
@@ -67,9 +61,9 @@ export default function NavBottom(props) {
             <Grid item xs={12}>
                 <Paper style={style} className={classes.paper}>
                     <div className={classes.root}>
-                        <Avatar style={avi} className={classes.orange}>{props.avatar}</Avatar>
+                        <Avatar style={avi} className={classes.orange}>C</Avatar>
 
-                        <Progress upgrade={'Clinic: reduce Deaths from COVID-19'}/>
+                        <Progress upgrade={'Clinic Lv.3'}/>
                     </div>
 
                 </Paper>
@@ -78,15 +72,14 @@ export default function NavBottom(props) {
             <Grid item xs={12}>
                 <Paper style={style} className={classes.paper}>
                     <div className={classes.root}>
-                        <Avatar style={avi} className={classes.orange}>{props.avatar}</Avatar>
+                        <Avatar style={avi} className={classes.orange}>DT</Avatar>
 
-                        <Progress upgrade={'Drive-thru testing: reduce Spread'}/>
+                        <Progress upgrade={'Drive-Thru Testing Lv.2'}/>
                     </div>
 
                 </Paper>
             </Grid>
+            </Fragment>
 
-            <UpgradeTab />
-        </Fragment>
-    );
+    )
 }
