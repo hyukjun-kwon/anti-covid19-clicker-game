@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Progress from '../Progress/Progress';
+import Progress from './Progress';
 import { deepOrange, deepPurple } from '@material-ui/core/colors';
 
 const avatarStyles = makeStyles((theme) => ({
