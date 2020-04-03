@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function LogInOut() {
+function Landing() {
     const classes = useStyles();
     return (
         <div>
@@ -63,4 +63,4 @@ function LogInOut() {
     );
 }
 
-export default LogInOut;
+export default Landing;
