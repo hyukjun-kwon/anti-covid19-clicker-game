@@ -9,6 +9,7 @@ import PandemicContext from './contexts/PandemicContext';
 import Landing from '../src/components/Landing/Landing';
 import Register from '../src/components/Register/Form';
 
+
 function appReducer(state, action) {
   console.log(action);
   let updatedState = { ...state };
