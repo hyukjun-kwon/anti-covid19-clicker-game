@@ -11,11 +11,11 @@ const useStyles = makeStyles((theme) => ({
     Box: {
         padding: theme.spacing(1),
         textAlign: 'left',
-        width: '100%',
+        width: 'auto',
         padding: '3px',
         marginTop: '15px',
         border: '1px solid',
-        font: 'white'
+        font: 'white',
     },
 }));
 
@@ -30,7 +30,7 @@ function Main({ setPandemic }) {
                     <Box className={classes.Box} style={{ backgroundColor: 'orange' }}>Infected: {pandemic.infected}</Box>
                 </Grid>
                 <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ backgroundColor: 'red' }}>Dead: {pandemic.dead}</Box>
+                    <Box className={classes.Box} style={{ backgroundColor: 'red' }}>Deceased: {pandemic.dead}</Box>
                 </Grid>
                 <Grid item xs={3}>
                     <Box className={classes.Box} style={{ backgroundColor: 'yellow' }}>Cured: {pandemic.cured}</Box>

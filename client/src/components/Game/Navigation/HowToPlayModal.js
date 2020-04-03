@@ -52,7 +52,13 @@ function HowToPlayModal() {
         <Fade in={open}>
           <div className={classes.paper}>
             <h2 id="transition-modal-title">How To Play</h2>
-            <p id="transition-modal-description">Here is how to play the game <hr/> Just click the button. </p>
+            <p id="transition-modal-description">Here is how to play the game<hr />
+              <ul>
+                <li>Click on Virus to create Vaccines</li>
+                <li>Accumulate vaccines to cure the sick</li>
+                <li>With every cured patient, you earn money</li>
+                <li>Use the money you earn to buy upgrades to help manage the pandemic</li>
+              </ul></p>
           </div>
         </Fade>
       </Modal>
