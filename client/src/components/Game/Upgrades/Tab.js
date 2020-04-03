@@ -59,8 +59,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
 export default function UpgradeTab() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
