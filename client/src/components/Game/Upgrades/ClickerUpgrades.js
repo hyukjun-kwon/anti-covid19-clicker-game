@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Progress from '../Progress/Progress';
 import { deepOrange, deepPurple } from '@material-ui/core/colors';
 
 const avatarStyles = makeStyles((theme) => ({
@@ -31,7 +30,7 @@ const avi = {
     margin: '13px'
 }
 
-export default function FacilityUpgrades() {
+export default function ClickerUpgrades() {
     const classes = avatarStyles();
 
 return (   
@@ -39,31 +38,8 @@ return (
     <Grid item xs={12}>
                 <Paper style={style} className={classes.paper}>
                     <div className={classes.root}>
-                        <Avatar style={avi} className={classes.orange}>H</Avatar>
-
-                        <Progress upgrade={'Hospital Lv.5'}/>
-                    </div>
-
-                </Paper>
-            </Grid>
-
-            <Grid item xs={12}>
-                <Paper style={style} className={classes.paper}>
-                    <div className={classes.root}>
-                        <Avatar style={avi} className={classes.orange}>L</Avatar>
-
-                        <Progress upgrade={'Lab Lv.1'}/>
-                    </div>
-
-                </Paper>
-            </Grid>
-
-            <Grid item xs={12}>
-                <Paper style={style} className={classes.paper}>
-                    <div className={classes.root}>
                         <Avatar style={avi} className={classes.orange}>C</Avatar>
-
-                        <Progress upgrade={'Clinic Lv.3'}/>
+                        <p>Clicker Lv.23</p>
                     </div>
 
                 </Paper>
@@ -72,13 +48,27 @@ return (
             <Grid item xs={12}>
                 <Paper style={style} className={classes.paper}>
                     <div className={classes.root}>
-                        <Avatar style={avi} className={classes.orange}>DT</Avatar>
+                        <Avatar style={avi} className={classes.orange}>Q</Avatar>
 
-                        <Progress upgrade={'Drive-Thru Testing Lv.2'}/>
+                        <p>Vaccine Quantity Lv.17</p>
+                        <button>Upgrade: $112k</button>
                     </div>
 
                 </Paper>
             </Grid>
+
+            <Grid item xs={12}>
+                <Paper style={style} className={classes.paper}>
+                    <div className={classes.root}>
+                        <Avatar style={avi} className={classes.orange}>PR</Avatar>
+
+                        <p>Production Rate Lv.6</p>
+                        <button>Upgrade: $70k</button>
+                    </div>
+
+                </Paper>
+            </Grid>
+
             </Fragment>
 
     )
