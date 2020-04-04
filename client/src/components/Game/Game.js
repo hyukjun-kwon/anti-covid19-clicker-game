@@ -6,7 +6,6 @@ import Main from './Main/Main';
 
 function Game({ setPandemic }) {
 
-
     return (
         <Fragment>
             <NavBar />
@@ -15,11 +14,9 @@ function Game({ setPandemic }) {
                     <Main setPandemic={setPandemic} />
                 </Container>
                 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-                <Container>
-                    <Upgrades />
-                </Container>
+                <br /><br /><br /><br />
             </Container>
+            <Upgrades />
         </Fragment>
 
 
