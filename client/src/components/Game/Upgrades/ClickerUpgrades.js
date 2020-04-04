@@ -26,47 +26,52 @@ const style = {
     height: '70px'
 }
 
+const styles = {
+    height: '150px',
+    overflowY: 'auto',
+}
 
 export default function ClickerUpgrades() {
     const classes = avatarStyles();
 
-return (   
-    <Fragment> 
-    <Grid item xs={12}>
-                <Paper style={style} className={classes.paper}>
-                    <div className={classes.root}>
-                        <button><Avatar className={classes.orange}>C</Avatar></button>
-                        <p>Clicker Lv.23</p>
-                    </div>
+    return (
+        <Fragment>
+            <Paper style={styles}>
+                <Grid item xs={12}>
+                    <Paper style={style} className={classes.paper}>
+                        <div className={classes.root}>
+                            <button><Avatar className={classes.orange}>C</Avatar></button>
+                            <p>Clicker Lv.23</p>
+                        </div>
 
-                </Paper>
-            </Grid>
+                    </Paper>
+                </Grid>
 
-            <Grid item xs={12}>
-                <Paper style={style} className={classes.paper}>
-                    <div className={classes.root}>
-                        <button><Avatar className={classes.orange}>Q</Avatar></button>
+                <Grid item xs={12}>
+                    <Paper style={style} className={classes.paper}>
+                        <div className={classes.root}>
+                            <button><Avatar className={classes.orange}>Q</Avatar></button>
 
-                        <p>Vaccine Quantity Lv.17</p>
-                        <button>Upgrade: $112k</button>
-                    </div>
+                            <p>Vaccine Quantity Lv.17</p>
+                            <button>Upgrade: $112k</button>
+                        </div>
 
-                </Paper>
-            </Grid>
+                    </Paper>
+                </Grid>
 
-            <Grid item xs={12}>
-                <Paper style={style} className={classes.paper}>
-                    <div className={classes.root}>
-                        <button><Avatar className={classes.orange}>PR</Avatar></button>
+                <Grid item xs={12}>
+                    <Paper style={style} className={classes.paper}>
+                        <div className={classes.root}>
+                            <button><Avatar className={classes.orange}>PR</Avatar></button>
 
-                        <p>Production Rate Lv.6</p>
-                        <button>Upgrade: $70k</button>
-                    </div>
+                            <p>Production Rate Lv.6</p>
+                            <button>Upgrade: $70k</button>
+                        </div>
 
-                </Paper>
-            </Grid>
-
-            </Fragment>
+                    </Paper>
+                </Grid>
+            </Paper>
+        </Fragment>
 
     )
 }

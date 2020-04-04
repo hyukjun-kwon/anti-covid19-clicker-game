@@ -27,55 +27,62 @@ const style = {
     height: '70px'
 }
 
+const styles = {
+    height: '150px',
+    overflowY: 'auto',
+}
+
 export default function FacilityUpgrades() {
     const classes = avatarStyles();
 
-return (   
-    <Fragment> 
-    <Grid item xs={12}>
-                <Paper style={style} className={classes.paper}>
-                    <div className={classes.root}>
-                        <button><Avatar className={classes.orange}>H</Avatar></button>
+    return (
+        <Fragment>
+            <Paper style={styles}>
+                <Grid item xs={12}>
+                    <Paper style={style} className={classes.paper}>
+                        <div className={classes.root}>
+                            <button><Avatar className={classes.orange}>H</Avatar></button>
 
-                        <Progress upgrade={'Hospital Lv.5'}/>
-                    </div>
+                            <Progress upgrade={'Hospital Lv.5'} />
+                        </div>
 
-                </Paper>
-            </Grid>
+                    </Paper>
+                </Grid>
 
-            <Grid item xs={12}>
-                <Paper style={style} className={classes.paper}>
-                    <div className={classes.root}>
-                        <button><Avatar className={classes.orange}>L</Avatar></button>
+                <Grid item xs={12}>
+                    <Paper style={style} className={classes.paper}>
+                        <div className={classes.root}>
+                            <button><Avatar className={classes.orange}>L</Avatar></button>
 
-                        <Progress upgrade={'Lab Lv.1'}/>
-                    </div>
+                            <Progress upgrade={'Lab Lv.1'} />
+                        </div>
 
-                </Paper>
-            </Grid>
+                    </Paper>
+                </Grid>
 
-            <Grid item xs={12}>
-                <Paper style={style} className={classes.paper}>
-                    <div className={classes.root}>
-                        <button><Avatar className={classes.orange}>C</Avatar></button>
+                <Grid item xs={12}>
+                    <Paper style={style} className={classes.paper}>
+                        <div className={classes.root}>
+                            <button><Avatar className={classes.orange}>C</Avatar></button>
 
-                        <Progress upgrade={'Clinic Lv.3'}/>
-                    </div>
+                            <Progress upgrade={'Clinic Lv.3'} />
+                        </div>
 
-                </Paper>
-            </Grid>
+                    </Paper>
+                </Grid>
 
-            <Grid item xs={12}>
-                <Paper style={style} className={classes.paper}>
-                    <div className={classes.root}>
-                        <button><Avatar className={classes.orange}>DT</Avatar></button>
+                <Grid item xs={12}>
+                    <Paper style={style} className={classes.paper}>
+                        <div className={classes.root}>
+                            <button><Avatar className={classes.orange}>DT</Avatar></button>
 
-                        <Progress upgrade={'Drive-Thru Testing Lv.2'}/>
-                    </div>
+                            <Progress upgrade={'Drive-Thru Testing Lv.2'} />
+                        </div>
 
-                </Paper>
-            </Grid>
-            </Fragment>
+                    </Paper>
+                </Grid>
+            </Paper>
+        </Fragment>
 
     )
 }
