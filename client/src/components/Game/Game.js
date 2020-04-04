@@ -15,10 +15,8 @@ function Game() {
                 <Container>
                     <Main />
                 </Container>
-                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-                <Container>
-                    <Upgrades />
-                </Container>
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             </Container>
             <Upgrades />
         </Fragment>
