@@ -23,33 +23,73 @@ const reducer = (state, action) => {
   case "SET_EASY_DIFFICULTY":
     return INITIAL_STATE
   case "SET_MEDIUM_DIFFICULTY":
-    return MEDIUM_DIFFICULTY;
+    return {
+      ...state,
+      status: MEDIUM_DIFFICULTY
+    };
   case "SET_HARD_DIFFICULTY":
-    return HARD_DIFFICULTY;
+    return {
+      ...state,
+      status: HARD_DIFFICULTY
+    };
 
   // When called, increase the status.infected by rates.spreadRate
   case "TICK":
     tickCount++;
-    // Pharmacy will "action" every 5 ticks
-    if(!(tickCount%5)) {
+    if(state.isComplete) {
       return {
-        ...state,
-        status: {
-          infected: parseInt(state.status.infected * state.rates.spreadRate) - state.pharmacy.effect,
-          death: state.status.death,        
-          fund: state.status.fund + (state.pharmacy.effect * state.pharmacy.profit)
-        }
+        ...state
       }
     }
-    else {
-      return {
-        ...state,
-        status: {
-          infected: parseInt(state.status.infected * state.rates.spreadRate),
-          death: state.status.death,        
-          fund: state.status.fund
+    // Every 15 ticks
+    // Effects from SPREAD + DEATH + PHARMACY
+    else if(!(tickCount%15)) {
+        return {
+          ...state,
+          status: {
+            infected: parseInt(state.status.infected * state.rates.spreadRate) - state.pharmacy.effect,
+            death: state.status.death + parseInt(state.status.infected * state.rates.deathRate),
+            fund: state.status.fund + (state.pharmacy.effect * state.pharmacy.profit) 
+          }
         }
-      }
+    }
+    // Every 10 ticks
+    // Effects from SPREAD + LABORATORY + PHARMACY
+    else if(!(tickCount%10)) {
+
+        return {
+          ...state,
+          status: {
+            infected: parseInt(state.status.infected * state.rates.spreadRate) - state.pharmacy.effect - state.laboratory.effect,
+            death: state.status.death,        
+            fund: state.status.fund + (state.pharmacy.effect * state.pharmacy.profit) + (state.laboratory.effect * state.laboratory.profit)
+          }
+        }
+
+    }
+    // Every 5 ticks
+    // Effects from SPREAD + PHARMACY
+    else if(!(tickCount%5)) {
+        return {
+          ...state,
+          status: {
+            infected: parseInt(state.status.infected * state.rates.spreadRate) - state.pharmacy.effect,
+            death: state.status.death,        
+            fund: state.status.fund + (state.pharmacy.effect * state.pharmacy.profit)
+          }
+        }
+    }
+    // Every tick
+    // Effect from SPREAD
+    else {
+        return {
+          ...state,
+          status: {
+            infected: parseInt(state.status.infected * state.rates.spreadRate),
+            death: state.status.death,        
+            fund: state.status.fund
+          }
+        }
     };
 
   // Each "click" reduces status.infected by clicker.effect
@@ -106,6 +146,20 @@ const reducer = (state, action) => {
       }
     };
 
+  // Winning Condition Met
+  case "WIN":
+    return {
+      ...state,
+      isComplete: true,
+      won: true
+    }
+  // Losing Condition Met
+  case "LOST":
+    return {
+      ...state,
+      isComplete: true
+    }
+    
   default:
     throw new Error(`Invalid action type: ${action.type}`);
   }
