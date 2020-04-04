@@ -7,6 +7,7 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { makeStyles } from '@material-ui/core/styles';
 
 import NavBar from '../Game/Navigation/NavBar';
+
 import { usePandemicContext } from '../../contexts/PandemicContext';
 
 const useStyles = makeStyles((theme) => ({

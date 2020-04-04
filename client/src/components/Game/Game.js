@@ -1,19 +1,20 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
+
 import Container from '@material-ui/core/Container';
+
 import Upgrades from './Upgrades/Upgrades';
 import NavBar from './Navigation/NavBar';
 import Main from './Main/Main';
 
-function Game({ setPandemic }) {
+function Game() {
 
     return (
         <Fragment>
             <NavBar />
             <Container>
                 <Container>
-                    <Main setPandemic={setPandemic} />
+                    <Main />
                 </Container>
-
                 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
                 <Container>
                     <Upgrades />

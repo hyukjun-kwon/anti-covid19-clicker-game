@@ -1,8 +1,11 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useEffect } from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
-import { Box, Grid, Paper, Typography } from '@material-ui/core';
+import { Box, Grid } from '@material-ui/core';
+
 import Clicker from './Clicker';
-import PandemicContext from '../../../contexts/PandemicContext';
+
+import { usePandemicContext } from '../../../contexts/PandemicContext';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,27 +20,36 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Main({ setPandemic }) {
-    const pandemic = useContext(PandemicContext);
+function Main() {
+    const [state, dispatch] = usePandemicContext();
     const classes = useStyles();
+
+    if(state.status.infected === 0) {
+        dispatch({ type: "WIN" });
+      }
+    
+      useEffect(() => {
+        const timer = setInterval(() => dispatch({ type: "TICK" }), 3000);
+        return () => clearTimeout(timer); 
+      });
 
     return (
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ color: 'orange' }}>Infected: {Math.ceil(pandemic.infected)}</Box>
+                    <Box className={classes.Box} style={{ color: 'orange' }}>Infected: {Math.ceil(state.status.infected)}</Box>
                 </Grid>
                 <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ color: 'red' }}>Deceased: {Math.ceil(pandemic.dead)}</Box>
+                    <Box className={classes.Box} style={{ color: 'red' }}>Deceased: {Math.ceil(state.status.death)}</Box>
                 </Grid>
                 <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ color: 'yellow' }}>Cured: {pandemic.cured}</Box>
+                    <Box className={classes.Box} style={{ color: 'yellow' }}>Cured: {}</Box>
                 </Grid>
                 <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ color: 'green' }}>Funding: {pandemic.funding}</Box>
+                    <Box className={classes.Box} style={{ color: 'green' }}>Funding: {state.status.fund}</Box>
                 </Grid>
             </Grid>
-            <Clicker setPandemic={setPandemic} />
+            <Clicker />
         </div>
     )
 }

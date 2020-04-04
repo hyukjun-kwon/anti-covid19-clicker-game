@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
+
 import Button from '@material-ui/core/Button';
-import ClickBtn from '../../../Images/clicker.png';
-import PandemicContext from '../../../contexts/PandemicContext';
 import { makeStyles } from '@material-ui/core/styles';
+
+import ClickBtn from '../../../Images/clicker.png';
+
+import { usePandemicContext } from '../../../contexts/PandemicContext';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,18 +33,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Clicker({ setPandemic }) {
+    const [state, dispatch] = usePandemicContext();
     const classes = useStyles();
-    const pandemic = useContext(PandemicContext);
-    const handleClick = event => {
-        event.preventDefault();
-        setPandemic({
-            ...pandemic,
-            cured: pandemic.cured + 5,
-            infected: pandemic.infected - 5,
-        })
-    }
+
     return (
-        <Button className={classes.ClickerBtn} onClick={handleClick}>
+        <Button className={classes.ClickerBtn} onClick={() => dispatch({ type: "CLICKER_LEVEL_UP" })}>
             <img className={classes.Clicker} src={ClickBtn} alt='clickerbtn'></img>
         </Button>
     )
