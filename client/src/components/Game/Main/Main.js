@@ -9,13 +9,11 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     Box: {
-        padding: theme.spacing(1),
+        padding: theme.spacing(2),
         textAlign: 'left',
         width: 'auto',
         padding: '3px',
         marginTop: '15px',
-        border: '1px solid',
-        font: 'white',
     },
 }));
 
@@ -27,16 +25,16 @@ function Main({ setPandemic }) {
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ backgroundColor: 'orange' }}>Infected: {pandemic.infected}</Box>
+                    <Box className={classes.Box} style={{ color: 'orange' }}>Infected: {Math.ceil(pandemic.infected)}</Box>
                 </Grid>
                 <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ backgroundColor: 'red' }}>Deceased: {pandemic.dead}</Box>
+                    <Box className={classes.Box} style={{ color: 'red' }}>Deceased: {Math.ceil(pandemic.dead)}</Box>
                 </Grid>
                 <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ backgroundColor: 'yellow' }}>Cured: {pandemic.cured}</Box>
+                    <Box className={classes.Box} style={{ color: 'yellow' }}>Cured: {pandemic.cured}</Box>
                 </Grid>
                 <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ backgroundColor: 'green' }}>Funding: {pandemic.funding}</Box>
+                    <Box className={classes.Box} style={{ color: 'green' }}>Funding: {pandemic.funding}</Box>
                 </Grid>
             </Grid>
             <Clicker setPandemic={setPandemic} />
