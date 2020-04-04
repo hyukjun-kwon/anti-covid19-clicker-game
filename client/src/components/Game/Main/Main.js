@@ -30,6 +30,7 @@ function Main() {
     
       useEffect(() => {
         const timer = setInterval(() => dispatch({ type: "TICK" }), 3000);
+        console.log(state.status.infected)
         return () => clearTimeout(timer); 
       });
 

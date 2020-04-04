@@ -37,7 +37,7 @@ function Clicker({ setPandemic }) {
     const classes = useStyles();
 
     return (
-        <Button className={classes.ClickerBtn} onClick={() => dispatch({ type: "CLICKER_LEVEL_UP" })}>
+        <Button className={classes.ClickerBtn} onClick={() => dispatch({ type: "CLICK" })}>
             <img className={classes.Clicker} src={ClickBtn} alt='clickerbtn'></img>
         </Button>
     )
