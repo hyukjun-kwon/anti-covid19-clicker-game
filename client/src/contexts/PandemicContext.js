@@ -25,11 +25,13 @@ const reducer = (state, action) => {
   case "SET_MEDIUM_DIFFICULTY":
     return {
       ...state,
+      difficulty: "medium",
       status: MEDIUM_DIFFICULTY
     };
   case "SET_HARD_DIFFICULTY":
     return {
       ...state,
+      difficulty: "hard",
       status: HARD_DIFFICULTY
     };
 
