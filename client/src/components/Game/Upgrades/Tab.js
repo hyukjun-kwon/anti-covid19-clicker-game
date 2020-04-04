@@ -9,6 +9,9 @@ import Box from '@material-ui/core/Box';
 import FacilityUpgrades from './FacilityUpgrades';
 import ClickerUpgrades from './ClickerUpgrades';
 import SpecialsUpgrades from './SpecialsUpgrades';
+const styles = {
+  height: '200px'
+}
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -83,13 +86,13 @@ export default function UpgradeTab() {
           <LinkTab label="Specials" href="/spam" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}>
+      <TabPanel style={styles} value={value} index={0}>
         <ClickerUpgrades />
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel style={styles} value={value} index={1}>
         <FacilityUpgrades />
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      <TabPanel style={styles} value={value} index={2}>
         <SpecialsUpgrades />
       </TabPanel>
     </div>

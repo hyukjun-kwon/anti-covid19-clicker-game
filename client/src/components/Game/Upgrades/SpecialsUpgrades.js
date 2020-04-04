@@ -26,34 +26,40 @@ const style = {
     height: '70px'
 }
 
+const styles = {
+    height: '150px',
+    overflowY: 'auto',
+}
+
 export default function SpecialsUpgrades() {
     const classes = avatarStyles();
 
-return (   
-    <Fragment> 
-    <Grid item xs={12}>
-                <Paper style={style} className={classes.paper}>
-                    <div className={classes.root}>
-                        <button><Avatar className={classes.orange}>DP</Avatar></button>
-                        <p>Double Production Lv.10</p>
-                    </div>
+    return (
+        <Fragment>
+            <Paper style={styles}>
+                <Grid item xs={12}>
+                    <Paper style={style} className={classes.paper}>
+                        <div className={classes.root}>
+                            <button><Avatar className={classes.orange}>DP</Avatar></button>
+                            <p>Double Production Lv.10</p>
+                        </div>
 
-                </Paper>
-            </Grid>
+                    </Paper>
+                </Grid>
 
-            <Grid item xs={12}>
-                <Paper style={style} className={classes.paper}>
-                    <div className={classes.root}>
-                        <button><Avatar className={classes.orange}>Q</Avatar></button>
+                <Grid item xs={12}>
+                    <Paper style={style} className={classes.paper}>
+                        <div className={classes.root}>
+                            <button><Avatar className={classes.orange}>Q</Avatar></button>
 
-                        <p>Double Margin Lv.1</p>
-                        
-                    </div>
+                            <p>Double Margin Lv.1</p>
 
-                </Paper>
-            </Grid>
+                        </div>
 
-            </Fragment>
+                    </Paper>
+                </Grid>
+            </Paper>
+        </Fragment>
 
     )
 }
