@@ -12,7 +12,6 @@ import Register from '../src/components/Register/Form';
 
 import { PandemicProvider } from "./contexts/PandemicContext";
 
-
 function App() {
 
   return (
