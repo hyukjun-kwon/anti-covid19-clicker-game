@@ -13,13 +13,14 @@ function Game({ setPandemic }) {
                 <Container>
                     <Main setPandemic={setPandemic} />
                 </Container>
-                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-                <br /><br /><br /><br />
+
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <Container>
+                    <Upgrades />
+                </Container>
             </Container>
             <Upgrades />
         </Fragment>
-
-
     )
 }
 export default Game;
