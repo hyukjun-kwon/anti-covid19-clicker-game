@@ -7,7 +7,7 @@ import LogIn from './components/LogIn/LogIn';
 import Home from './components/Home/Home';
 import HowToPlay from './components/HowToPlay/HowToPlay';
 import Game from './components/Game/Game';
-import Landing from '../src/components/Landing/Landing';
+import Landing from './components/Landing/Landing';
 
 import { PandemicProvider } from "./contexts/PandemicContext";
 
