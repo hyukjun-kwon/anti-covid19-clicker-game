@@ -1,9 +1,12 @@
 import React, { Fragment } from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { deepOrange, deepPurple } from '@material-ui/core/colors';
+
+import { usePandemicContext } from '../../../contexts/PandemicContext';
 
 const avatarStyles = makeStyles((theme) => ({
     root: {
@@ -33,6 +36,7 @@ const styles = {
 
 export default function SpecialsUpgrades() {
     const classes = avatarStyles();
+    const [state, dispatch] = usePandemicContext();
 
     return (
         <Fragment>

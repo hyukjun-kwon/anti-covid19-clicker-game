@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function Clicker({ setPandemic }) {
+function Clicker() {
     const [state, dispatch] = usePandemicContext();
     const classes = useStyles();
 

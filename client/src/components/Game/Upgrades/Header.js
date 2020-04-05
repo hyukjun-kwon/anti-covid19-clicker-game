@@ -1,9 +1,11 @@
 import React from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
+import { usePandemicContext } from '../../../contexts/PandemicContext';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header(props) {
+export default function Header() {
+  const [state, dispatch] = usePandemicContext();
   const classes = useStyles();
 
   return (
@@ -24,7 +27,7 @@ export default function Header(props) {
           <Typography variant="h6" className={classes.title}>
             Upgrades
           </Typography>
-          <p color="inherit">${props.amount}</p>
+          <p color="inherit">${state.status.fund}</p>
         </Toolbar>
       </AppBar>
     </div>

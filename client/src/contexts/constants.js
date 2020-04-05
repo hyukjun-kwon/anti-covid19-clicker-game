@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
     isComplete: false,
+    won: false,
     difficulty: "easy",
     status: {
       infected: 5000,
