@@ -44,8 +44,8 @@ function LogIn() {
     const handleLogin = event => {
         event.preventDefault();
         API.login({
-            username: usernameRef,
-            easyscore: passwordRef,
+            username: usernameRef.current.value,
+            easyscore: passwordRef.current.value,
         }).catch(err => console.log(err))
     }
 
@@ -53,8 +53,8 @@ function LogIn() {
         event.preventDefault();
         API.register({
 
-            username: usernameRef,
-            easyscore: passwordRef,
+            username: usernameRef.current.value,
+            easyscore: passwordRef.current.value,
 
         }).catch(err => console.log(err))
     }
