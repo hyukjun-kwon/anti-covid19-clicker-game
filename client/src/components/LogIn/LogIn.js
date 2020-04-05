@@ -30,31 +30,22 @@ function LogIn() {
     const usernameRef = useRef();
     const passwordRef = useRef();
 
-    const handleLogin= event => {
+    const handleLogin = event => {
         event.preventDefault();
         API.login({
-            token,
-            player: {
-                // id,
-                username: usernameRef,
-                easyscore: passwordRef,
-                // mediumscore,
-                // hardscore,
-            }
-        })
-        .catch(err => console.log(err))
+            username: usernameRef,
+            easyscore: passwordRef,
+        }).catch(err => console.log(err))
     }
 
-    const handleRegister= event => {
+    const handleRegister = event => {
         event.preventDefault();
         API.register({
-            token,
-            player: {
-                username: usernameRef,
-                easyscore: passwordRef,
-            }
-        })
-        .catch(err => console.log(err))
+
+            username: usernameRef,
+            easyscore: passwordRef,
+
+        }).catch(err => console.log(err))
     }
 
     return (
