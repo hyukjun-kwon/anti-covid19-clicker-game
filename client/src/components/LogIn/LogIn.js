@@ -8,10 +8,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import API from '../../utils/API';
+import { PromiseProvider } from 'mongoose';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        marginTop: theme.spacing(25),
+        marginTop: theme.spacing(4),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -23,13 +24,17 @@ const useStyles = makeStyles((theme) => ({
     submit: {
         margin: theme.spacing(3, 0, -2),
     },
+    creator: {
+        marginTop: theme.spacing(25),
+    },
 }));
 
 function LogIn() {
     const classes = useStyles();
     const usernameRef = useRef();
     const passwordRef = useRef();
-
+    const teamName = "{ props.teamname }"
+    const projectTitle = "UCLA BOOTCAMP JAN 2020"
     const handleLogin = event => {
         event.preventDefault();
         API.login({
@@ -50,6 +55,9 @@ function LogIn() {
 
     return (
         <Container component="main" maxWidth="xs">
+            <h1 align="center">Welcome</h1>
+            <h2 align="center">to</h2>
+            <h1 align="center">ANTI-COVID19</h1>
             <CssBaseline />
             <div className={classes.paper}>
                 <form className={classes.form} noValidate>
@@ -106,6 +114,8 @@ function LogIn() {
                     </Grid>
                 </form>
             </div>
+            <h1 className={classes.creator} align="center">{teamName}</h1>
+            <h1 align="center">{projectTitle}</h1>
         </Container>
     );
 }
