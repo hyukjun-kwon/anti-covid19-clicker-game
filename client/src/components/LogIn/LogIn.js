@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
+import API from '../../utils/API';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -26,27 +27,45 @@ const useStyles = makeStyles((theme) => ({
 
 function LogIn() {
     const classes = useStyles();
+    const usernameRef = useRef();
+    const passwordRef = useRef();
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        API.login({
+            token,
+            player: {
+                id,
+                username,
+                easyscore,
+                mediumscore,
+            }
+        })
+        .catch(err => console.log(err))
+    }
 
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes.paper}>
-                <form className={classes.form} noValidate>
+                <form className={classes.form} noValidate onSubmit={handleSubmit}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <TextField
+                                required ref={usernameRef}
                                 variant="outlined"
                                 required
                                 fullWidth
-                                id="email"
-                                label="Email Address"
-                                name="email"
-                                autoComplete="email"
+                                id="username"
+                                label="Username"
+                                name="username"
+                                autoComplete="username"
                                 style={{ backgroundColor: 'white' }}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
+                                required ref={passwordRef}
                                 variant="outlined"
                                 required
                                 fullWidth
@@ -59,20 +78,26 @@ function LogIn() {
                             />
                         </Grid>
                     </Grid>
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
-                    >Log In</Button>
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
-                    >Register</Button>
+                    <Grid container spacing={2}>
+                        <Grid item xs={6}>
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                className={classes.submit}
+                            >Log In</Button>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                className={classes.submit}
+                            >Register</Button>
+                        </Grid>
+                    </Grid>
                 </form>
             </div>
         </Container>
