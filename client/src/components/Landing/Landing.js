@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -41,15 +44,17 @@ function Landing() {
                 <h1 className={classes.Title}>Save the World, Be A Hero</h1>
             </Box>
             <Box className={classes.Box} style={{ top: '80%', left: '49.5%' }}>
-                <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    className={classes.Buttons}>
-                    Log In
+                <Link to="/">
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.Buttons}>
+                        Log In
                 </Button>
-                <br />
+                </Link>
+                {/* <br />
                 <Button
                     type="submit"
                     fullWidth
@@ -57,7 +62,7 @@ function Landing() {
                     color="primary"
                     className={classes.Buttons}>
                     Register
-                </Button>
+                </Button> */}
             </Box>
         </div>
     );
