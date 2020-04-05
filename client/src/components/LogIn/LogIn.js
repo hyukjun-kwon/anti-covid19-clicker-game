@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
@@ -19,11 +20,11 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(7),
     },
     submit: {
-        margin: theme.spacing(3, 0, 2),
+        margin: theme.spacing(3, 0, -2),
     },
 }));
 
-export default function Register() {
+function LogIn() {
     const classes = useStyles();
 
     return (
@@ -64,9 +65,18 @@ export default function Register() {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+                    >Log In</Button>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.submit}
                     >Register</Button>
                 </form>
             </div>
         </Container>
     );
 }
+
+export default LogIn;

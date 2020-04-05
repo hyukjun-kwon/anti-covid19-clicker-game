@@ -27,7 +27,7 @@ function Main() {
     if (state.status.infected === 0) {
         dispatch({ type: "WIN" });
     }
-    
+
     if(state.status.infected >= 1000000000) {
         dispatch({ type: "LOST" });
       };
@@ -41,17 +41,17 @@ function Main() {
     return (
         <div className={classes.root}>
             <Grid container spacing={3}>
-                <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ color: 'orange' }}>Infected: {Math.ceil(state.status.infected)}</Box>
+                <Grid item xs={4}>
+                    <Box className={classes.Box}>Infected: <span  style={{ color: 'orange' }}>{Math.ceil(state.status.infected)}</span></Box>
                 </Grid>
-                <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ color: 'red' }}>Deceased: {Math.ceil(state.status.death)}</Box>
+                <Grid item xs={4}>
+                    <Box className={classes.Box} >Deceased: <span style={{ color: 'red' }}>{Math.ceil(state.status.death)}</span></Box>
                 </Grid>
-                <Grid item xs={3}>
+                {/* <Grid item xs={3}>
                     <Box className={classes.Box} style={{ color: 'yellow' }}>Cured: {}</Box>
-                </Grid>
-                <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ color: 'green' }}>Funding: {state.status.fund}</Box>
+                </Grid> */}
+                <Grid item xs={4}>
+                    <Box className={classes.Box} >Funding: <span style={{ color: 'green' }}>{state.status.fund}</span></Box>
                 </Grid>
             </Grid>
             <Clicker />
