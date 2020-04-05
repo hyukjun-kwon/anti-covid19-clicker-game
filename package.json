@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "anti-covid19-clicker-server",
   "version": "1.0.0",
-  "description": "Mern Demo",
+  "description": "Anti-COVID19 Clicker Game Server",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -20,7 +20,6 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
-    "bcrypt": "^4.0.1",
     "bcryptjs": "^2.4.3",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
@@ -29,8 +28,6 @@
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.7",
-    "node-sass": "^4.13.1",
-    "passport": "^0.4.1",
-    "passport-jwt": "^4.0.0"
+    "node-sass": "^4.13.1"
   }
 }

@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "anti-covid19-clicker-client",
   "version": "0.1.0",
-  "description": "Mern Demo",
+  "description": "Anti-COVID19 Clicker Game Client",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
