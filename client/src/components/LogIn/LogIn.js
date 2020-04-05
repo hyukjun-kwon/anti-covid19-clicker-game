@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -8,7 +8,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import API from '../../utils/API';
-import { PromiseProvider } from 'mongoose';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -34,13 +33,18 @@ const useStyles = makeStyles((theme) => ({
 
 function LogIn() {
     const classes = useStyles();
-    const usernameRef = useRef();
-    const passwordRef = useRef();
+    // const usernameRef = useRef();
+    // const passwordRef = useRef();
 
     const teamName = "{ props.teamname }"
     const projectTitle = "UCLA BOOTCAMP JAN 2020"
     const teamMembers = "Adam Greenthal, James Dabalos, "
     const teamMembers2 = "Paul Kwon, Raymond Amparo"
+
+    const [username, setUsername] = useState()
+    const [password, setPassword] = useState()
+    console.log(username);
+    console.log(password);
 
     let authPlayer = {};
     const authenticated = ({ token, player }) => {
@@ -59,8 +63,10 @@ function LogIn() {
     const handleLogin = event => {
         event.preventDefault();
         API.login({
-            username: usernameRef.current.value,
-            easyscore: passwordRef.current.value,
+            // username: usernameRef.current.value,
+            // password: passwordRef.current.value,
+            username: username,
+            password: password
         })
             .then(authenticated)
             .catch(err => console.log(err))
@@ -69,8 +75,10 @@ function LogIn() {
     const handleRegister = event => {
         event.preventDefault();
         API.register({
-            username: usernameRef.current.value,
-            easyscore: passwordRef.current.value,
+            // username: usernameRef.current.value,
+            // password: passwordRef.current.value,
+            username: username,
+            password: password
         })
             .then(authenticated)
             .catch(err => console.log(err))
@@ -87,7 +95,8 @@ function LogIn() {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <TextField
-                                required ref={usernameRef}
+                                // ref={usernameRef}
+                                onChange={event => setUsername (event.target.value )}
                                 variant="outlined"
                                 required
                                 fullWidth
@@ -100,7 +109,8 @@ function LogIn() {
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                                required ref={passwordRef}
+                                // ref={passwordRef}
+                                onChange={event => setPassword ( event.target.value )}
                                 variant="outlined"
                                 required
                                 fullWidth
