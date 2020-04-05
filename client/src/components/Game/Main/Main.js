@@ -24,15 +24,19 @@ function Main() {
     const [state, dispatch] = usePandemicContext();
     const classes = useStyles();
 
-    if(state.status.infected === 0) {
+    if (state.status.infected === 0) {
         dispatch({ type: "WIN" });
-      }
+    }
     
-      useEffect(() => {
+    if(state.status.infected >= 1000000000) {
+        dispatch({ type: "LOST" });
+      };
+
+    useEffect(() => {
         const timer = setInterval(() => dispatch({ type: "TICK" }), 3000);
         console.log(state.status.infected)
-        return () => clearTimeout(timer); 
-      });
+        return () => clearTimeout(timer);
+    });
 
     return (
         <div className={classes.root}>

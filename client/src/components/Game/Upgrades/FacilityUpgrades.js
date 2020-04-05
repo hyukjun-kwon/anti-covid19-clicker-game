@@ -6,6 +6,8 @@ import Grid from '@material-ui/core/Grid';
 import Progress from './Progress';
 import { deepOrange, deepPurple } from '@material-ui/core/colors';
 
+import { usePandemicContext } from '../../../contexts/PandemicContext';
+
 const avatarStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -34,7 +36,8 @@ const styles = {
 
 export default function FacilityUpgrades() {
     const classes = avatarStyles();
-
+    const [state, dispatch] = usePandemicContext();
+    
     return (
         <Fragment>
             <Paper style={styles}>
