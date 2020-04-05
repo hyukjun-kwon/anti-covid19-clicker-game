@@ -41,22 +41,39 @@ function LogIn() {
     const projectTitle = "UCLA BOOTCAMP JAN 2020"
     const teamMembers = "Adam Greenthal, James Dabalos, "
     const teamMembers2 = "Paul Kwon, Raymond Amparo"
+
+    let authPlayer = {};
+    const authenticated = ({ token, player }) => {
+        authPlayer = {
+            token: token,
+            player: {
+                id: player.id,
+                username: player.username,
+                easyscore: player.easyscore,
+                mediumscore: player.mediumscore,
+                hardscore: player.hardscore
+            }
+        }
+    }
+
     const handleLogin = event => {
         event.preventDefault();
         API.login({
             username: usernameRef.current.value,
             easyscore: passwordRef.current.value,
-        }).catch(err => console.log(err))
+        })
+            .then(authenticated)
+            .catch(err => console.log(err))
     }
 
     const handleRegister = event => {
         event.preventDefault();
         API.register({
-
             username: usernameRef.current.value,
             easyscore: passwordRef.current.value,
-
-        }).catch(err => console.log(err))
+        })
+            .then(authenticated)
+            .catch(err => console.log(err))
     }
 
     return (
