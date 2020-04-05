@@ -27,14 +27,20 @@ const useStyles = makeStyles((theme) => ({
     creator: {
         marginTop: theme.spacing(25),
     },
+    spacing: {
+        marginTop: theme.spacing(-2)
+    }
 }));
 
 function LogIn() {
     const classes = useStyles();
     const usernameRef = useRef();
     const passwordRef = useRef();
+
     const teamName = "{ props.teamname }"
     const projectTitle = "UCLA BOOTCAMP JAN 2020"
+    const teamMembers = "Adam Greenthal, James Dabalos, "
+    const teamMembers2 = "Paul Kwon, Raymond Amparo"
     const handleLogin = event => {
         event.preventDefault();
         API.login({
@@ -57,7 +63,7 @@ function LogIn() {
         <Container component="main" maxWidth="xs">
             <h1 align="center">Welcome</h1>
             <h2 align="center">to</h2>
-            <h1 align="center">ANTI-COVID19</h1>
+            <h1 align="center">ANTI-COVID-19</h1>
             <CssBaseline />
             <div className={classes.paper}>
                 <form className={classes.form} noValidate>
@@ -115,7 +121,9 @@ function LogIn() {
                 </form>
             </div>
             <h1 className={classes.creator} align="center">{teamName}</h1>
-            <h1 align="center">{projectTitle}</h1>
+            <h2 className={classes.spacing} align="center">{teamMembers}</h2>
+            <h2 className={classes.spacing} align="center">{teamMembers2}</h2>
+            <h3 className={classes.spacing} align="center">{projectTitle}</h3>
         </Container>
     );
 }
