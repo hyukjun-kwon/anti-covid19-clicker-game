@@ -30,15 +30,28 @@ function LogIn() {
     const usernameRef = useRef();
     const passwordRef = useRef();
 
-    const handleSubmit = event => {
+    const handleLogin= event => {
         event.preventDefault();
         API.login({
             token,
             player: {
-                id,
-                username,
-                easyscore,
-                mediumscore,
+                // id,
+                username: usernameRef,
+                easyscore: passwordRef,
+                // mediumscore,
+                // hardscore,
+            }
+        })
+        .catch(err => console.log(err))
+    }
+
+    const handleRegister= event => {
+        event.preventDefault();
+        API.register({
+            token,
+            player: {
+                username: usernameRef,
+                easyscore: passwordRef,
             }
         })
         .catch(err => console.log(err))
@@ -48,7 +61,7 @@ function LogIn() {
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes.paper}>
-                <form className={classes.form} noValidate onSubmit={handleSubmit}>
+                <form className={classes.form} noValidate>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <TextField
@@ -81,6 +94,7 @@ function LogIn() {
                     <Grid container spacing={2}>
                         <Grid item xs={6}>
                             <Button
+                                onClick={handleLogin}
                                 type="submit"
                                 fullWidth
                                 variant="contained"
@@ -90,6 +104,7 @@ function LogIn() {
                         </Grid>
                         <Grid item xs={6}>
                             <Button
+                                onClick={handleRegister}
                                 type="submit"
                                 fullWidth
                                 variant="contained"
