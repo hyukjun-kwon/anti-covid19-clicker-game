@@ -29,7 +29,7 @@ function Main() {
         dispatch({ type: "WIN" });
     }
 
-    if (state.status.infected >= 6000) {
+    if (state.status.infected >= 6000) { 
         dispatch({ type: "LOST" });
     };
 

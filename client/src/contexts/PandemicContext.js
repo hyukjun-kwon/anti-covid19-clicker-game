@@ -10,7 +10,7 @@ import {
   LABORATORY_EFFECTS_ARRAY,
   LABORATORY_COSTS_ARRAY,
   HOSPITAL_COSTS_ARRAY,
-  DRIVE_THRU_COSTS_ARRAY
+  DRIVETHRU_COSTS_ARRAY
 } from "./constants";
 
 let tickCount = 0;
@@ -134,7 +134,7 @@ const reducer = (state, action) => {
 
     case "PHARMACY_LEVEL_UP":
       let newPharmacyEffect = PHARMACY_EFFECTS_ARRAY[state.pharmacy.level];
-      let newPharmacyCost = PHARMACY_EFFECTS_ARRAY[state.pharmacy.level];
+      let newPharmacyCost = PHARMACY_COSTS_ARRAY[state.pharmacy.level];
 
       return {
         ...state,
