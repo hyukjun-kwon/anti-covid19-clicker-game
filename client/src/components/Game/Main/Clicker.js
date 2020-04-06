@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
@@ -35,9 +35,14 @@ const useStyles = makeStyles((theme) => ({
 function Clicker() {
     const [state, dispatch] = usePandemicContext();
     const classes = useStyles();
+    const [isButtonDisabled,setIsButtonDisabled] = useState(false)
+    const clickHandler = event => {
+        setIsButtonDisabled(true);
+        setTimeout(() => setIsButtonDisabled(false), 3000);
+    }
 
     return (
-        <Button className={classes.ClickerBtn} onClick={() => dispatch({ type: "CLICK" })}>
+        <Button disabled={isButtonDisabled} className={classes.ClickerBtn} onClick={() => {dispatch({ type: "CLICK" }); clickHandler()}}>
             <img className={classes.Clicker} src={ClickBtn} alt='clickerbtn'></img>
         </Button>
     )

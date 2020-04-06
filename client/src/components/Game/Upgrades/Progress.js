@@ -49,7 +49,7 @@ export default function Progress(props) {
   return (
     <div style={style} className={classes.root}>
       <p>{props.upgrade}</p>
-      <p>{props.description}</p>
+      <p>Next Upgrade Cost: ${props.description}</p>
       <LinearProgress variant="buffer" value={completed} valueBuffer={buffer} color="secondary" />
     </div>
   );
