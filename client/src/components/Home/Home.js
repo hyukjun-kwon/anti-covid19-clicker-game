@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { makeStyles } from '@material-ui/core/styles';
+import HowToPlay from '../HowToPlay/HowToPlay';
 
 import NavBar from '../Game/Navigation/NavBar';
 
@@ -13,14 +14,6 @@ import { usePandemicContext } from '../../contexts/PandemicContext';
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-    },
-    HowTo: {
-        position: 'absolute',
-        left: '50%',
-        top: '42%',
-        transform: 'translate(-50%, -50%)',
-        marginBottom: '10%',
-        width: 'auto'
     },
     ChooseDifficulty: {
         textAlign: 'center'
@@ -40,14 +33,7 @@ function Home() {
     return (
         <Fragment>
             <NavBar />
-            <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.HowTo}>
-                HOW TO PLAY
-            </Button>
+            <HowToPlay />
             <Box className={classes.DifficultyBtns}>
                 <p className={classes.ChooseDifficulty}>Choose Your Difficulty</p>
                 <ButtonGroup
