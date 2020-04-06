@@ -12,7 +12,7 @@ const INITIAL_STATE = {
     // spreadRate is how fast infection grows per "tick"
     // deathRate is what fraction of infected people die per "tick"
     rates: {
-      spreadRate: 1.05,
+      spreadRate: 1.03,
       deathRate: 0.01
     },
     // effect is number of cures per click
@@ -106,7 +106,7 @@ const INITIAL_STATE = {
   ];
   
   const HOSPITAL_COSTS_ARRAY = [50000, 500000, 5000000]; // Levels 1~3  
-  const DRIVE_THRU_COSTS_ARRAY = [50000, 200000, 500000, 1500000, 5000000]; // Levels 1~5
+  const DRIVETHRU_COSTS_ARRAY = [50000, 200000, 500000, 1500000, 5000000]; // Levels 1~5
   
   module.exports = {
     INITIAL_STATE,
