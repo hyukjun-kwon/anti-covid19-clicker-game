@@ -11,25 +11,22 @@ const useStyles = makeStyles((theme) => ({
         flexWrap: 'wrap',
         '& > *': {
             margin: theme.spacing(1),
-            width: theme.spacing(40),
-            height: theme.spacing(25),
-            padding: theme.spacing(1)
+            width: theme.spacing(35),
+            height: theme.spacing(15),
+            paddingTop: theme.spacing(3)
         },
         position: 'absolute',
         left: '50%',
         top: '45%',
         transform: 'translate(-50%, -50%)',
         textAlign: 'center',
-        fontSize: '18pt'
-    },
-    results: {
-        top: '50%',
+        fontSize: '14pt'
     },
     button: {
-        width: '200px',
-        height: '50px',
+        width: '100px',
+        height: '25px',
         padding: 0,
-        margin: 0,
+        marginTop: '20px',
     }
 }));
 
@@ -44,11 +41,11 @@ function WinPage() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Paper className={classes.results} elevation={3}>Congratulations! <br /><br />You have defeated COVID-19!<br /><br /><Link to="/home"><Button type="submit"
+            <Paper elevation={3}>Congratulations! <br /><br />You have defeated COVID-19!<Link to="/home"><Button type="submit"
                 fullWidth
                 variant="contained"
                 color="secondary"
-                className={classes.button}>Return Home</Button></Link></Paper>
+                className={classes.button}>Exit</Button></Link></Paper>
         </div>
     );
 };
@@ -57,12 +54,12 @@ function LosePage() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Paper className={classes.results} elevation={3}>Loser! <br /><br />Everyone is dead!<br /><br /><Link to="/home"><Button type="submit"
+            <Paper className={classes.results} elevation={3} >Loser! <br /><br />Everyone is dead!<br /><Link to="/home"><Button type="submit"
                 fullWidth
                 variant="contained"
                 color="secondary"
-                className={classes.button}>Return Home</Button></Link></Paper>
-        </div>
+                className={classes.button}>Exit</Button></Link></Paper>
+        </div >
     );
 }
 
