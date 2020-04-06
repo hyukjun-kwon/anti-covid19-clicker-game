@@ -120,29 +120,21 @@ const reducer = (state, action) => {
       //
 
       let newClickerEffect = CLICKER_EFFECTS_ARRAY[state.clicker.level];
+      let newClickerCost = CLICKER_COSTS_ARRAY[state.clicker.cost];
 
       return {
         ...state,
         clicker: {
           level: state.clicker.level + 1,
           effect: newClickerEffect,
-          profit: state.clicker.profit
-        },
-        // cost:
-      };
-
-    case "PHARMACY_ACTION":
-      return {
-        ...state,
-        status: {
-          infected: state.status.infected - state.pharmacy.effect,
-          death: state.status.death,
-          fund: state.status.fund + (state.pharmacy.effect * state.pharmacy.profit)
+          profit: state.clicker.profit,
+          cost: newClickerCost
         }
       };
 
     case "PHARMACY_LEVEL_UP":
-      let newPharmacyEffect = 10;
+      let newPharmacyEffect = PHARMACY_EFFECTS_ARRAY[state.pharmacy.level];
+      let newPharmacyCost = PHARMACY_EFFECTS_ARRAY[state.pharmacy.level];
 
       return {
         ...state,
@@ -150,44 +142,52 @@ const reducer = (state, action) => {
           level: state.pharmacy.level + 1,
           effect: newPharmacyEffect,
           profit: state.pharmacy.profit,
-          // cost:
+          cost: newPharmacyCost
         }
       };
 
-    case "LABORATORY_ACTION":
-      return {
-        ...state,
-        status: {
-          // infected: state.status.infected - state.laboratory.effect,
-          // death: state.status.death,
-          // fund: state.status.fund + (state.laboratory.effect*state.laboratory.profit)
-        }
-      }
-
     case "LABORATORY_LEVEL_UP":
-      // let newLaboratoryEffect = ;
+      let newLaboratoryEffect = LABORATORY_EFFECTS_ARRAY[state.laboratory.level];
+      let newLaboratoryCost = LABORATORY_COSTS_ARRAY[state.laboratory.level];
+
       return {
         ...state,
         laboratory: {
-          // level: state.laboratory.level + 1,
-          // effect: newLaboratoryEffect,
-          // profit: state.laboratory.profit,
-          // cost:
+          level: state.laboratory.level + 1,
+          effect: newLaboratoryEffect,
+          profit: state.laboratory.profit,
+          cost: newLaboratoryCost
         }
       }
 
     case "HOSPITAL_LEVEL_UP":
+      let newHospitalCost = HOSPITAL_COSTS_ARRAY[state.hospital.level];
+
       return {
         ...state,
-        // level: state.hospital.level + 1,
-        // cost: 
+        rates: {
+          spreadRate: state.rates.spreadRate,
+          deathRate: state.rates.deathRate - 0.002
+        },
+        hospital: {
+          level: state.hospital.level + 1,
+          cost: newHospitalCost
+        }
       }
 
     case "DRIVE_THRU_LEVEL_UP":
+      let newDrivethruCost = DRIVETHRU_COSTS_ARRAY[state.drivethru.level];
+
       return {
         ...state,
-        // level: state.drivethru.level + 1,
-        // cost: 
+        rates: {
+          spreadRate: state.rates.spreadRate - 0.004,
+          deathRate: state.rates.deathRate
+        },
+        drivethru: {
+          level: state.drivethru.level + 1,
+          cost: newDrivethruCost
+        }
       }
 
     // Winning Condition Met
