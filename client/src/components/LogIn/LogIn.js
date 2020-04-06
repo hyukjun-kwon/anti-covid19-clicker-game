@@ -43,8 +43,6 @@ function LogIn() {
 
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
-    console.log(username);
-    console.log(password);
 
     let authPlayer = {};
     const authenticated = ({ token, player }) => {
@@ -68,7 +66,10 @@ function LogIn() {
             username: username,
             password: password
         })
-            .then(authenticated)
+            .then(response => {
+                authenticated(response.data);
+                console.log(authPlayer);
+            })
             .catch(err => console.log(err))
     }
 
@@ -80,7 +81,10 @@ function LogIn() {
             username: username,
             password: password
         })
-            .then(authenticated)
+            .then(response => {
+            authenticated(response.data);
+            console.log(authPlayer);
+            })
             .catch(err => console.log(err))
     }
 
