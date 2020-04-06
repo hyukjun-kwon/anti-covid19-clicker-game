@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { usePandemicContext } from '../../contexts/PandemicContext';
 import Container from '@material-ui/core/Container';
 
 import API from '../../utils/API';
@@ -32,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function LogIn() {
+    const [state, dispatch] = usePandemicContext();
     const classes = useStyles();
     // const usernameRef = useRef();
     // const passwordRef = useRef();
@@ -44,19 +46,19 @@ function LogIn() {
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
 
-    let authPlayer = {};
-    const authenticated = ({ token, player }) => {
-        authPlayer = {
-            token: token,
-            player: {
-                id: player.id,
-                username: player.username,
-                easyscore: player.easyscore,
-                mediumscore: player.mediumscore,
-                hardscore: player.hardscore
-            }
-        }
-    }
+    // let authPlayer = {};
+    // const authenticated = ({ token, player }) => {
+    //     authPlayer = {
+    //         token: token,
+    //         player: {
+    //             id: player.id,
+    //             username: player.username,
+    //             easyscore: player.easyscore,
+    //             mediumscore: player.mediumscore,
+    //             hardscore: player.hardscore
+    //         }
+    //     }
+    // }
 
     const handleLogin = event => {
         event.preventDefault();
@@ -67,8 +69,11 @@ function LogIn() {
             password: password
         })
             .then(response => {
-                authenticated(response.data);
-                console.log(authPlayer);
+                dispatch({ 
+                    type: "USER_LOGIN",
+                    token: response.data.token,
+                    player: response.data.player
+                })
             })
             .catch(err => console.log(err))
     }
@@ -82,8 +87,7 @@ function LogIn() {
             password: password
         })
             .then(response => {
-            authenticated(response.data);
-            console.log(authPlayer);
+                console.log(response.data)
             })
             .catch(err => console.log(err))
     }

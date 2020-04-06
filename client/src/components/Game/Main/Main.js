@@ -29,13 +29,13 @@ function Main() {
         dispatch({ type: "WIN" });
     }
 
-    if (state.status.infected >= 1000000000) {
+
+    if (state.status.infected >= 1000000000) { 
         dispatch({ type: "LOST" });
     };
 
     useEffect(() => {
         const timer = setInterval(() => dispatch({ type: "TICK" }), 1000);
-        console.log(state.status.infected)
         return () => clearTimeout(timer);
     });
 

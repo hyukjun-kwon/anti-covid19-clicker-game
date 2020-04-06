@@ -20,26 +20,32 @@ const { Provider } = PandemicContext;
 
 const reducer = (state, action) => {
   switch (action.type) {
-  case "SET_EASY_DIFFICULTY":
-    return INITIAL_STATE
-  case "SET_MEDIUM_DIFFICULTY":
-    return {
-      ...state,
-      difficulty: "medium",
-      status: MEDIUM_DIFFICULTY
-    };
-  case "SET_HARD_DIFFICULTY":
-    return {
-      ...state,
-      difficulty: "hard",
-      status: HARD_DIFFICULTY
-    };
+    case "USER_LOGIN":
+      return {
+        ...state,
+        token: action.token,
+        player: action.player
+      }
+    case "SET_EASY_DIFFICULTY":
+      return INITIAL_STATE
+    case "SET_MEDIUM_DIFFICULTY":
+      return {
+        ...state,
+        difficulty: "medium",
+        status: MEDIUM_DIFFICULTY
+      };
+    case "SET_HARD_DIFFICULTY":
+      return {
+        ...state,
+        difficulty: "hard",
+        status: HARD_DIFFICULTY
+      };
 
-  // Summary:
-  // Every 15 ticks: DEATH
-  // Every 10 ticks: LABORATORY
-  // Every 5 ticks: PHARMACY
-  // Every 1 tick: SPREAD
+    // Summary:
+    // Every 15 ticks: DEATH
+    // Every 10 ticks: LABORATORY
+    // Every 5 ticks: PHARMACY
+    // Every 1 tick: SPREAD
     case "TICK":
       tickCount++;
       if (state.isComplete) {
@@ -120,10 +126,15 @@ const reducer = (state, action) => {
       //
 
       let newClickerEffect = CLICKER_EFFECTS_ARRAY[state.clicker.level];
-      let newClickerCost = CLICKER_COSTS_ARRAY[state.clicker.cost];
+      let newClickerCost = CLICKER_COSTS_ARRAY[state.clicker.level];
 
       return {
         ...state,
+        status: {
+          infected: state.status.infected,
+          death: state.status.death,
+          fund: state.status.fund - state.clicker.cost
+        },
         clicker: {
           level: state.clicker.level + 1,
           effect: newClickerEffect,
@@ -138,6 +149,11 @@ const reducer = (state, action) => {
 
       return {
         ...state,
+        status: {
+          infected: state.status.infected,
+          death: state.status.death,
+          fund: state.status.fund - state.pharmacy.cost
+        },
         pharmacy: {
           level: state.pharmacy.level + 1,
           effect: newPharmacyEffect,
@@ -152,6 +168,11 @@ const reducer = (state, action) => {
 
       return {
         ...state,
+        status: {
+          infected: state.status.infected,
+          death: state.status.death,
+          fund: state.status.fund - state.laboratory.cost
+        },
         laboratory: {
           level: state.laboratory.level + 1,
           effect: newLaboratoryEffect,
@@ -165,6 +186,11 @@ const reducer = (state, action) => {
 
       return {
         ...state,
+        status: {
+          infected: state.status.infected,
+          death: state.status.death,
+          fund: state.status.fund - state.hospital.cost
+        },
         rates: {
           spreadRate: state.rates.spreadRate,
           deathRate: state.rates.deathRate - 0.002
@@ -180,6 +206,11 @@ const reducer = (state, action) => {
 
       return {
         ...state,
+        status: {
+          infected: state.status.infected,
+          death: state.status.death,
+          fund: state.status.fund - state.drivethru.cost
+        },
         rates: {
           spreadRate: state.rates.spreadRate - 0.004,
           deathRate: state.rates.deathRate
@@ -203,6 +234,13 @@ const reducer = (state, action) => {
         ...state,
         isComplete: true,
       }
+
+    case "QUIT":
+      return {
+        ...state,
+        token: null,
+        player: null
+      };
 
     default:
       throw new Error(`Invalid action type: ${action.type}`);
