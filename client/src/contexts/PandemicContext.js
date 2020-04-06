@@ -197,7 +197,7 @@ const reducer = (state, action) => {
     case "LOST":
       return {
         ...state,
-        isComplete: true
+        isComplete: true,
       }
 
     default:

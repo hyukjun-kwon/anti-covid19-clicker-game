@@ -8,7 +8,8 @@ import Home from './components/Home/Home';
 import HowToPlay from './components/HowToPlay/HowToPlay';
 import Game from './components/Game/Game';
 import Landing from './components/Landing/Landing';
-import Results from './components/Results/Results'
+import Results from './components/Results/Results';
+
 
 import { PandemicProvider } from "./contexts/PandemicContext";
 
