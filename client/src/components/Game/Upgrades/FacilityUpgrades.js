@@ -26,7 +26,7 @@ const avatarStyles = makeStyles((theme) => ({
 }));
 
 const style = {
-    height: '70px'
+    height: 100
 }
 
 const styles = {
@@ -37,6 +37,14 @@ const styles = {
 export default function FacilityUpgrades() {
     const classes = avatarStyles();
     const [state, dispatch] = usePandemicContext();
+
+    let clickerLevel= `Clicker Next Level: ${state.clicker.level + 1}`
+    let pharmacyLevel= `Pharmacy Next Level: ${state.pharmacy.level + 1}`
+    let laboratoryLevel= `Laboratory Next Level: ${state.laboratory.level + 1}`
+    let hospitalLevel= `Hospital Next Level: ${state.hospital.level + 1}`
+    let driveThruLevel= `Drive-thru Next Level: ${state.drivethru.level + 1}`
+
+
     
     return (
         <Fragment>
@@ -44,44 +52,45 @@ export default function FacilityUpgrades() {
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button><Avatar className={classes.orange}>H</Avatar></button>
-
-                            <Progress upgrade={'Hospital Lv.5'} />
+                            <Avatar className={classes.orange}>C</Avatar>
+                            <Progress upgrade={clickerLevel} description={state.clicker.cost}/>
                         </div>
-
                     </Paper>
                 </Grid>
 
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button><Avatar className={classes.orange}>L</Avatar></button>
-
-                            <Progress upgrade={'Lab Lv.1'} />
+                            <Avatar className={classes.orange}>P</Avatar>
+                            <Progress upgrade={pharmacyLevel} description={state.pharmacy.cost}/>
                         </div>
-
                     </Paper>
                 </Grid>
 
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button><Avatar className={classes.orange}>C</Avatar></button>
-
-                            <Progress upgrade={'Clinic Lv.3'} />
+                            <Avatar className={classes.orange}>L</Avatar>
+                            <Progress upgrade={laboratoryLevel} description={state.laboratory.cost}/>
                         </div>
-
                     </Paper>
                 </Grid>
 
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button><Avatar className={classes.orange}>DT</Avatar></button>
-
-                            <Progress upgrade={'Drive-Thru Testing Lv.2'} />
+                            <Avatar className={classes.orange}>H</Avatar>
+                            <Progress upgrade={(state.hospital.level + 1) < 3 ? hospitalLevel : "Maxed" } description={state.hospital.cost}/>
                         </div>
+                    </Paper>
+                </Grid>
 
+                <Grid item xs={12}>
+                    <Paper style={style} className={classes.paper}>
+                        <div className={classes.root}>
+                            <Avatar className={classes.orange}>DT</Avatar>
+                            <Progress upgrade={(state.drivethru.level + 1) < 3 ? driveThruLevel : "Maxed" } description={state.drivethru.cost}/>
+                        </div>
                     </Paper>
                 </Grid>
             </Paper>

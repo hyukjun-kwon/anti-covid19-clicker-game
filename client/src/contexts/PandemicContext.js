@@ -186,8 +186,8 @@ const reducer = (state, action) => {
         // cost: 
       }
 
-  // Winning Condition Met
-  case "WIN":
+    // Winning Condition Met
+    case "WIN":
       return {
         ...state,
         isComplete: true,
