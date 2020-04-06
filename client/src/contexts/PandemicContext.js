@@ -20,22 +20,26 @@ const { Provider } = PandemicContext;
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "SET_EASY_DIFFICULTY":
-      return INITIAL_STATE
-    case "SET_MEDIUM_DIFFICULTY":
-      return {
-        ...state,
-        difficulty: "medium",
-        status: MEDIUM_DIFFICULTY
-      };
-    case "SET_HARD_DIFFICULTY":
-      return {
-        ...state,
-        difficulty: "hard",
-        status: HARD_DIFFICULTY
-      };
+  case "SET_EASY_DIFFICULTY":
+    return INITIAL_STATE
+  case "SET_MEDIUM_DIFFICULTY":
+    return {
+      ...state,
+      difficulty: "medium",
+      status: MEDIUM_DIFFICULTY
+    };
+  case "SET_HARD_DIFFICULTY":
+    return {
+      ...state,
+      difficulty: "hard",
+      status: HARD_DIFFICULTY
+    };
 
-    // When called, increase the status.infected by rates.spreadRate
+  // Summary:
+  // Every 15 ticks: DEATH
+  // Every 10 ticks: LABORATORY
+  // Every 5 ticks: PHARMACY
+  // Every 1 tick: SPREAD
     case "TICK":
       tickCount++;
       if (state.isComplete) {
