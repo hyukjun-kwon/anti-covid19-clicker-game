@@ -19,12 +19,8 @@ function App() {
     <Router>
       <div>
         <PandemicProvider>
-          <Route exact path='/' component={LogIn} />
-          <Route exact path='/login' component={LogIn} />
-          <Route exact path='/home' component={Home} />
-          <Route exact path='/how-to-play' component={HowToPlay} />
+          <Route exact path='/' component={Home} />
           <Route exact path='/game' component={Game} />
-          <Route exact path='/logout' component={Landing} />
           <Route exact path='/results' component={Results} />
         </PandemicProvider>
       </div>

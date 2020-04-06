@@ -20,6 +20,12 @@ const { Provider } = PandemicContext;
 
 const reducer = (state, action) => {
   switch (action.type) {
+  case "USER_LOGIN":
+    return {
+      ...state,
+      token: action.token,
+      player: action.player
+    }
   case "SET_EASY_DIFFICULTY":
     return INITIAL_STATE
   case "SET_MEDIUM_DIFFICULTY":
