@@ -6,9 +6,16 @@ import Upgrades from './Upgrades/Upgrades';
 import NavBar from './Navigation/NavBar';
 import Results from '../Results/Results';
 import Main from './Main/Main';
+import Home from '../Home/Home';
 import { usePandemicContext } from '../../contexts/PandemicContext';
 function Game() {
     const [state, dispatch] = usePandemicContext();
+
+    if(state.token === null) {
+        return (
+            <Home />
+        )
+    }
 
     if(state.isComplete) {
         return (
