@@ -35,27 +35,27 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-function Results(props) {
-    const classes = useStyles();
-    const [state, dispatch] = usePandemicContext();
-    console.log(state.status.infected);
-    console.log(state.status.isComplete);
-    if (state.status.infected === 0) {
-        return <WinPage className={classes.results} />
-    } else if (state.status.infected >= 1000000000) {
-        return <LosePage className={classes.results} />
-    } else {
-        return (
-            <div className={classes.root}>
-                <Paper className={classes.results} elevation={3}>Whoops! <br /><br />You are on the wrong page!<br /><br /><Link to="/home"><Button type="submit"
-                    fullWidth
-                    variant="contained"
-                    color="secondary"
-                    className={classes.button}>Return Home</Button></Link></Paper>
-            </div>
-        )
-    }
-}
+// function Results(props) {
+//     const classes = useStyles();
+//     const [state, dispatch] = usePandemicContext();
+//     console.log(state.status.infected);
+//     console.log(state.status.isComplete);
+//     if (state.status.infected === 0) {
+//         return <WinPage className={classes.results} />
+//     } else if (state.status.infected >= 1000000000) {
+//         return <LosePage className={classes.results} />
+//     } else {
+//         return (
+//             <div className={classes.root}>
+//                 <Paper className={classes.results} elevation={3}>Whoops! <br /><br />You are on the wrong page!<br /><br /><Link to="/home"><Button type="submit"
+//                     fullWidth
+//                     variant="contained"
+//                     color="secondary"
+//                     className={classes.button}>Return Home</Button></Link></Paper>
+//             </div>
+//         )
+//     }
+// }
 
 function WinPage(props) {
     const classes = useStyles();
@@ -83,5 +83,12 @@ function LosePage(props) {
     );
 }
 
+
+function Results() {
+    const [state, dispatch] = usePandemicContext();
+    return (
+        state.won === true ? <WinPage /> : <LosePage />
+    )
+}
 
 export default Results;
