@@ -83,5 +83,4 @@ function LosePage(props) {
     );
 }
 
-
 export default Results;
