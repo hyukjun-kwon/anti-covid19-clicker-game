@@ -37,6 +37,23 @@ const styles = {
 export default function ClickerUpgrades() {
     const classes = avatarStyles();
     const [state, dispatch] = usePandemicContext();
+
+    const clickerUpgrade = () => {
+
+    }
+    const pharmacyUpgrade = () => {
+
+    }
+    const laboratory = () => {
+
+    }
+    const hospitalUpgrade = () => {
+
+    }
+    const driveThruUpgrade = () => {
+
+    }
+
     return (
         <Fragment>
             <Paper style={styles}>
@@ -44,33 +61,49 @@ export default function ClickerUpgrades() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <button><Avatar className={classes.orange}>C</Avatar></button>
-                            <p>Clicker Lv.23</p>
+                            <p>Clicker Level: {state.clicker.level}</p>
+                            <p>Profit: ${state.clicker.profit}</p>
                         </div>
-
                     </Paper>
                 </Grid>
 
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button><Avatar className={classes.orange}>Q</Avatar></button>
-
-                            <p>Vaccine Quantity Lv.17</p>
-                            <button>Upgrade: $112k</button>
+                            <button><Avatar className={classes.orange}>P</Avatar></button>
+                            <p>Pharmacy Level: {state.pharmacy.level}</p>
+                            <p>Profit: ${state.pharmacy.profit}</p>
                         </div>
-
                     </Paper>
                 </Grid>
 
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button><Avatar className={classes.orange}>PR</Avatar></button>
-
-                            <p>Production Rate Lv.6</p>
-                            <button>Upgrade: $70k</button>
+                            <button><Avatar className={classes.orange}>L</Avatar></button>
+                            <p>Laboratory Level: {state.laboratory.level}</p>
+                            <p>Profit: ${state.laboratory.profit}</p>
                         </div>
+                    </Paper>
+                </Grid>
 
+                <Grid item xs={12}>
+                    <Paper style={style} className={classes.paper}>
+                        <div className={classes.root}>
+                            <button><Avatar className={classes.orange}>H</Avatar></button>
+                            <p>Hospital Level: {state.hospital.level}</p>
+                            {/* <p>Profit: ${state.hospital.profit}</p> */}
+                        </div>
+                    </Paper>
+                </Grid>
+
+                <Grid item xs={12}>
+                    <Paper style={style} className={classes.paper}>
+                        <div className={classes.root}>
+                            <button><Avatar className={classes.orange}>D</Avatar></button>
+                            <p>Drive-thru Level: {state.drivethru.level}</p>
+                            {/* <p>Profit: ${state.drivethru.profit}</p> */}
+                        </div>
                     </Paper>
                 </Grid>
             </Paper>
