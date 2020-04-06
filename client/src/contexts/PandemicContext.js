@@ -151,21 +151,36 @@ const reducer = (state, action) => {
     case "LABORATORY_ACTION":
       return {
         ...state,
+        status: {
+          // infected: ,
+          // death: ,
+          // fund:
+        }
       }
 
     case "LABORATORY_LEVEL_UP":
       return {
         ...state,
+        laboratory: {
+          // level: ,
+          // effect: ,
+          // profit: ,
+          // cost:
+        }
       }
 
     case "HOSPITAL_LEVEL_UP":
       return {
         ...state,
+        // level: ,
+        // cost: 
       }
 
     case "DRIVE_THRU_LEVEL_UP":
       return {
         ...state,
+        // level: ,
+        // cost: 
       }
 
   // Winning Condition Met
