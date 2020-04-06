@@ -123,7 +123,8 @@ const reducer = (state, action) => {
           level: state.clicker.level + 1,
           effect: newClickerEffect,
           profit: state.clicker.profit
-        }
+        },
+        // cost:
       };
 
     case "PHARMACY_ACTION":
@@ -144,7 +145,8 @@ const reducer = (state, action) => {
         pharmacy: {
           level: state.pharmacy.level + 1,
           effect: newPharmacyEffect,
-          profit: state.pharmacy.profit
+          profit: state.pharmacy.profit,
+          // cost:
         }
       };
 
@@ -152,19 +154,20 @@ const reducer = (state, action) => {
       return {
         ...state,
         status: {
-          // infected: ,
-          // death: ,
-          // fund:
+          // infected: state.status.infected - state.laboratory.effect,
+          // death: state.status.death,
+          // fund: state.status.fund + (state.laboratory.effect*state.laboratory.profit)
         }
       }
 
     case "LABORATORY_LEVEL_UP":
+      // let newLaboratoryEffect = ;
       return {
         ...state,
         laboratory: {
-          // level: ,
-          // effect: ,
-          // profit: ,
+          // level: state.laboratory.level + 1,
+          // effect: newLaboratoryEffect,
+          // profit: state.laboratory.profit,
           // cost:
         }
       }
@@ -172,14 +175,14 @@ const reducer = (state, action) => {
     case "HOSPITAL_LEVEL_UP":
       return {
         ...state,
-        // level: ,
+        // level: state.hospital.level + 1,
         // cost: 
       }
 
     case "DRIVE_THRU_LEVEL_UP":
       return {
         ...state,
-        // level: ,
+        // level: state.drivethru.level + 1,
         // cost: 
       }
 
