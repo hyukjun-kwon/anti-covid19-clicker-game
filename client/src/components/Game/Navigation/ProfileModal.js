@@ -32,6 +32,7 @@ function ProfileModal() {
     setOpen(false);
   };
 
+
   return (
     <div>
       <MenuItem type="button" onClick={handleOpen}>
@@ -51,8 +52,14 @@ function ProfileModal() {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Your Profile</h2>
-            <p id="transition-modal-description">Here are your stats from previous games. <hr/> High score: </p>
+            <h2 id="transition-modal-title">Username: </h2>
+            <p id="transition-modal-description">Here are your stats from previous games.</p> <hr/> 
+            <p>High scores: </p>
+            <ul>
+              <li>Easy: </li>
+              <li>Medium: </li>
+              <li>Hard: </li>
+            </ul>
           </div>
         </Fade>
       </Modal>
