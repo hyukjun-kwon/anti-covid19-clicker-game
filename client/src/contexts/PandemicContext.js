@@ -35,7 +35,11 @@ const reducer = (state, action) => {
       status: HARD_DIFFICULTY
     };
 
-  // When called, increase the status.infected by rates.spreadRate
+  // Summary:
+  // Every 15 ticks: DEATH
+  // Every 10 ticks: LABORATORY
+  // Every 5 ticks: PHARMACY
+  // Every 1 tick: SPREAD
   case "TICK":
     tickCount++;
     if(state.isComplete) {
