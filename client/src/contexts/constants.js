@@ -28,14 +28,14 @@ const INITIAL_STATE = {
     pharmacy: {
       level: 0,
       effect: 0,
-      profit: 1,
-      cost: 5000
+      profit: 0.5,
+      cost: 200
     },
     laboratory: {
       level: 0,
       effect: 0,
-      profit: 1,
-      cost: 15000
+      profit: 0.1,
+      cost: 5000
     },
     hospital: {
       level: 0,
@@ -64,12 +64,12 @@ const INITIAL_STATE = {
   //  ex) for level 5 clicker, CLICKER_EFFECTS_ARRAY[ 5 - 1 ] = 10 is the
   //      number of cures per click.
   const CLICKER_EFFECTS_ARRAY = [
-    1, 2, 3, 4, 10,                         // 1~5 levels
+    NaN, 2, 3, 4, 10,                         // 1~5 levels
     12, 14, 16, 18, 50,                     // 6~10 levels
     55, 60, 65, 70, 200,                    // 11~15 levels
     220, 240, 260, 280, 750,                // 16~20 levels
     800, 850, 900, 950, 2000,               // 21~25 levels
-    2500, 3000, 3500, 4000, 10000           // 26~30 levels
+    2500, 3000, 3500, 4000, 10000, NaN           // 26~30 levels
   ];
   
   const CLICKER_COSTS_ARRAY = [
@@ -78,16 +78,32 @@ const INITIAL_STATE = {
     26000, 27000, 28000, 29000, 50000,
     10000, 150000, 200000, 250000, 400000,
     600000, 800000, 1000000, 1200000, 1800000,
-    4000000, 7000000, 10000000, 15000000, 30000000 
+    4000000, 7000000, 10000000, 15000000, 30000000, NaN 
   ];
   
-  const PHARMACY_EFFECTS_ARRAY = [];
+  const PHARMACY_EFFECTS_ARRAY = [
+    3, 5, 10, 15, 50,
+    70, 90, 150, 275, 500,
+    1000, 1500, 2250, 4000, 7000,
+    10000, 15000, 30000, 50000, 100000, NaN
+  ];
   
-  const PHARMACY_COSTS_ARRAY = [];
+  const PHARMACY_COSTS_ARRAY = [
+    200, 500, 800, 1000, 5000,
+    10000, 15000, 20000, 30000, 50000,
+    100000, 150000, 200000, 500000, 1000000,
+    1500000, 5000000, 10000000, 30000000, 50000000, NaN
+  ];
   
-  const LABORATORY_EFFECTS_ARRAY = [500, 1000, 2000, 5000, 10000, 15000, 20000, 30000, 50000, 75000, 125000, 200000, 300000, ];
+  const LABORATORY_EFFECTS_ARRAY = [
+    50, 200, 500, 2000, 7000, 
+    30000, 100000, 300000, 800000, 2000000, NaN
+  ];
   
-  const LABORATORY_COSTS_ARRAY = [15000, 50000, 100000, 150000, 250000, 500000, 750000, 1500000, 2250000];
+  const LABORATORY_COSTS_ARRAY = [
+    5000, 20000, 50000, 200000, 500000,
+    2000000, 5000000, 20000000, 50000000, 200000000, NaN
+  ];
   
   const HOSPITAL_COSTS_ARRAY = [50000, 500000, 5000000]; // Levels 1~3  
   const DRIVE_THRU_COSTS_ARRAY = [50000, 200000, 500000, 1500000, 5000000]; // Levels 1~5
