@@ -12,9 +12,9 @@ function Game() {
         <Fragment>
             <NavBar />
             <Container>
-                <Container>
+                {/* <Container> */}
                     <Main />
-                </Container>
+                {/* </Container> */}
                 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
                 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             </Container>

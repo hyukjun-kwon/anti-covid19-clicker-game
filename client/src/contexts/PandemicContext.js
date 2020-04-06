@@ -20,150 +20,170 @@ const { Provider } = PandemicContext;
 
 const reducer = (state, action) => {
   switch (action.type) {
-  case "SET_EASY_DIFFICULTY":
-    return INITIAL_STATE
-  case "SET_MEDIUM_DIFFICULTY":
-    return {
-      ...state,
-      difficulty: "medium",
-      status: MEDIUM_DIFFICULTY
-    };
-  case "SET_HARD_DIFFICULTY":
-    return {
-      ...state,
-      difficulty: "hard",
-      status: HARD_DIFFICULTY
-    };
-
-  // When called, increase the status.infected by rates.spreadRate
-  case "TICK":
-    tickCount++;
-    if(state.isComplete) {
+    case "SET_EASY_DIFFICULTY":
+      return INITIAL_STATE
+    case "SET_MEDIUM_DIFFICULTY":
       return {
-        ...state
+        ...state,
+        difficulty: "medium",
+        status: MEDIUM_DIFFICULTY
+      };
+    case "SET_HARD_DIFFICULTY":
+      return {
+        ...state,
+        difficulty: "hard",
+        status: HARD_DIFFICULTY
+      };
+
+    // When called, increase the status.infected by rates.spreadRate
+    case "TICK":
+      tickCount++;
+      if (state.isComplete) {
+        return {
+          ...state
+        }
       }
-    }
-    // Every 15 ticks
-    // Effects from SPREAD + DEATH + PHARMACY
-    else if(!(tickCount%15)) {
+      // Every 15 ticks
+      // Effects from SPREAD + DEATH + PHARMACY
+      else if (!(tickCount % 15)) {
         return {
           ...state,
           status: {
             infected: parseInt(state.status.infected * state.rates.spreadRate) - state.pharmacy.effect,
             death: state.status.death + parseInt(state.status.infected * state.rates.deathRate),
-            fund: state.status.fund + (state.pharmacy.effect * state.pharmacy.profit) 
+            fund: state.status.fund + (state.pharmacy.effect * state.pharmacy.profit)
           }
         }
-    }
-    // Every 10 ticks
-    // Effects from SPREAD + LABORATORY + PHARMACY
-    else if(!(tickCount%10)) {
+      }
+      // Every 10 ticks
+      // Effects from SPREAD + LABORATORY + PHARMACY
+      else if (!(tickCount % 10)) {
 
         return {
           ...state,
           status: {
             infected: parseInt(state.status.infected * state.rates.spreadRate) - state.pharmacy.effect - state.laboratory.effect,
-            death: state.status.death,        
+            death: state.status.death,
             fund: state.status.fund + (state.pharmacy.effect * state.pharmacy.profit) + (state.laboratory.effect * state.laboratory.profit)
           }
         }
 
-    }
-    // Every 5 ticks
-    // Effects from SPREAD + PHARMACY
-    else if(!(tickCount%5)) {
+      }
+      // Every 5 ticks
+      // Effects from SPREAD + PHARMACY
+      else if (!(tickCount % 5)) {
         return {
           ...state,
           status: {
             infected: parseInt(state.status.infected * state.rates.spreadRate) - state.pharmacy.effect,
-            death: state.status.death,        
+            death: state.status.death,
             fund: state.status.fund + (state.pharmacy.effect * state.pharmacy.profit)
           }
         }
-    }
-    // Every tick
-    // Effect from SPREAD
-    else {
+      }
+      // Every tick
+      // Effect from SPREAD
+      else {
         return {
           ...state,
           status: {
             infected: parseInt(state.status.infected * state.rates.spreadRate),
-            death: state.status.death,        
+            death: state.status.death,
             fund: state.status.fund
           }
         }
-    };
+      };
 
-  // Each "click" reduces status.infected by clicker.effect
-  //  & adds to status.fund by (clicker.effect * clicker.profit)
-  case "CLICK": 
-    return {
-      ...state,
-      status: {
-        infected: state.status.infected - state.clicker.effect,
-        death: state.status.death,
-        fund: state.status.fund + (state.clicker.effect * state.clicker.profit)
+    // Each "click" reduces status.infected by clicker.effect
+    //  & adds to status.fund by (clicker.effect * clicker.profit)
+    case "CLICK":
+      return {
+        ...state,
+        status: {
+          infected: state.status.infected - state.clicker.effect,
+          death: state.status.death,
+          fund: state.status.fund + (state.clicker.effect * state.clicker.profit)
+        }
+      };
+    // When clicker levels, it should increment clicker level,
+    //  & update the clicker.effect accordingly
+    case "CLICKER_LEVEL_UP":
+      // Since array starts at index 0, we can get the next clicker effect,
+      // by simply passing current clicker level
+
+      //
+      // if( leve is max ) - ADD LATER
+      //
+
+      let newClickerEffect = CLICKER_EFFECTS_ARRAY[state.clicker.level];
+
+      return {
+        ...state,
+        clicker: {
+          level: state.clicker.level + 1,
+          effect: newClickerEffect,
+          profit: state.clicker.profit
+        }
+      };
+
+    case "PHARMACY_ACTION":
+      return {
+        ...state,
+        status: {
+          infected: state.status.infected - state.pharmacy.effect,
+          death: state.status.death,
+          fund: state.status.fund + (state.pharmacy.effect * state.pharmacy.profit)
+        }
+      };
+
+    case "PHARMACY_LEVEL_UP":
+      let newPharmacyEffect = 10;
+
+      return {
+        ...state,
+        pharmacy: {
+          level: state.pharmacy.level + 1,
+          effect: newPharmacyEffect,
+          profit: state.pharmacy.profit
+        }
+      };
+
+    case "LABORATORY_ACTION":
+      return {
+        ...state,
       }
-    };
-  // When clicker levels, it should increment clicker level,
-  //  & update the clicker.effect accordingly
-  case "CLICKER_LEVEL_UP":
-    // Since array starts at index 0, we can get the next clicker effect,
-    // by simply passing current clicker level
 
-    //
-    // if( leve is max ) - ADD LATER
-    //
-
-    let newClickerEffect = CLICKER_EFFECTS_ARRAY[state.clicker.level];
-
-    return {
-      ...state,
-      clicker: {
-        level: state.clicker.level + 1,
-        effect: newClickerEffect,
-        profit: state.clicker.profit
+    case "LABORATORY_LEVEL_UP":
+      return {
+        ...state,
       }
-    };
 
-  case "PHARMACY_ACTION":
-    return {
-      ...state,
-      status: {
-        infected: state.status.infected - state.pharmacy.effect,
-        death: state.status.death,
-        fund: state.status.fund + (state.pharmacy.effect * state.pharmacy.profit)
+    case "HOSPITAL_LEVEL_UP":
+      return {
+        ...state,
       }
-    };
 
-  case "PHARMACY_LEVEL_UP":
-    let newPharmacyEffect = 10;
-
-    return {
-      ...state,
-      pharmacy: {
-        level: state.pharmacy.level + 1,
-        effect: newPharmacyEffect,
-        profit: state.pharmacy.profit
+    case "DRIVE_THRU_LEVEL_UP":
+      return {
+        ...state,
       }
-    };
 
   // Winning Condition Met
   case "WIN":
-    return {
-      ...state,
-      isComplete: true,
-      won: true
-    }
-  // Losing Condition Met
-  case "LOST":
-    return {
-      ...state,
-      isComplete: true
-    }
-    
-  default:
-    throw new Error(`Invalid action type: ${action.type}`);
+      return {
+        ...state,
+        isComplete: true,
+        won: true
+      }
+    // Losing Condition Met
+    case "LOST":
+      return {
+        ...state,
+        isComplete: true
+      }
+
+    default:
+      throw new Error(`Invalid action type: ${action.type}`);
   }
 };
 
@@ -172,7 +192,7 @@ const PandemicProvider = (props) => {
 
   return <Provider value={[state, dispatch]}>
     {props.children}
-    </Provider>;
+  </Provider>;
 };
 
 const usePandemicContext = () => {
