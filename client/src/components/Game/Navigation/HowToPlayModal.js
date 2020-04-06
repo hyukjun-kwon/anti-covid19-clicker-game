@@ -18,6 +18,14 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
+  HowTo: {
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+    height: '300px',
+    overflow: 'auto'
+  }
 }));
 
 function HowToPlayModal() {
@@ -31,6 +39,10 @@ function HowToPlayModal() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const facilities = {
+    fontWeight: 'bold'
+}
 
   return (
     <div>
@@ -50,15 +62,31 @@ function HowToPlayModal() {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
-            <h2 id="transition-modal-title">How To Play</h2>
+          <div className={classes.HowTo}>
+            {/* <h2 id="transition-modal-title">How To Play</h2>
             <p id="transition-modal-description">Here is how to play the game<hr />
               <ul>
                 <li>Click on Virus to create Vaccines</li>
                 <li>Accumulate vaccines to cure the sick</li>
                 <li>With every cured patient, you earn money</li>
                 <li>Use the money you earn to buy upgrades to help manage the pandemic</li>
-              </ul></p>
+              </ul></p> */}
+                                      <h1 id="transition-modal-title">How To Play Anti-COVID19</h1>
+                        <hr />
+                        <h2 id="transition-modal-title">Game Conditions:</h2>
+                        <p id="transition-modal-description">Cure all infected people to win. If the number of infected reaches 1 billion, you lose!</p>
+                        <hr />
+                        <h1 id="transition-modal-title">Upgrades</h1>
+                        <hr />
+                        <h2 id="transition-modal-title">Clicker:</h2>
+                        <p id="transition-modal-description">Each click of the clicker will cure a certain amount of infected and send funds to you in return.</p>
+                        <hr />
+                        <h2 id="transition-modal-title">Facilities:</h2>
+                        <p id="transition-modal-description">Each facility has its own unique perks to fight off the virus. Each with the ability to upgrade to higher levels to better fight off the virus.</p>
+                        <p id="transition-modal-description"><span style={facilities}>Pharmacy:</span> The Pharmacy will grant 50 vaccines reducing the number of infected every 30 seconds.</p>
+                        <p id="transition-modal-description"><span style={facilities}>Laboratory:</span> The Lab will grant 500 vaccines every 3 minutes.</p>
+                        <p id="transition-modal-description"><span style={facilities}>Clinic:</span> The Clinic will reduce the deaths from the virus.</p>
+                        <p id="transition-modal-description"><span style={facilities}>Drive-Thru Testing:</span> Drive-Thru Testing will reduce the rate of spread of the virus.</p>
           </div>
         </Fade>
       </Modal>
