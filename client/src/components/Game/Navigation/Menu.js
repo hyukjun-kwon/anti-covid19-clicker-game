@@ -12,6 +12,8 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import HowToPlay from './HowToPlayModal';
 import ProfileModal from './ProfileModal';
 
+import { usePandemicContext } from '../../../contexts/PandemicContext';
+
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -25,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function MenuListComposition() {
+    const [state, dispatch] = usePandemicContext();
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
@@ -71,11 +74,9 @@ function MenuListComposition() {
                             <Paper>
                                 <ClickAwayListener onClickAway={handleClose}>
                                     <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                        {/* <MenuItem onClick={handleClose}>Profile</MenuItem> */}
                                         <ProfileModal />
-                                        {/* <MenuItem onClick={handleClose}>How To Play</MenuItem> */}
                                         <HowToPlay />
-                                        <MenuItem onClick={handleClose}>Logout</MenuItem>
+                                        <MenuItem onClick={() => dispatch({ type: "QUIT" })}>Logout</MenuItem>
                                     </MenuList>
                                 </ClickAwayListener>
                             </Paper>
