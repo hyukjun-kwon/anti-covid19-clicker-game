@@ -20,7 +20,10 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, -2),
-},
+    fontFamily: 'Bangers, cursive',
+    textShadow: '4px 3px 0px #5E7BD6, 2px 2px 2px rgba(227,239,24,0)',
+    fontSize: '14pt'
+  },
 }));
 
 export default function RegisterModal() {
@@ -37,11 +40,11 @@ export default function RegisterModal() {
 
   return (
     <div>
-      <Button   
+      <Button
         fullWidth
         variant="contained"
         color="primary"
-        className={classes.submit}id="transition-modal-description"type="button" onClick={handleOpen}>
+        className={classes.submit} id="transition-modal-description" type="button" onClick={handleOpen}>
         Register
       </Button>
       <Modal

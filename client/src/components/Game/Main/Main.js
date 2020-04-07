@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '15px',
         color: 'white',
         fontWeight: 'bold',
-
+        fontFamily: 'Bangers, cursive',
+        fontSize: '20pt',
     }
 }));
 
@@ -46,10 +47,10 @@ function Main() {
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={6}>
-                    <Box className={classes.Box}>Infected: <span style={{ color: 'red' }}>{numAbb(state.status.infected)}</span></Box>
+                    <Box className={classes.Box}>Infected: <span style={{ color: 'red', fontFamily: 'Helvetica' }}>{numAbb(state.status.infected)}</span></Box>
                 </Grid>
                 <Grid item xs={6}>
-                    <Box className={classes.Box} >Deceased: <span style={{ color: 'red' }}>{numAbb(state.status.death)}</span></Box>
+                    <Box className={classes.Box} >Deceased: <span style={{ color: 'red', fontFamily: 'Helvetica' }}>{numAbb(state.status.death)}</span></Box>
                 </Grid>
                 {/* <Grid item xs={3}>
                     <Box className={classes.Box} style={{ color: 'yellow' }}>Cured: {}</Box>

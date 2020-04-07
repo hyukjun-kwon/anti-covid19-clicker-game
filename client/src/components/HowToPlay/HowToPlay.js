@@ -20,13 +20,16 @@ const useStyles = makeStyles((theme) => ({
         overflow: 'auto'
 
     },
-  HowTo: {
-         position: 'absolute',
-         left: '50%',
-         top: '42%',
-         transform: 'translate(-50%, -50%)',
-         marginBottom: '10%',
-         width: 'auto'
+    HowTo: {
+        position: 'absolute',
+        left: '50%',
+        top: '42%',
+        transform: 'translate(-50%, -50%)',
+        marginBottom: '10%',
+        width: 'auto',
+        fontFamily: 'Bangers, cursive',
+        textShadow: '4px 3px 0px #5E7BD6, 2px 2px 2px rgba(227,239,24,0)',
+        fontSize: '14pt'
     },
 }));
 
@@ -51,7 +54,7 @@ export default function HowToPlay() {
             <Button
                 fullWidth
                 variant="contained"
-                color="primary" type="button"  className={classes.HowTo} onClick={handleOpen}>
+                color="primary" type="button" className={classes.HowTo} onClick={handleOpen}>
                 How To Play
       </Button>
             <Modal

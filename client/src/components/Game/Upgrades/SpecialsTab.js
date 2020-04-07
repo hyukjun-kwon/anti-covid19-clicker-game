@@ -19,10 +19,12 @@ const avatarStyles = makeStyles((theme) => ({
     orange: {
         color: theme.palette.getContrastText(deepOrange[500]),
         backgroundColor: deepOrange[500],
+        fontFamily: 'Bangers, cursive',
     },
     purple: {
         color: theme.palette.getContrastText(deepPurple[500]),
         backgroundColor: deepPurple[500],
+        fontFamily: 'Bangers, cursive',
     },
 }));
 

@@ -22,18 +22,21 @@ const useStyles = makeStyles((theme) => ({
         fontFamily: 'Bangers, cursive',
         textShadow: '4px 3px 0px #5E7BD6, 2px 2px 2px rgba(227,239,24,0)',
         fontSize: '16pt',
+        letterSpacing: '3px'
     },
     DifficultyBtns: {
         position: 'absolute',
         left: '50%',
         top: '75%',
         transform: 'translate(-50%, -50%)',
+        letterSpacing: '5px'
     },
     Buttons: {
         color: 'white',
         fontFamily: 'Bangers, cursive',
         textShadow: '4px 3px 0px #5E7BD6, 2px 2px 2px rgba(227,239,24,0)',
-        fontSize: '14pt'
+        fontSize: '14pt',
+        letterSpacing: '5px'
     },
     PlayBtn: {
         position: 'absolute',
@@ -44,7 +47,8 @@ const useStyles = makeStyles((theme) => ({
         color: 'white',
         fontFamily: 'Bangers, cursive',
         textShadow: '4px 3px 0px #5E7BD6, 2px 2px 2px rgba(227,239,24,0)',
-        fontSize: '14pt'
+        fontSize: '14pt',
+        letterSpacing: '5px'
     }
 }));
 
