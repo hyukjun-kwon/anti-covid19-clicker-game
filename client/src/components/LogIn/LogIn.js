@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { usePandemicContext } from '../../contexts/PandemicContext';
 import Container from '@material-ui/core/Container';
+import RegisterModal from './RegisterModal';
 
 import API from '../../utils/API';
 
@@ -143,14 +144,7 @@ function LogIn() {
                             >Log In</Button>
                         </Grid>
                         <Grid item xs={6}>
-                            <Button
-                                onClick={handleRegister}
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                                className={classes.submit}
-                            >Register</Button>
+                            <RegisterModal />
                         </Grid>
                     </Grid>
                 </form>
