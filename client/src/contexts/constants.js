@@ -12,15 +12,15 @@ const INITIAL_STATE = {
   // spreadRate is how fast infection grows per "tick"
   // deathRate is what fraction of infected people die per "tick"
   rates: {
-    spreadRate: 1.03,
-    deathRate: 0.01
+    spreadRate: 1.02,
+    deathRate: 0.001
   },
   // effect is number of cures per click
   // profit is how much "fund" it generates for each cure
   clicker: {
     level: 1,
     effect: 1,
-    profit: 3,
+    profit: 10,
     cost: 500
   },
   // effect is number of cures per tick
@@ -28,13 +28,13 @@ const INITIAL_STATE = {
   pharmacy: {
     level: 0,
     effect: 0,
-    profit: 0.5,
+    profit: 5,
     cost: 200
   },
   laboratory: {
     level: 0,
     effect: 0,
-    profit: 0.1,
+    profit: 3,
     cost: 5000
   },
   hospital: {
