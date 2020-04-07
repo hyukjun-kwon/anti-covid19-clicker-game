@@ -17,13 +17,34 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     ChooseDifficulty: {
-        textAlign: 'center'
+        textAlign: 'center',
+        color: 'white',
+        fontFamily: 'Bangers, cursive',
+        textShadow: '4px 3px 0px #5E7BD6, 2px 2px 2px rgba(227,239,24,0)',
+        fontSize: '16pt',
     },
     DifficultyBtns: {
         position: 'absolute',
         left: '50%',
         top: '75%',
-        transform: 'translate(-50%, -50%)'
+        transform: 'translate(-50%, -50%)',
+    },
+    Buttons: {
+        color: 'white',
+        fontFamily: 'Bangers, cursive',
+        textShadow: '4px 3px 0px #5E7BD6, 2px 2px 2px rgba(227,239,24,0)',
+        fontSize: '14pt'
+    },
+    PlayBtn: {
+        position: 'absolute',
+        left: '50%',
+        top: '140%',
+        transform: 'translate(-50%, -50%)',
+        marginBottom: '10%',
+        color: 'white',
+        fontFamily: 'Bangers, cursive',
+        textShadow: '4px 3px 0px #5E7BD6, 2px 2px 2px rgba(227,239,24,0)',
+        fontSize: '14pt'
     }
 }));
 
@@ -31,7 +52,7 @@ function Home() {
     const [state, dispatch] = usePandemicContext();
 
     const classes = useStyles();
-    if(state.token === null) {
+    if (state.token === null) {
         return <Login />
     }
     else {
@@ -45,9 +66,9 @@ function Home() {
                         variant="contained"
                         color="primary"
                         aria-label="contained primary button group">
-                        <Button onClick={() => dispatch({ type: "SET_EASY_DIFFICULTY" })}>Easy</Button>
-                        <Button onClick={() => dispatch({ type: "SET_MEDIUM_DIFFICULTY" })}>Medium</Button>
-                        <Button onClick={() => dispatch({ type: "SET_HARD_DIFFICULTY" })}>Hard</Button>
+                        <Button className={classes.Buttons} onClick={() => dispatch({ type: "SET_EASY_DIFFICULTY" })}>Easy</Button>
+                        <Button className={classes.Buttons} onClick={() => dispatch({ type: "SET_MEDIUM_DIFFICULTY" })}>Medium</Button>
+                        <Button className={classes.Buttons} onClick={() => dispatch({ type: "SET_HARD_DIFFICULTY" })}>Hard</Button>
                     </ButtonGroup>
                     <Link to="/game">
                         <Button
@@ -55,18 +76,13 @@ function Home() {
                             fullWidth
                             variant="contained"
                             color="secondary"
-                            style={{
-                                position: 'absolute',
-                                left: '50%',
-                                top: '140%',
-                                transform: 'translate(-50%, -50%)',
-                                marginBottom: '10%',
-                            }}>PLAY</Button>
+                            className={classes.PlayBtn}>
+                            PLAY</Button>
                     </Link>
                 </Box>
             </Fragment >
         )
-    }    
+    }
 }
 
 export default Home;
