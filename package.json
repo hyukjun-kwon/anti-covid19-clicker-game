@@ -2,7 +2,7 @@
   "name": "anti-covid19-clicker-server",
   "version": "1.0.0",
   "description": "Anti-COVID19 Clicker Game Server",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "cross-env NODE_ENV=production node index.js",
