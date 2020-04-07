@@ -13,15 +13,16 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     Box: {
-        padding: theme.spacing(2),
-        textAlign: 'left',
-        width: 'auto',
-        padding: '3px',
-        marginTop: '15px',
+        padding: theme.spacing(1),
+        textAlign: 'center',
         color: 'white',
         fontWeight: 'bold',
         fontFamily: 'Bangers, cursive',
-        fontSize: '20pt',
+        fontSize: 25,
+    },
+    text: {
+        color: 'red',
+        fontFamily: 'Helvetica'
     }
 }));
 
@@ -45,19 +46,15 @@ function Main() {
 
     return (
         <div className={classes.root}>
-            <Grid container spacing={3}>
+            <Grid container spacing={1}>
                 <Grid item xs={6}>
-                    <Box className={classes.Box}>Infected: <span style={{ color: 'red', fontFamily: 'Helvetica' }}>{numAbb(state.status.infected)}</span></Box>
+                    <Box className={classes.Box}>
+                        <p>Infected: </p><span className={classes.text}>{numAbb(state.status.infected)}</span></Box>
                 </Grid>
                 <Grid item xs={6}>
-                    <Box className={classes.Box} >Deceased: <span style={{ color: 'red', fontFamily: 'Helvetica' }}>{numAbb(state.status.death)}</span></Box>
+                    <Box className={classes.Box}>
+                        <p>Deceased: </p><span className={classes.text}>{numAbb(state.status.death)}</span></Box>
                 </Grid>
-                {/* <Grid item xs={3}>
-                    <Box className={classes.Box} style={{ color: 'yellow' }}>Cured: {}</Box>
-                </Grid> */}
-                {/* <Grid item xs={4}>
-                    <Box className={classes.Box} >Funding: <span style={{ color: 'green' }}>{state.status.fund}</span></Box>
-                </Grid> */}
             </Grid>
             <Clicker />
         </div>

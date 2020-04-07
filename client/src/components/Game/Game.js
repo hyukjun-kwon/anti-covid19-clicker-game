@@ -43,11 +43,11 @@ function Game() {
         <br />
         <br />
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
         {/* <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <br />
         <br />
         <br />
