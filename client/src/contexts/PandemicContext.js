@@ -1,7 +1,6 @@
 import React, { createContext, useReducer, useContext } from "react";
 import {
   INITIAL_STATE,
-  EASY_DIFFICULTY,
   MEDIUM_DIFFICULTY,
   HARD_DIFFICULTY,
   CLICKER_EFFECTS_ARRAY,
@@ -150,7 +149,7 @@ const reducer = (state, action) => {
 
     case "PHARMACY_LEVEL_UP":
       let newPharmacyEffect = PHARMACY_EFFECTS_ARRAY[state.pharmacy.level];
-      let newPharmacyCost = PHARMACY_COSTS_ARRAY[state.pharmacy.level];
+      let newPharmacyCost = PHARMACY_COSTS_ARRAY[state.pharmacy.level+1];
       let newFundP = state.status.fund - state.pharmacy.cost;
 
       return {
@@ -170,7 +169,7 @@ const reducer = (state, action) => {
 
     case "LABORATORY_LEVEL_UP":
       let newLaboratoryEffect = LABORATORY_EFFECTS_ARRAY[state.laboratory.level];
-      let newLaboratoryCost = LABORATORY_COSTS_ARRAY[state.laboratory.level];
+      let newLaboratoryCost = LABORATORY_COSTS_ARRAY[state.laboratory.level+1];
       let newFundL = state.status.fund - state.laboratory.cost;
 
       return {
@@ -189,7 +188,7 @@ const reducer = (state, action) => {
       }
 
     case "HOSPITAL_LEVEL_UP":
-      let newHospitalCost = HOSPITAL_COSTS_ARRAY[state.hospital.level];
+      let newHospitalCost = HOSPITAL_COSTS_ARRAY[state.hospital.level+1];
       let newFundH = state.status.fund - state.hospital.cost;
 
       return {
@@ -210,7 +209,7 @@ const reducer = (state, action) => {
       }
 
     case "DRIVE_THRU_LEVEL_UP":
-      let newDrivethruCost = DRIVETHRU_COSTS_ARRAY[state.drivethru.level];
+      let newDrivethruCost = DRIVETHRU_COSTS_ARRAY[state.drivethru.level+1];
       let newFundD = state.status.fund - state.drivethru.cost;
 
       return {
