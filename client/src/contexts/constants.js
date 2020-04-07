@@ -47,6 +47,12 @@ const INITIAL_STATE = {
   }
 }
 
+const EASY_DIFFICULTY = {
+  infected: 5000,
+  death: 0,
+  fund: 500
+};
+
 const MEDIUM_DIFFICULTY = {
   infected: 25000,
   death: 0,
