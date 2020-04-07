@@ -4,17 +4,26 @@ import Container from '@material-ui/core/Container';
 
 import Upgrades from './Upgrades/Upgrades';
 import NavBar from './Navigation/NavBar';
+import Results from '../Results/Results';
 import Main from './Main/Main';
-
+import { usePandemicContext } from '../../contexts/PandemicContext';
 function Game() {
+    const [state, dispatch] = usePandemicContext();
 
+    if(state.isComplete) {
+        return (
+            <Fragment>
+                <Results />
+            </Fragment>
+        )
+    }
     return (
         <Fragment>
             <NavBar />
             <Container>
-                <Container>
+                {/* <Container> */}
                     <Main />
-                </Container>
+                {/* </Container> */}
                 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
                 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             </Container>

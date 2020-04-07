@@ -6,6 +6,7 @@ import { Box, Grid } from '@material-ui/core';
 import Clicker from './Clicker';
 
 import { usePandemicContext } from '../../../contexts/PandemicContext';
+import Results from '../../Results/Results';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -28,12 +29,12 @@ function Main() {
         dispatch({ type: "WIN" });
     }
 
-    if(state.status.infected >= 1000000000) {
+    if (state.status.infected >= 1000000000) { 
         dispatch({ type: "LOST" });
-      };
+    };
 
     useEffect(() => {
-        const timer = setInterval(() => dispatch({ type: "TICK" }), 3000);
+        const timer = setInterval(() => dispatch({ type: "TICK" }), 1000);
         console.log(state.status.infected)
         return () => clearTimeout(timer);
     });
@@ -42,7 +43,7 @@ function Main() {
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={4}>
-                    <Box className={classes.Box}>Infected: <span  style={{ color: 'orange' }}>{Math.ceil(state.status.infected)}</span></Box>
+                    <Box className={classes.Box}>Infected: <span style={{ color: 'orange' }}>{Math.ceil(state.status.infected)}</span></Box>
                 </Grid>
                 <Grid item xs={4}>
                     <Box className={classes.Box} >Deceased: <span style={{ color: 'red' }}>{Math.ceil(state.status.death)}</span></Box>

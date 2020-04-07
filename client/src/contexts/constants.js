@@ -1,24 +1,26 @@
 const INITIAL_STATE = {
+    token: null,
+    player: null,
     isComplete: false,
     won: false,
     difficulty: "easy",
     status: {
       infected: 5000,
       death: 0,
-      fund: 2500
+      fund: 500
     },
     // spreadRate is how fast infection grows per "tick"
     // deathRate is what fraction of infected people die per "tick"
     rates: {
-      spreadRate: 1.05,
-      deathRate: 0
+      spreadRate: 1.03,
+      deathRate: 0.01
     },
     // effect is number of cures per click
     // profit is how much "fund" it generates for each cure
     clicker: {
       level: 1,
       effect: 1,
-      profit: 2,
+      profit: 3,
       cost: 500
     },
     // effect is number of cures per tick
@@ -26,22 +28,22 @@ const INITIAL_STATE = {
     pharmacy: {
       level: 0,
       effect: 0,
-      profit: 5,
-      cost: 50000
+      profit: 0.5,
+      cost: 200
     },
     laboratory: {
       level: 0,
       effect: 0,
-      profit: 5,
-      cost: 150000
+      profit: 0.1,
+      cost: 5000
     },
     hospital: {
       level: 0,
-      cost: 500000
+      cost: 50000
     },
     drivethru: {
       level: 0,
-      cost: 500000
+      cost: 50000
     }
   }
   
@@ -62,32 +64,49 @@ const INITIAL_STATE = {
   //  ex) for level 5 clicker, CLICKER_EFFECTS_ARRAY[ 5 - 1 ] = 10 is the
   //      number of cures per click.
   const CLICKER_EFFECTS_ARRAY = [
-    1, 2, 3, 4, 10,                         // 1~5 levels
-    12, 14, 16, 18, 40,                     // 6~10 levels
-    45, 50, 55, 60, 100,                    // 11~15 levels
-    110, 120, 130, 140, 250,                // 16~20 levels
-    250, 300, 350, 400, 1000,               // 21~25 levels
-    1100, 1200, 1300, 1400, 3000,           // 26~30 levels
-    3300, 3600, 3900, 4200, 10000,          // 31-35 levels
-    11000, 12000, 13000, 14000, 50000,      // 36~40 levles
-    54000, 58000, 62000, 66000, 100000,     // 41~45 levels
-    110000, 120000, 130000, 140000, 300000, // 46~50 levles
-    330000, 360000, 390000, 420000, 800000  // 51~55(max) levels
+    NaN, 2, 3, 4, 10,                         // 1~5 levels
+    12, 14, 16, 18, 50,                     // 6~10 levels
+    55, 60, 65, 70, 200,                    // 11~15 levels
+    220, 240, 260, 280, 750,                // 16~20 levels
+    800, 850, 900, 950, 2000,               // 21~25 levels
+    2500, 3000, 3500, 4000, 10000, NaN           // 26~30 levels
   ];
   
-  const CLICKER_COSTS_ARRAY = [];
+  const CLICKER_COSTS_ARRAY = [
+    NaN, 500, 1000, 1500, 3000,
+    4000, 5000, 6000, 8000, 25000,
+    26000, 27000, 28000, 29000, 50000,
+    10000, 150000, 200000, 250000, 400000,
+    600000, 800000, 1000000, 1200000, 1800000,
+    4000000, 7000000, 10000000, 15000000, 30000000, NaN 
+  ];
   
-  const PHARMACY_EFFECTS_ARRAY = [];
+  const PHARMACY_EFFECTS_ARRAY = [
+    3, 5, 10, 15, 50,
+    70, 90, 150, 275, 500,
+    1000, 1500, 2250, 4000, 7000,
+    10000, 15000, 30000, 50000, 100000, NaN
+  ];
   
-  const PHARMACY_COSTS_ARRAY = [];
+  const PHARMACY_COSTS_ARRAY = [
+    200, 500, 800, 1000, 5000,
+    10000, 15000, 20000, 30000, 50000,
+    100000, 150000, 200000, 500000, 1000000,
+    1500000, 5000000, 10000000, 30000000, 50000000, NaN
+  ];
   
-  const LABORATORY_EFFECTS_ARRAY = [];
+  const LABORATORY_EFFECTS_ARRAY = [
+    50, 200, 500, 2000, 7000, 
+    30000, 100000, 300000, 800000, 2000000, NaN
+  ];
   
-  const LABORATORY_COSTS_ARRAY = [];
+  const LABORATORY_COSTS_ARRAY = [
+    5000, 20000, 50000, 200000, 500000,
+    2000000, 5000000, 20000000, 50000000, 200000000, NaN
+  ];
   
-  const HOSPITAL_COSTS_ARRAY = [];
-  
-  const DRIVE_THRU_COSTS_ARRAY = [];
+  const HOSPITAL_COSTS_ARRAY = [50000, 500000, 5000000]; // Levels 1~3  
+  const DRIVETHRU_COSTS_ARRAY = [50000, 200000, 500000, 1500000, 5000000]; // Levels 1~5
   
   module.exports = {
     INITIAL_STATE,
@@ -100,5 +119,5 @@ const INITIAL_STATE = {
     LABORATORY_EFFECTS_ARRAY,
     LABORATORY_COSTS_ARRAY,
     HOSPITAL_COSTS_ARRAY,
-    DRIVE_THRU_COSTS_ARRAY
+    DRIVETHRU_COSTS_ARRAY
   };

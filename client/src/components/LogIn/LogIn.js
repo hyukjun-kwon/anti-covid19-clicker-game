@@ -1,14 +1,15 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { usePandemicContext } from '../../contexts/PandemicContext';
 import Container from '@material-ui/core/Container';
+import RegisterModal from './RegisterModal';
 
 import API from '../../utils/API';
-import { PromiseProvider } from 'mongoose';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -33,30 +34,63 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function LogIn() {
+    const [state, dispatch] = usePandemicContext();
     const classes = useStyles();
-    const usernameRef = useRef();
-    const passwordRef = useRef();
+    // const usernameRef = useRef();
+    // const passwordRef = useRef();
 
     const teamName = "{ props.teamname }"
     const projectTitle = "UCLA BOOTCAMP JAN 2020"
     const teamMembers = "Adam Greenthal, James Dabalos, "
     const teamMembers2 = "Paul Kwon, Raymond Amparo"
+
+    const [username, setUsername] = useState()
+    const [password, setPassword] = useState()
+
+    // let authPlayer = {};
+    // const authenticated = ({ token, player }) => {
+    //     authPlayer = {
+    //         token: token,
+    //         player: {
+    //             id: player.id,
+    //             username: player.username,
+    //             easyscore: player.easyscore,
+    //             mediumscore: player.mediumscore,
+    //             hardscore: player.hardscore
+    //         }
+    //     }
+    // }
+
     const handleLogin = event => {
         event.preventDefault();
         API.login({
-            username: usernameRef.current.value,
-            easyscore: passwordRef.current.value,
-        }).catch(err => console.log(err))
+            // username: usernameRef.current.value,
+            // password: passwordRef.current.value,
+            username: username,
+            password: password
+        })
+            .then(response => {
+                dispatch({ 
+                    type: "USER_LOGIN",
+                    token: response.data.token,
+                    player: response.data.player
+                })
+            })
+            .catch(err => console.log(err))
     }
 
     const handleRegister = event => {
         event.preventDefault();
         API.register({
-
-            username: usernameRef.current.value,
-            easyscore: passwordRef.current.value,
-
-        }).catch(err => console.log(err))
+            // username: usernameRef.current.value,
+            // password: passwordRef.current.value,
+            username: username,
+            password: password
+        })
+            .then(response => {
+                console.log(response.data)
+            })
+            .catch(err => console.log(err))
     }
 
     return (
@@ -70,7 +104,8 @@ function LogIn() {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <TextField
-                                required ref={usernameRef}
+                                // ref={usernameRef}
+                                onChange={event => setUsername (event.target.value )}
                                 variant="outlined"
                                 required
                                 fullWidth
@@ -83,7 +118,8 @@ function LogIn() {
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                                required ref={passwordRef}
+                                // ref={passwordRef}
+                                onChange={event => setPassword ( event.target.value )}
                                 variant="outlined"
                                 required
                                 fullWidth
@@ -108,14 +144,7 @@ function LogIn() {
                             >Log In</Button>
                         </Grid>
                         <Grid item xs={6}>
-                            <Button
-                                onClick={handleRegister}
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                                className={classes.submit}
-                            >Register</Button>
+                            <RegisterModal />
                         </Grid>
                     </Grid>
                 </form>
