@@ -66,7 +66,8 @@ export default function LevelUpTab() {
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button disabled={state.status.fund < state.clicker.cost} onClick={() => {
+                            {/* Button disabled if clicker is max-level or insufficient fund */}
+                            <button disabled={(state.clicker.level === 30) || (state.status.fund < state.clicker.cost)} onClick={() => {
                                 dispatch({ type: "CLICKER_LEVEL_UP" });
                             }}
                             >
