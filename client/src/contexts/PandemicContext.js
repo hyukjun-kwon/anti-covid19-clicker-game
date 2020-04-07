@@ -1,6 +1,7 @@
 import React, { createContext, useReducer, useContext } from "react";
 import {
   INITIAL_STATE,
+  EASY_DIFFICULTY,
   MEDIUM_DIFFICULTY,
   HARD_DIFFICULTY,
   CLICKER_EFFECTS_ARRAY,
