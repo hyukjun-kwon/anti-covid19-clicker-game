@@ -201,7 +201,7 @@ const reducer = (state, action) => {
         },
         rates: {
           spreadRate: state.rates.spreadRate,
-          deathRate: state.rates.deathRate - 0.002
+          deathRate: state.rates.deathRate - 0.0003
         },
         hospital: {
           level: state.hospital.level + 1,
@@ -221,7 +221,7 @@ const reducer = (state, action) => {
           fund: newFundD
         },
         rates: {
-          spreadRate: state.rates.spreadRate - 0.004,
+          spreadRate: state.rates.spreadRate - 0.003,
           deathRate: state.rates.deathRate
         },
         drivethru: {
