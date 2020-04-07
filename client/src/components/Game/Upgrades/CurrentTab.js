@@ -34,7 +34,7 @@ const styles = {
     overflowY: 'auto',
 }
 
-export default function FacilityUpgrades() {
+export default function CurrentTab() {
     const classes = avatarStyles();
     const [state, dispatch] = usePandemicContext();
 
@@ -53,7 +53,7 @@ export default function FacilityUpgrades() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <Avatar className={classes.orange}>C</Avatar>
-                            <Progress upgrade={clickerLevel} description={state.clicker.cost}/>
+                            <Progress upgrade={clickerLevel} description={state.clicker.effect}/>
                         </div>
                     </Paper>
                 </Grid>
@@ -62,7 +62,7 @@ export default function FacilityUpgrades() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <Avatar className={classes.orange}>P</Avatar>
-                            <Progress upgrade={pharmacyLevel} description={state.pharmacy.cost}/>
+                            <Progress upgrade={pharmacyLevel} description={state.pharmacy.effect}/>
                         </div>
                     </Paper>
                 </Grid>
@@ -80,7 +80,7 @@ export default function FacilityUpgrades() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <Avatar className={classes.orange}>H</Avatar>
-                            <Progress upgrade={(state.hospital.level + 1) < 3 ? hospitalLevel : "Maxed" } description={state.hospital.cost}/>
+                            <Progress upgrade={(state.hospital.level + 1) < 3 ? hospitalLevel : "Maxed" } />
                         </div>
                     </Paper>
                 </Grid>
@@ -89,7 +89,7 @@ export default function FacilityUpgrades() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <Avatar className={classes.orange}>DT</Avatar>
-                            <Progress upgrade={(state.drivethru.level + 1) < 3 ? driveThruLevel : "Maxed" } description={state.drivethru.cost}/>
+                            <Progress upgrade={(state.drivethru.level + 1) < 3 ? driveThruLevel : "Maxed" } />
                         </div>
                     </Paper>
                 </Grid>

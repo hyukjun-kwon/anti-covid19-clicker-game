@@ -34,7 +34,7 @@ const styles = {
     overflowY: 'auto',
 }
 
-export default function ClickerUpgrades() {
+export default function LevelUpTab() {
     const classes = avatarStyles();
     const [state, dispatch] = usePandemicContext();
     const [clickerDisabled, setClickerDisabaled] = useState(false)
@@ -43,13 +43,8 @@ export default function ClickerUpgrades() {
     const [hospitalDisabled, setHospitalDisabaled] = useState(true)
     const [driveThruDisabled, setDriveThruDisabaled] = useState(true)
 
-    console.log(state.status.fund, '=====funding====')
-    console.log(state.clicker.cost, '=====clicker cost====')
-    console.log(state.clicker.effect, '=====clicker effect====')
-    console.log(state.pharmacy.cost, '=====pharm cost====')
-    console.log(state.pharmacy.effect, '=====pharm effect====')
     const clickerUpgrade = () => {
-
+        
     }
     const pharmacyUpgrade = () => {
 
@@ -70,11 +65,8 @@ export default function ClickerUpgrades() {
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button disabled={clickerDisabled} onClick={() => {
+                            <button disabled={state.status.fund < state.clicker.cost} onClick={() => {
                                 dispatch({ type: "CLICKER_LEVEL_UP" });
-                                // if (state.status.fund < state.clicker.cost) {
-                                //     setClickerDisabaled(true)
-                                // }
                             }}
                             >
                                 <Avatar className={classes.orange}>C</Avatar></button>
