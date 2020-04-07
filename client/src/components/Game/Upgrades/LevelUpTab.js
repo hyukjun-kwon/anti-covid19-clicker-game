@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { deepOrange, deepPurple } from '@material-ui/core/colors';
+import { red, green } from '@material-ui/core/colors';
 
 import { usePandemicContext } from '../../../contexts/PandemicContext';
 import numAbb from '../../../utils/numberAbbreviate'
@@ -16,13 +16,13 @@ const avatarStyles = makeStyles((theme) => ({
             margin: theme.spacing(1),
         },
     },
-    orange: {
-        color: theme.palette.getContrastText(deepOrange[500]),
-        backgroundColor: deepOrange[500],
+    green: {
+        color: theme.palette.getContrastText(green[500]),
+        backgroundColor: green[500],
     },
-    purple: {
-        color: theme.palette.getContrastText(deepPurple[500]),
-        backgroundColor: deepPurple[500],
+    red: {
+        color: theme.palette.getContrastText(red[500]),
+        backgroundColor: red[500],
     },
 }));
 
@@ -44,6 +44,7 @@ export default function LevelUpTab() {
     const [hospitalDisabled, setHospitalDisabaled] = useState(true)
     const [driveThruDisabled, setDriveThruDisabaled] = useState(true)
 
+    
     const clickerUpgrade = () => {
 
     }
@@ -66,12 +67,11 @@ export default function LevelUpTab() {
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            {/* Button disabled if clicker is max-level or insufficient fund */}
-                            <button disabled={(state.clicker.level === 30) || (state.status.fund < state.clicker.cost)} onClick={() => {
+                                <button disabled={(state.clicker.level === 30) || (state.status.fund < state.clicker.cost)} onClick={() => {
                                 dispatch({ type: "CLICKER_LEVEL_UP" });
                             }}
                             >
-                                <Avatar className={classes.orange}>C</Avatar></button>
+                                {((state.clicker.level === 30) || (state.status.fund < state.clicker.cost)) ? <Avatar className={classes.red}>C</Avatar> : <Avatar className={classes.green}>C</Avatar>}</button>
                             <p>Increase the number of cures. Cost: ${numAbb(state.clicker.cost)}</p>
                         </div>
                     </Paper>
@@ -84,7 +84,7 @@ export default function LevelUpTab() {
                                 dispatch({ type: "PHARMACY_LEVEL_UP" });
                             }}
                             >
-                                <Avatar className={classes.orange}>P</Avatar></button>
+                               {(state.pharmacy.level === 20) || (state.status.fund < state.pharmacy.cost) ? <Avatar className={classes.red}>P</Avatar> : <Avatar className={classes.green}>P</Avatar> }</button>
                             <p>Increase the number of cures. Cost: ${numAbb(state.pharmacy.cost)}</p>
                         </div>
                     </Paper>
@@ -93,7 +93,11 @@ export default function LevelUpTab() {
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button disabled={(state.laboratory.level === 10) || (state.status.fund < state.laboratory.cost)}><Avatar className={classes.orange}>L</Avatar></button>
+                            <button disabled={(state.laboratory.level === 10) || (state.status.fund < state.laboratory.cost)} onClick={() => {
+                                dispatch({ type: "LABORATORY_LEVEL_UP" });
+                            }}
+                            >
+                                {(state.laboratory.level === 10) || (state.status.fund < state.laboratory.cost) ? <Avatar className={classes.red}>L</Avatar> : <Avatar className={classes.green}>L</Avatar> }</button>
                             <p>Increase the number of cures. Cost: ${numAbb(state.laboratory.cost)}</p>
                         </div>
                     </Paper>
@@ -102,7 +106,10 @@ export default function LevelUpTab() {
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button disabled={(state.hospital.level === 3) || (state.status.fund < state.hospital.cost)}><Avatar className={classes.orange}>H</Avatar></button>
+                            <button disabled={(state.hospital.level === 3) || (state.status.fund < state.hospital.cost)} onClick={() => {
+                                dispatch({ type: "HOSPITAL_LEVEL_UP" });
+                            }}>
+                                {(state.hospital.level === 3) || (state.status.fund < state.hospital.cost) ? <Avatar className={classes.red}>H</Avatar> : <Avatar className={classes.green}>H</Avatar>}</button>
                             <p>Decrease the rate of people dying. Cost: ${numAbb(state.hospital.cost)}</p>
                         </div>
                     </Paper>
@@ -111,7 +118,10 @@ export default function LevelUpTab() {
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button disabled={(state.drivethru.level === 5) || (state.status.fund < state.drivethru.cost)}><Avatar className={classes.orange}>D</Avatar></button>
+                            <button disabled={(state.drivethru.level === 5) || (state.status.fund < state.drivethru.cost)} onClick={() => {
+                                dispatch({ type: "DRIVE_THRU_LEVEL_UP" });
+                            }}>
+                               {(state.drivethru.level === 5) || (state.status.fund < state.drivethru.cost) ? <Avatar className={classes.red}>D</Avatar> : <Avatar className={classes.green}>D</Avatar>}</button>
                             <p>Decrease the rate of infection. Cost: ${numAbb(state.drivethru.cost)}</p>
                         </div>
                     </Paper>

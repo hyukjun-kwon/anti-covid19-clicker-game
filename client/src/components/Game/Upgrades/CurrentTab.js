@@ -99,7 +99,6 @@ export default function CurrentTab() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <Avatar className={classes.orange}>H</Avatar>
-                            {/* <Progress level={(state.hospital.level + 1) < 3 ? hospitalLevel : "Maxed" } /> */}
                             <Progress  description={hospital}/>
                         </div>
                     </Paper>
@@ -109,13 +108,11 @@ export default function CurrentTab() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <Avatar className={classes.orange}>DT</Avatar>
-                            {/* <Progress level={(state.drivethru.level + 1) < 5 ? driveThruLevel : "Maxed" } /> */}
                             <Progress description={driveThru} />
                         </div>
                     </Paper>
                 </Grid>
             </Paper>
         </Fragment>
-
     )
 }
