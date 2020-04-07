@@ -27,7 +27,11 @@ const reducer = (state, action) => {
         player: action.player
       }
     case "SET_EASY_DIFFICULTY":
-      return INITIAL_STATE
+      return {
+        ...state,
+        difficulty: "easy",
+        status: EASY_DIFFICULTY
+      };
     case "SET_MEDIUM_DIFFICULTY":
       return {
         ...state,
