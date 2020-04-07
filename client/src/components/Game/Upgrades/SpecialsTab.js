@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import { deepOrange, deepPurple } from '@material-ui/core/colors';
 
 import { usePandemicContext } from '../../../contexts/PandemicContext';
+import numAbb from '../../../utils/numberAbbreviate'
 
 const avatarStyles = makeStyles((theme) => ({
     root: {

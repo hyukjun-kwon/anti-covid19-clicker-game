@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import { deepOrange, deepPurple } from '@material-ui/core/colors';
 
 import { usePandemicContext } from '../../../contexts/PandemicContext';
+import numAbb from '../../../utils/numberAbbreviate'
 
 const avatarStyles = makeStyles((theme) => ({
     root: {
@@ -70,7 +71,7 @@ export default function LevelUpTab() {
                             }}
                             >
                                 <Avatar className={classes.orange}>C</Avatar></button>
-                            <p>Increase the number of cures. Cost: ${state.clicker.cost}</p>
+                            <p>Increase the number of cures. Cost: ${numAbb(state.clicker.cost)}</p>
                         </div>
                     </Paper>
                 </Grid>
@@ -83,7 +84,7 @@ export default function LevelUpTab() {
                             }}
                             >
                                 <Avatar className={classes.orange}>P</Avatar></button>
-                            <p>Increase the number of cures. Cost: ${state.pharmacy.cost}</p>
+                            <p>Increase the number of cures. Cost: ${numAbb(state.pharmacy.cost)}</p>
                         </div>
                     </Paper>
                 </Grid>
@@ -92,7 +93,7 @@ export default function LevelUpTab() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <button disabled={laboratoryDisabled}><Avatar className={classes.orange}>L</Avatar></button>
-                            <p>Increase the number of cures. Cost: ${state.laboratory.cost}</p>
+                            <p>Increase the number of cures. Cost: ${numAbb(state.laboratory.cost)}</p>
                         </div>
                     </Paper>
                 </Grid>
@@ -101,7 +102,7 @@ export default function LevelUpTab() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <button disabled={hospitalDisabled}><Avatar className={classes.orange}>H</Avatar></button>
-                            <p>Decrease the rate of people dying. Cost: ${state.hospital.cost}</p>
+                            <p>Decrease the rate of people dying. Cost: ${numAbb(state.hospital.cost)}</p>
                         </div>
                     </Paper>
                 </Grid>
@@ -110,7 +111,7 @@ export default function LevelUpTab() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <button disabled={driveThruDisabled}><Avatar className={classes.orange}>D</Avatar></button>
-                            <p>Decrease the rate of infection. Cost: ${state.drivethru.cost}</p>
+                            <p>Decrease the rate of infection. Cost: ${numAbb(state.drivethru.cost)}</p>
                         </div>
                     </Paper>
                 </Grid>

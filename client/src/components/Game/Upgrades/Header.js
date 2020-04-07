@@ -6,6 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
 import { usePandemicContext } from '../../../contexts/PandemicContext';
+import numAbb from '../../../utils/numberAbbreviate'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,7 +28,7 @@ export default function Header() {
           <Typography variant="h6" className={classes.title}>
             Upgrades
           </Typography>
-          <p color="inherit">${state.status.fund}</p>
+          <p color="inherit">${numAbb(state.status.fund)}</p>
         </Toolbar>
       </AppBar>
     </div>
