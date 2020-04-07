@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     ClickerBtn: {
         position: 'absolute',
         left: '49.7%',
-        top: '45%',
+        top: '30%',
         transform: 'translate(-50%, -50%)'
     }
 }));

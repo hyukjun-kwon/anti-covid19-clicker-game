@@ -14,7 +14,7 @@ import LevelUpTab from './LevelUpTab';
 import SpecialsTab from './SpecialsTab';
 
 const styles = {
-  height: '200px'
+  height: '355px'
 }
 
 function TabPanel(props) {

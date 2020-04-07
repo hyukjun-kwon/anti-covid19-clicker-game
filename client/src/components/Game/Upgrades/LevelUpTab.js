@@ -31,7 +31,7 @@ const style = {
 }
 
 const styles = {
-    height: '150px',
+    height: 300,
     overflowY: 'auto',
 }
 
