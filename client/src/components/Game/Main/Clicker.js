@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
-import ClickBtn from '../../../Images/clicker.png';
-
 import { usePandemicContext } from '../../../contexts/PandemicContext';
 
 const useStyles = makeStyles((theme) => ({
@@ -27,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     ClickerBtn: {
         position: 'absolute',
         left: '49.7%',
-        top: '25%',
+        top: '28%',
         transform: 'translate(-50%, -50%)'
     },
 }));
@@ -43,8 +41,7 @@ function Clicker() {
 
     return (
         <Button disabled={isButtonDisabled} className={classes.ClickerBtn} onClick={() => {dispatch({ type: "CLICK" }); clickHandler()}}>
-            {/* <img className={classes.Clicker} src={ClickBtn} alt='clickerbtn'></img> */}
-            {isButtonDisabled ? <i className="fas fa-syringe" style={{fontSize:100, color:"grey"}}></i> : <i className="fas fa-syringe" style={{fontSize:100, color:"red"}}></i>}
+            {isButtonDisabled ? <i className="fas fa-syringe" style={{fontSize:100, color:"red"}}></i> : <i className="fas fa-syringe" style={{fontSize:100, color:"green"}}></i>}
         </Button>
     )
 }

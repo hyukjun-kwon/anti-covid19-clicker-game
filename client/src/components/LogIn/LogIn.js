@@ -54,8 +54,6 @@ const useStyles = makeStyles((theme) => ({
 function LogIn() {
     const [state, dispatch] = usePandemicContext();
     const classes = useStyles();
-    // const usernameRef = useRef();
-    // const passwordRef = useRef();
 
     const teamName = "{ props.teamname }"
     const projectTitle = "UCLA BOOTCAMP JAN 2020"
@@ -65,25 +63,9 @@ function LogIn() {
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
 
-    // let authPlayer = {};
-    // const authenticated = ({ token, player }) => {
-    //     authPlayer = {
-    //         token: token,
-    //         player: {
-    //             id: player.id,
-    //             username: player.username,
-    //             easyscore: player.easyscore,
-    //             mediumscore: player.mediumscore,
-    //             hardscore: player.hardscore
-    //         }
-    //     }
-    // }
-
     const handleLogin = event => {
         event.preventDefault();
         API.login({
-            // username: usernameRef.current.value,
-            // password: passwordRef.current.value,
             username: username,
             password: password
         })
@@ -100,8 +82,6 @@ function LogIn() {
     const handleRegister = event => {
         event.preventDefault();
         API.register({
-            // username: usernameRef.current.value,
-            // password: passwordRef.current.value,
             username: username,
             password: password
         })
@@ -122,7 +102,6 @@ function LogIn() {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <TextField
-                                // ref={usernameRef}
                                 onChange={event => setUsername(event.target.value)}
                                 variant="outlined"
                                 required
@@ -136,7 +115,6 @@ function LogIn() {
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                                // ref={passwordRef}
                                 onChange={event => setPassword(event.target.value)}
                                 variant="outlined"
                                 required
