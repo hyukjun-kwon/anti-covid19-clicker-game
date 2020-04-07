@@ -28,6 +28,7 @@ npm start
 ```
 
 Your app should now be running on <http://localhost:3000>.
+#
 
 ## Game Rule
 
@@ -43,8 +44,35 @@ You can spend your money to:
 
   4. unlock some special upgrades that will be available when your clicker / facilities reach certain levels.
 
+### Winning condition: 
+* Cure all infected people
+### Losing condition: 
+* Number of Infected reaches 1 biilion
+* death reaches 7.8 billion
+
+#
+
 ## List of Facilities
 
-1. Pharmacy - 
+1. Pharmacy: Cures some amount of people every 5 seconds, and generate profit ($5 per cure)
 
-Cure all people to win the game.
+2. Laboratory: Cures some amount of people every 10 seconds, and generate profit ($3 per cure)
+
+3. Hospital: Reduces the death rate (death from infection)
+
+4. Drive-thru: Reduces the infection spread rate
+
+#
+
+## Upgrades
+### Level-ups:
+
+* When you level up your clicker, pharmacy, or laboratory, the number of cures per click or per cooldowns will increase
+
+* When you level up your hospital (up to 3 levels), 
+
+### Special Upgrades:
+
+* Every few levels of Clicker, Pharmacy, and Laboratory, you will be able to unlock some special upgrades, that will boost your cure rate greatly.
+
+
