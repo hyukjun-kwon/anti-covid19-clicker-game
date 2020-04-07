@@ -27,9 +27,9 @@ const useStyles = makeStyles((theme) => ({
     ClickerBtn: {
         position: 'absolute',
         left: '49.7%',
-        top: '30%',
+        top: '25%',
         transform: 'translate(-50%, -50%)'
-    }
+    },
 }));
 
 function Clicker() {
@@ -43,7 +43,8 @@ function Clicker() {
 
     return (
         <Button disabled={isButtonDisabled} className={classes.ClickerBtn} onClick={() => {dispatch({ type: "CLICK" }); clickHandler()}}>
-            <img className={classes.Clicker} src={ClickBtn} alt='clickerbtn'></img>
+            {/* <img className={classes.Clicker} src={ClickBtn} alt='clickerbtn'></img> */}
+            {isButtonDisabled ? <i className="fas fa-syringe" style={{fontSize:100, color:"grey"}}></i> : <i className="fas fa-syringe" style={{fontSize:100, color:"red"}}></i>}
         </Button>
     )
 }
