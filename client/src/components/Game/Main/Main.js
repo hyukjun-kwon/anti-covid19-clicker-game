@@ -43,7 +43,7 @@ function Main() {
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={6}>
-                    <Box className={classes.Box}>Infected: <span style={{ color: 'orange' }}>{numAbb(state.status.infected)}</span></Box>
+                    <Box className={classes.Box}>Infected: <span style={{ color: 'red' }}>{numAbb(state.status.infected)}</span></Box>
                 </Grid>
                 <Grid item xs={6}>
                     <Box className={classes.Box} >Deceased: <span style={{ color: 'red' }}>{numAbb(state.status.death)}</span></Box>
