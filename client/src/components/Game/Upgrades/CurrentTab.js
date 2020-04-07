@@ -41,18 +41,18 @@ export default function CurrentTab() {
 
     let clicker= {
         level:`Clicker Level: ${state.clicker.level}`,
-        effect: `Cure ${state.clicker.effect} every click | CD: 3 sec`,
-        profit: `Earn $${numAbb(state.clicker.profit)} every cure`
+        effect: `Cure ${numAbb(state.clicker.effect)} on click`,
+        profit: `Earn $${state.clicker.profit} every cure`
     }
     let pharmacy= {
         level:`Pharmacy Level: ${state.pharmacy.level}`,
-        effect: `Cure ${state.pharmacy.effect} every 5 sec`,
-        profit: `Earn $${numAbb(state.pharmacy.profit)} every cure`
+        effect: `Cure ${numAbb(state.pharmacy.effect)} every 5 sec`,
+        profit: `Earn $${state.pharmacy.profit} every cure`
     }
     let laboratory= {
         level:`Laboratory Level: ${state.laboratory.level}`,
-        effect: `Cure ${state.laboratory.effect} every 10 sec`,
-        profit: `Earn $${numAbb(state.laboratory.profit)} every cure`
+        effect: `Cure ${numAbb(state.laboratory.effect)} every 10 sec`,
+        profit: `Earn $${state.laboratory.profit} every cure`
     }
     let hospital= {
         level:`Hospital Level: ${state.hospital.level}`,
