@@ -6,6 +6,8 @@ import Fade from '@material-ui/core/Fade';
 
 import MenuItem from '@material-ui/core/MenuItem';
 
+import { usePandemicContext } from '../../../contexts/PandemicContext';
+
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
@@ -21,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ProfileModal() {
+  const [state, dispatch] = usePandemicContext();
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -52,13 +55,12 @@ function ProfileModal() {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Username: </h2>
+            <h2 id="transition-modal-title">Username: {state.player.username}</h2>
             <p id="transition-modal-description">Here are your stats from previous games.</p> <hr/> 
-            <p>High scores: </p>
             <ul>
-              <li>Easy: </li>
-              <li>Medium: </li>
-              <li>Hard: </li>
+              <li>Easy: {state.player.easyscore ? state.player.easyscore : "Never attempted"}</li>
+              <li>Medium: {state.player.mediumscore ? state.player.mediumscore : "Never attempted"}</li>
+              <li>Hard: {state.player.hardscore ? state.player.hardscore : "Never attempted"}</li>
             </ul>
           </div>
         </Fade>
