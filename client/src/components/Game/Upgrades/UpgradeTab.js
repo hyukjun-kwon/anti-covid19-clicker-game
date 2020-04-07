@@ -64,6 +64,11 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
   },
+  tabs: {
+    fontFamily: 'Bangers, cursive',
+    letterSpacing: '3px',
+    fontSize: '14pt'
+  }
 }));
 
 
@@ -84,10 +89,11 @@ export default function UpgradeTab() {
           value={value}
           onChange={handleChange}
           aria-label="nav tabs example"
+
         >
-          <LinkTab label="Current" href="/drafts" {...a11yProps(0)} />
-          <LinkTab label="Level-Ups" href="/trash" {...a11yProps(1)} />
-          <LinkTab label="Specials" href="/spam" {...a11yProps(2)} />
+          <LinkTab className={classes.tabs} label="Current" href="/drafts" {...a11yProps(0)} />
+          <LinkTab className={classes.tabs} label="Level-Ups" href="/trash" {...a11yProps(1)} />
+          <LinkTab className={classes.tabs} label="Specials" href="/spam" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <TabPanel style={styles} value={value} index={0}>

@@ -14,7 +14,13 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    fontFamily: 'Bangers, cursive',
   },
+  money: {
+    letterSpacing: '5px',
+    fontFamily: 'Bangers, cursive',
+    fontSize: '16pt'
+  }
 }));
 
 export default function Header() {
@@ -28,7 +34,7 @@ export default function Header() {
           <Typography variant="h6" className={classes.title}>
             Upgrades
           </Typography>
-          <p color="inherit">${numAbb(state.status.fund)}</p>
+          <p color="inherit" className={classes.money}>${numAbb(state.status.fund)}</p>
         </Toolbar>
       </AppBar>
     </div>

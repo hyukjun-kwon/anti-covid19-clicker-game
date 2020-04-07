@@ -31,13 +31,15 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(10),
         color: 'white',
         fontFamily: 'Bangers, cursive',
-        textShadow: '4px 3px 0px #5E7BD6, 2px 2px 2px rgba(227,239,24,0)'
+        textShadow: '4px 3px 0px #5E7BD6, 2px 2px 2px rgba(227,239,24,0)',
+        letterSpacing: '3px'
     },
     spacing: {
         marginTop: theme.spacing(-2),
         color: 'white',
         fontFamily: 'Bangers, cursive',
-        textShadow: '4px 3px 0px #5E7BD6, 2px 2px 2px rgba(227,239,24,0)'
+        textShadow: '4px 3px 0px #5E7BD6, 2px 2px 2px rgba(227,239,24,0)',
+        letterSpacing: '3px'
     },
     title: {
         color: 'white',
@@ -45,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
         fontFamily: 'Bangers, cursive',
         fontSize: '40pt',
         textShadow: '4px 3px 0px #5E7BD6, 2px 2px 2px rgba(227,239,24,0)',
+        letterSpacing: '5px'
     }
 }));
 
@@ -159,7 +162,7 @@ function LogIn() {
                             >Log In</Button>
                         </Grid>
                         <Grid item xs={6}>
-                            <RegisterModal />
+                            <RegisterModal className={classes.submit} />
                         </Grid>
                     </Grid>
                 </form>
