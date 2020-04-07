@@ -29,6 +29,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // Routes
 app.use('/auth', require("./routes/auth-api"));
+app.use('/player', require("./routes/player-api"));
 
 app.listen(PORT, () => {
   console.log(`Server Running at ${PORT}`);

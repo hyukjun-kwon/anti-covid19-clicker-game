@@ -1,14 +1,16 @@
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.SECRET;
 const {
+  BAD_REQUEST,
   UNAUTHORIZED
 } = require("./responseStatus");
 
 module.exports = (req, res, next) => {
-  // Get token from header
-  const token = req.header('x-auth-token');
+  console.log(req.body);
 
-  // Check for token
+  const token = req.body.token;
+
+  // // Check for token
   if (!token)
     return res.status(UNAUTHORIZED).json({ 
       msg: 'Access Denied - Token not found' 
@@ -25,4 +27,5 @@ module.exports = (req, res, next) => {
   } catch (err) {
     res.status(BAD_REQUEST).json({ msg: 'Unverified Token' });
   }
+  next();
 };
