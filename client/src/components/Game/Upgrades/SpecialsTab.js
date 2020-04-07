@@ -34,7 +34,7 @@ const styles = {
     overflowY: 'auto',
 }
 
-export default function SpecialsUpgrades() {
+export default function SpecialsTab() {
     const classes = avatarStyles();
     const [state, dispatch] = usePandemicContext();
 

@@ -41,6 +41,16 @@ const reducer = (state, action) => {
         status: HARD_DIFFICULTY
       };
 
+    case "CLICK":
+      return {
+        ...state,
+        status: {
+          infected: state.status.infected - state.clicker.effect,
+          death: state.status.death,
+          fund: state.status.fund + (state.clicker.effect * state.clicker.profit)
+        }
+      }
+
     // Summary:
     // Every 15 ticks: DEATH
     // Every 10 ticks: LABORATORY
@@ -104,17 +114,6 @@ const reducer = (state, action) => {
         }
       };
 
-    // Each "click" reduces status.infected by clicker.effect
-    //  & adds to status.fund by (clicker.effect * clicker.profit)
-    case "CLICK":
-      return {
-        ...state,
-        status: {
-          infected: state.status.infected - state.clicker.effect,
-          death: state.status.death,
-          fund: state.status.fund + (state.clicker.effect * state.clicker.profit)
-        }
-      };
     // When clicker levels, it should increment clicker level,
     //  & update the clicker.effect accordingly
     case "CLICKER_LEVEL_UP":
@@ -127,13 +126,14 @@ const reducer = (state, action) => {
 
       let newClickerEffect = CLICKER_EFFECTS_ARRAY[state.clicker.level];
       let newClickerCost = CLICKER_COSTS_ARRAY[state.clicker.level];
+      let newFundC = state.status.fund - state.clicker.cost;
 
       return {
         ...state,
         status: {
           infected: state.status.infected,
           death: state.status.death,
-          fund: state.status.fund - state.clicker.cost
+          fund: newFundC
         },
         clicker: {
           level: state.clicker.level + 1,
@@ -146,13 +146,14 @@ const reducer = (state, action) => {
     case "PHARMACY_LEVEL_UP":
       let newPharmacyEffect = PHARMACY_EFFECTS_ARRAY[state.pharmacy.level];
       let newPharmacyCost = PHARMACY_COSTS_ARRAY[state.pharmacy.level];
+      let newFundP = state.status.fund - state.pharmacy.cost;
 
       return {
         ...state,
         status: {
           infected: state.status.infected,
           death: state.status.death,
-          fund: state.status.fund - state.pharmacy.cost
+          fund: newFundP
         },
         pharmacy: {
           level: state.pharmacy.level + 1,
@@ -165,13 +166,14 @@ const reducer = (state, action) => {
     case "LABORATORY_LEVEL_UP":
       let newLaboratoryEffect = LABORATORY_EFFECTS_ARRAY[state.laboratory.level];
       let newLaboratoryCost = LABORATORY_COSTS_ARRAY[state.laboratory.level];
+      let newFundL = state.status.fund - state.laboratory.cost;
 
       return {
         ...state,
         status: {
           infected: state.status.infected,
           death: state.status.death,
-          fund: state.status.fund - state.laboratory.cost
+          fund: newFundL
         },
         laboratory: {
           level: state.laboratory.level + 1,
@@ -183,13 +185,14 @@ const reducer = (state, action) => {
 
     case "HOSPITAL_LEVEL_UP":
       let newHospitalCost = HOSPITAL_COSTS_ARRAY[state.hospital.level];
+      let newFundH = state.status.fund - state.hospital.cost;
 
       return {
         ...state,
         status: {
           infected: state.status.infected,
           death: state.status.death,
-          fund: state.status.fund - state.hospital.cost
+          fund: newFundH
         },
         rates: {
           spreadRate: state.rates.spreadRate,
@@ -203,13 +206,14 @@ const reducer = (state, action) => {
 
     case "DRIVE_THRU_LEVEL_UP":
       let newDrivethruCost = DRIVETHRU_COSTS_ARRAY[state.drivethru.level];
+      let newFundD = state.status.fund - state.drivethru.cost;
 
       return {
         ...state,
         status: {
           infected: state.status.infected,
           death: state.status.death,
-          fund: state.status.fund - state.drivethru.cost
+          fund: newFundD
         },
         rates: {
           spreadRate: state.rates.spreadRate - 0.004,

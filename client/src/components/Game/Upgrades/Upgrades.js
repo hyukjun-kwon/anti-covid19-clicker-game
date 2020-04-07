@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react';
-import NavBottom from './NavBottom';
+import UpgradeTab from './UpgradeTab';
+import Header from './Header';
 
 function Upgrades() {
     return (
         <Fragment>
-            <NavBottom />
+            <Header />
+            <UpgradeTab />
         </Fragment>
     )
 }
