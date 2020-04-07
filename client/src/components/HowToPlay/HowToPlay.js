@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
-        height: '300px',
+        height: '550px',
         overflow: 'auto'
 
     },
@@ -68,22 +68,25 @@ export default function HowToPlay() {
             >
                 <Fade in={open}>
                     <div className={classes.paper}>
-                        <h1 id="transition-modal-title">How To Play Anti-COVID19</h1>
+                        <h2 id="transition-modal-title">How To Play Anti-COVID19</h2>
                         <hr />
-                        <h2 id="transition-modal-title">Game Conditions:</h2>
-                        <p id="transition-modal-description">Cure all infected people to win. If the number of infected reaches 1 billion, you lose!</p>
+                        <h3 id="transition-modal-title">Back Story:</h3>
+                        <p id="transition-modal-description">In late 2019, the human race was faced with an unseen foe that is COVID-19, causing a widespread of peolpe lining up in grocery stores to snag the last rolls of toilet paper. Now in the late first quarter of 2020, the virus has forced people to lock themselves indoors as toilet paper rations begin to run low. It is up to you to stop this menacing invisible foe and get these civilized people back to their toilet paper!</p>
                         <hr />
-                        <h1 id="transition-modal-title">Upgrades</h1>
+                        <h3 id="transition-modal-title">Game Conditions:</h3>
+                        <p id="transition-modal-description">Every click will cure one infected and will return a sum of cash that can be used on Upgrades. To win, you must strategically use your allowance of cash on upgrades, which all have their own unique perks to help destory COVID-19 once and for all. Once all infected people are cured, we can all go back out to grab more toilet paper worry-free. But if the number of infected reaches 1 billion, you lose!</p>
                         <hr />
-                        <h2 id="transition-modal-title">Clicker:</h2>
+                        <h3 id="transition-modal-title">Clicker:</h3>
                         <p id="transition-modal-description">Each click of the clicker will cure a certain amount of infected and send funds to you in return.</p>
                         <hr />
-                        <h2 id="transition-modal-title">Facilities:</h2>
+                        <h3 id="transition-modal-title">Facilities:</h3>
                         <p id="transition-modal-description">Each facility has its own unique perks to fight off the virus. Each with the ability to upgrade to higher levels to better fight off the virus.</p>
-                        <p id="transition-modal-description"><span style={facilities}>Pharmacy:</span> The Pharmacy will grant 50 vaccines reducing the number of infected every 30 seconds.</p>
-                        <p id="transition-modal-description"><span style={facilities}>Laboratory:</span> The Lab will grant 500 vaccines every 3 minutes.</p>
-                        <p id="transition-modal-description"><span style={facilities}>Clinic:</span> The Clinic will reduce the deaths from the virus.</p>
+                        <p id="transition-modal-description"><span style={facilities}>Pharmacy:</span> The Pharmacy will cure a certain amount of infected eveyr 5 seconds.</p>
+                        <p id="transition-modal-description"><span style={facilities}>Laboratory:</span> The Lab will cure a certaom amount of infected every 10 seconds.</p>
+                        <p id="transition-modal-description"><span style={facilities}>Hospital:</span> The Hospital will reduce the deaths from the virus.</p>
                         <p id="transition-modal-description"><span style={facilities}>Drive-Thru Testing:</span> Drive-Thru Testing will reduce the rate of spread of the virus.</p>
+                        <hr />
+                        <h2 id="transition-modal-title">Upgrades</h2>
 
                     </div>
                 </Fade>
