@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
         width: 'auto'
     },
     Clicker: {
-        height: '200px',
+        height: '150px',
         width: 'auto',
         borderRadius: '50%'
     },
