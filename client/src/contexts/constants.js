@@ -21,7 +21,10 @@ const INITIAL_STATE = {
     level: 1,
     effect: 1,
     profit: 10,
-    cost: 500
+    cost: 500,
+    special1: false,
+    special2: false,
+    special3: false
   },
   // effect is number of cures per tick
   // profit is how much "fund" it generates for each cure
@@ -29,13 +32,17 @@ const INITIAL_STATE = {
     level: 0,
     effect: 0,
     profit: 5,
-    cost: 200
+    cost: 200,
+    special1: false,
+    special2: false
   },
   laboratory: {
     level: 0,
     effect: 0,
     profit: 3,
-    cost: 5000
+    cost: 5000,
+    special1: false,
+    special2: false
   },
   hospital: {
     level: 0,
