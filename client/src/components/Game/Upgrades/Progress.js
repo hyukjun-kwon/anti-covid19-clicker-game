@@ -9,9 +9,12 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2),
     },
   },
+  p: {
+    marginBottom: theme.spacing(-1)
+  }
 }));
 
-export default function Progress(props) {
+export default function Progress({ description }) {
   const classes = useStyles();
   const [completed, setCompleted] = React.useState(0);
   const [buffer, setBuffer] = React.useState(10);
@@ -48,8 +51,9 @@ export default function Progress(props) {
 
   return (
     <div style={style} className={classes.root}>
-      <p>{props.upgrade}</p>
-      <p>Next Upgrade Cost: ${props.description}</p>
+      <p className={classes.p} >{description.level}</p>
+      <p className={classes.p}>{description.effect}</p>
+      <p className={classes.p}>{description.profit}</p>
       <LinearProgress variant="buffer" value={completed} valueBuffer={buffer} color="secondary" />
     </div>
   );

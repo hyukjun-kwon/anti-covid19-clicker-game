@@ -44,7 +44,7 @@ export default function LevelUpTab() {
     const [driveThruDisabled, setDriveThruDisabaled] = useState(true)
 
     const clickerUpgrade = () => {
-        
+
     }
     const pharmacyUpgrade = () => {
 
@@ -70,8 +70,7 @@ export default function LevelUpTab() {
                             }}
                             >
                                 <Avatar className={classes.orange}>C</Avatar></button>
-                            <p>Clicker Level: {state.clicker.level}</p>
-                            <p>Profit: ${state.clicker.profit}</p>
+                            <p>Increase the number of cures. Cost: ${state.clicker.cost}</p>
                         </div>
                     </Paper>
                 </Grid>
@@ -81,14 +80,10 @@ export default function LevelUpTab() {
                         <div className={classes.root}>
                             <button disabled={pharmacyDisabled} onClick={() => {
                                 dispatch({ type: "PHARMACY_LEVEL_UP" });
-                                // if (state.status.fund < state.pharmacy.cost) {
-                                //     setPharmacyDisabaled(true)
-                                // }
                             }}
                             >
                                 <Avatar className={classes.orange}>P</Avatar></button>
-                            <p>Pharmacy Level: {state.pharmacy.level}</p>
-                            <p>Profit: ${state.pharmacy.profit}</p>
+                            <p>Increase the number of cures. Cost: ${state.pharmacy.cost}</p>
                         </div>
                     </Paper>
                 </Grid>
@@ -97,8 +92,7 @@ export default function LevelUpTab() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <button disabled={laboratoryDisabled}><Avatar className={classes.orange}>L</Avatar></button>
-                            <p>Laboratory Level: {state.laboratory.level}</p>
-                            <p>Profit: ${state.laboratory.profit}</p>
+                            <p>Increase the number of cures. Cost: ${state.laboratory.cost}</p>
                         </div>
                     </Paper>
                 </Grid>
@@ -107,8 +101,7 @@ export default function LevelUpTab() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <button disabled={hospitalDisabled}><Avatar className={classes.orange}>H</Avatar></button>
-                            <p>Hospital Level: {state.hospital.level}</p>
-                            {/* <p>Profit: ${state.hospital.profit}</p> */}
+                            <p>Decrease the rate of people dying. Cost: ${state.hospital.cost}</p>
                         </div>
                     </Paper>
                 </Grid>
@@ -117,8 +110,7 @@ export default function LevelUpTab() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <button disabled={driveThruDisabled}><Avatar className={classes.orange}>D</Avatar></button>
-                            <p>Drive-thru Level: {state.drivethru.level}</p>
-                            {/* <p>Profit: ${state.drivethru.profit}</p> */}
+                            <p>Decrease the rate of infection. Cost: ${state.drivethru.cost}</p>
                         </div>
                     </Paper>
                 </Grid>
