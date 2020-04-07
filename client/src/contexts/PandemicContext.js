@@ -130,7 +130,7 @@ const reducer = (state, action) => {
       //
 
       let newClickerEffect = CLICKER_EFFECTS_ARRAY[state.clicker.level];
-      let newClickerCost = CLICKER_COSTS_ARRAY[state.clicker.level];
+      let newClickerCost = CLICKER_COSTS_ARRAY[state.clicker.level+1];
       let newFundC = state.status.fund - state.clicker.cost;
 
       return {
