@@ -2,7 +2,7 @@
   "name": "anti-covid19-clicker-server",
   "version": "1.0.0",
   "description": "Anti-COVID19 Clicker Game Server",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "cross-env NODE_ENV=production node index.js",
@@ -11,7 +11,11 @@
     "watch-server": "nodemon --ignore \"client/\" index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd client && npm run build",
-    "install": "cd client && npm install"
+    "install": "cd client && npm install",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
+  },
+  "engines": {
+    "node": "12.16.1"
   },
   "author": "",
   "license": "ISC",
