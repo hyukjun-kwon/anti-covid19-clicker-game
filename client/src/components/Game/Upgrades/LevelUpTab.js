@@ -80,7 +80,7 @@ export default function LevelUpTab() {
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button disabled={pharmacyDisabled} onClick={() => {
+                            <button disabled={(state.pharmacy.level === 20) || (state.status.fund < state.pharmacy.cost)} onClick={() => {
                                 dispatch({ type: "PHARMACY_LEVEL_UP" });
                             }}
                             >
@@ -93,7 +93,7 @@ export default function LevelUpTab() {
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button disabled={laboratoryDisabled}><Avatar className={classes.orange}>L</Avatar></button>
+                            <button disabled={(state.laboratory.level === 10) || (state.status.fund < state.laboratory.cost)}><Avatar className={classes.orange}>L</Avatar></button>
                             <p>Increase the number of cures. Cost: ${numAbb(state.laboratory.cost)}</p>
                         </div>
                     </Paper>
@@ -102,7 +102,7 @@ export default function LevelUpTab() {
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button disabled={hospitalDisabled}><Avatar className={classes.orange}>H</Avatar></button>
+                            <button disabled={(state.hospital.level === 3) || (state.status.fund < state.hospital.cost)}><Avatar className={classes.orange}>H</Avatar></button>
                             <p>Decrease the rate of people dying. Cost: ${numAbb(state.hospital.cost)}</p>
                         </div>
                     </Paper>
@@ -111,7 +111,7 @@ export default function LevelUpTab() {
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button disabled={driveThruDisabled}><Avatar className={classes.orange}>D</Avatar></button>
+                            <button disabled={(state.drivethru.level === 5) || (state.status.fund < state.drivethru.cost)}><Avatar className={classes.orange}>D</Avatar></button>
                             <p>Decrease the rate of infection. Cost: ${numAbb(state.drivethru.cost)}</p>
                         </div>
                     </Paper>
