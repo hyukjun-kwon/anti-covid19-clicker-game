@@ -20,16 +20,25 @@ const avatarStyles = makeStyles((theme) => ({
         color: theme.palette.getContrastText(deepOrange[500]),
         backgroundColor: deepOrange[500],
         fontFamily: 'Bangers, cursive',
+        marginTop: 'auto',
+        marginBottom: 'auto'
+
     },
     purple: {
         color: theme.palette.getContrastText(deepPurple[500]),
         backgroundColor: deepPurple[500],
         fontFamily: 'Bangers, cursive',
     },
+    margins: {
+        marginTop: 'auto',
+        marginBottom: 'auto'
+    }
 }));
 
 const style = {
-    height: 100
+    height: 100,
+    marginTop: 'auto',
+    marginBottom: 'auto'
 }
 
 const styles = {

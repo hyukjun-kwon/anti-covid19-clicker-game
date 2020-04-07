@@ -22,7 +22,7 @@ export default function Progress({ description }) {
 
   return (
     <div style={style} className={classes.root}>
-      <p className={classes.p} >{description.level}</p>
+      <p className={classes.p}>{description.level}</p>
       <p className={classes.p}>{description.effect}</p>
       <p className={classes.p}>{description.profit}</p>
     </div>
