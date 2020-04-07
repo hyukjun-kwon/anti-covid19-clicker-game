@@ -44,7 +44,7 @@ export default function LevelUpTab() {
     const [driveThruDisabled, setDriveThruDisabaled] = useState(true)
 
     const clickerUpgrade = () => {
-        
+
     }
     const pharmacyUpgrade = () => {
 
@@ -70,8 +70,10 @@ export default function LevelUpTab() {
                             }}
                             >
                                 <Avatar className={classes.orange}>C</Avatar></button>
-                            <p>Clicker Level: {state.clicker.level}</p>
-                            <p>Profit: ${state.clicker.profit}</p>
+                            <p>Clicker Level: {state.clicker.level} | Cures {state.clicker.effect} /click | Cd: 3sec | Profit: ${state.clicker.profit}</p>
+                            {/* <p>Cures {state.clicker.effect} /click </p>
+                            <p>Cd: 3sec</p>
+                            <p>Profit: ${state.clicker.profit}</p> */}
                         </div>
                     </Paper>
                 </Grid>

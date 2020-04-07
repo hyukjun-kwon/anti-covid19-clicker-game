@@ -26,7 +26,7 @@ const avatarStyles = makeStyles((theme) => ({
 }));
 
 const style = {
-    height: 100
+    height: 120
 }
 
 const styles = {
@@ -38,11 +38,29 @@ export default function CurrentTab() {
     const classes = avatarStyles();
     const [state, dispatch] = usePandemicContext();
 
-    let clickerLevel= `Clicker Next Level: ${state.clicker.level + 1}`
-    let pharmacyLevel= `Pharmacy Next Level: ${state.pharmacy.level + 1}`
-    let laboratoryLevel= `Laboratory Next Level: ${state.laboratory.level + 1}`
-    let hospitalLevel= `Hospital Next Level: ${state.hospital.level + 1}`
-    let driveThruLevel= `Drive-thru Next Level: ${state.drivethru.level + 1}`
+    let clicker= {
+        level:`Clicker Level: ${state.clicker.level}`,
+        effect: `Cure ${state.clicker.effect} every click | CD: 3 sec`,
+        profit: `Earn $${state.clicker.profit} every cure`
+    }
+    let pharmacy= {
+        level:`Pharmacy Level: ${state.pharmacy.level}`,
+        effect: `Cure ${state.pharmacy.effect} every 5 sec`,
+        profit: `Earn $${state.pharmacy.profit} every cure`
+    }
+    let laboratory= {
+        level:`Laboratory Level: ${state.laboratory.level}`,
+        effect: `Cure ${state.laboratory.effect} every 10 sec`,
+        profit: `Earn $${state.laboratory.profit} every cure`
+    }
+    let hospital= {
+        level:`Hospital Level: ${state.hospital.level}`,
+        effect:`Reduces death rate`
+    }
+    let driveThru= {
+        level: `Drive-thru Level: ${state.drivethru.level}`,
+        effect: `Reduces infection rate`
+    }
 
 
     
@@ -53,7 +71,7 @@ export default function CurrentTab() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <Avatar className={classes.orange}>C</Avatar>
-                            <Progress upgrade={clickerLevel} description={state.clicker.effect}/>
+                            <Progress description={clicker} />
                         </div>
                     </Paper>
                 </Grid>
@@ -62,7 +80,7 @@ export default function CurrentTab() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <Avatar className={classes.orange}>P</Avatar>
-                            <Progress upgrade={pharmacyLevel} description={state.pharmacy.effect}/>
+                            <Progress description={pharmacy}/>
                         </div>
                     </Paper>
                 </Grid>
@@ -71,7 +89,7 @@ export default function CurrentTab() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <Avatar className={classes.orange}>L</Avatar>
-                            <Progress upgrade={laboratoryLevel} description={state.laboratory.cost}/>
+                            <Progress description={laboratory}/>
                         </div>
                     </Paper>
                 </Grid>
@@ -80,7 +98,8 @@ export default function CurrentTab() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <Avatar className={classes.orange}>H</Avatar>
-                            <Progress upgrade={(state.hospital.level + 1) < 3 ? hospitalLevel : "Maxed" } />
+                            {/* <Progress level={(state.hospital.level + 1) < 3 ? hospitalLevel : "Maxed" } /> */}
+                            <Progress  description={hospital}/>
                         </div>
                     </Paper>
                 </Grid>
@@ -89,7 +108,8 @@ export default function CurrentTab() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <Avatar className={classes.orange}>DT</Avatar>
-                            <Progress upgrade={(state.drivethru.level + 1) < 3 ? driveThruLevel : "Maxed" } />
+                            {/* <Progress level={(state.drivethru.level + 1) < 5 ? driveThruLevel : "Maxed" } /> */}
+                            <Progress description={driveThru} />
                         </div>
                     </Paper>
                 </Grid>

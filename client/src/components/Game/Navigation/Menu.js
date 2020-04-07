@@ -76,7 +76,7 @@ function MenuListComposition() {
                                     <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                                         <ProfileModal />
                                         <HowToPlay />
-                                        <MenuItem onClick={() => dispatch({ type: "QUIT" })}>Logout</MenuItem>
+                                        <MenuItem onClick={() => dispatch({ type: "QUIT" })}>Quit</MenuItem>
                                     </MenuList>
                                 </ClickAwayListener>
                             </Paper>
