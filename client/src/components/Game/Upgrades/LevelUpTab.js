@@ -27,7 +27,7 @@ const avatarStyles = makeStyles((theme) => ({
 }));
 
 const style = {
-    height: '70px'
+    height: 70
 }
 
 const styles = {
