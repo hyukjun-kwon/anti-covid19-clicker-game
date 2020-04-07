@@ -20,14 +20,14 @@ const useStyles = makeStyles((theme) => ({
         width: 'auto'
     },
     Clicker: {
-        height: '200px',
+        height: '150px',
         width: 'auto',
         borderRadius: '50%'
     },
     ClickerBtn: {
         position: 'absolute',
         left: '49.7%',
-        top: '45%',
+        top: '30%',
         transform: 'translate(-50%, -50%)'
     }
 }));

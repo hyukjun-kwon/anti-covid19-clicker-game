@@ -7,6 +7,7 @@ import Progress from './Progress';
 import { deepOrange, deepPurple } from '@material-ui/core/colors';
 
 import { usePandemicContext } from '../../../contexts/PandemicContext';
+import numAbb from '../../../utils/numberAbbreviate';
 
 const avatarStyles = makeStyles((theme) => ({
     root: {
@@ -30,19 +31,37 @@ const style = {
 }
 
 const styles = {
-    height: '150px',
+    height: 300,
     overflowY: 'auto',
 }
 
-export default function FacilityUpgrades() {
+export default function CurrentTab() {
     const classes = avatarStyles();
     const [state, dispatch] = usePandemicContext();
 
-    let clickerLevel= `Clicker Next Level: ${state.clicker.level + 1}`
-    let pharmacyLevel= `Pharmacy Next Level: ${state.pharmacy.level + 1}`
-    let laboratoryLevel= `Laboratory Next Level: ${state.laboratory.level + 1}`
-    let hospitalLevel= `Hospital Next Level: ${state.hospital.level + 1}`
-    let driveThruLevel= `Drive-thru Next Level: ${state.drivethru.level + 1}`
+    let clicker= {
+        level:`Clicker Level: ${state.clicker.level}`,
+        effect: `Cure ${numAbb(state.clicker.effect)} on click`,
+        profit: `Earn $${state.clicker.profit} every cure`
+    }
+    let pharmacy= {
+        level:`Pharmacy Level: ${state.pharmacy.level}`,
+        effect: `Cure ${numAbb(state.pharmacy.effect)} every 5 sec`,
+        profit: `Earn $${state.pharmacy.profit} every cure`
+    }
+    let laboratory= {
+        level:`Laboratory Level: ${state.laboratory.level}`,
+        effect: `Cure ${numAbb(state.laboratory.effect)} every 10 sec`,
+        profit: `Earn $${state.laboratory.profit} every cure`
+    }
+    let hospital= {
+        level:`Hospital Level: ${state.hospital.level}`,
+        effect:`Reduces death rate`
+    }
+    let driveThru= {
+        level: `Drive-thru Level: ${state.drivethru.level}`,
+        effect: `Reduces infection rate`
+    }
 
 
     
@@ -53,7 +72,7 @@ export default function FacilityUpgrades() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <Avatar className={classes.orange}>C</Avatar>
-                            <Progress upgrade={clickerLevel} description={state.clicker.cost}/>
+                            <Progress description={clicker} />
                         </div>
                     </Paper>
                 </Grid>
@@ -62,7 +81,7 @@ export default function FacilityUpgrades() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <Avatar className={classes.orange}>P</Avatar>
-                            <Progress upgrade={pharmacyLevel} description={state.pharmacy.cost}/>
+                            <Progress description={pharmacy}/>
                         </div>
                     </Paper>
                 </Grid>
@@ -71,7 +90,7 @@ export default function FacilityUpgrades() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <Avatar className={classes.orange}>L</Avatar>
-                            <Progress upgrade={laboratoryLevel} description={state.laboratory.cost}/>
+                            <Progress description={laboratory}/>
                         </div>
                     </Paper>
                 </Grid>
@@ -80,7 +99,8 @@ export default function FacilityUpgrades() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <Avatar className={classes.orange}>H</Avatar>
-                            <Progress upgrade={(state.hospital.level + 1) < 3 ? hospitalLevel : "Maxed" } description={state.hospital.cost}/>
+                            {/* <Progress level={(state.hospital.level + 1) < 3 ? hospitalLevel : "Maxed" } /> */}
+                            <Progress  description={hospital}/>
                         </div>
                     </Paper>
                 </Grid>
@@ -89,7 +109,8 @@ export default function FacilityUpgrades() {
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
                             <Avatar className={classes.orange}>DT</Avatar>
-                            <Progress upgrade={(state.drivethru.level + 1) < 3 ? driveThruLevel : "Maxed" } description={state.drivethru.cost}/>
+                            {/* <Progress level={(state.drivethru.level + 1) < 5 ? driveThruLevel : "Maxed" } /> */}
+                            <Progress description={driveThru} />
                         </div>
                     </Paper>
                 </Grid>

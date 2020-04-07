@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import { deepOrange, deepPurple } from '@material-ui/core/colors';
 
 import { usePandemicContext } from '../../../contexts/PandemicContext';
+import numAbb from '../../../utils/numberAbbreviate'
 
 const avatarStyles = makeStyles((theme) => ({
     root: {
@@ -30,13 +31,18 @@ const style = {
 }
 
 const styles = {
-    height: '150px',
+    height: 300,
     overflowY: 'auto',
 }
 
-export default function ClickerUpgrades() {
+export default function LevelUpTab() {
     const classes = avatarStyles();
     const [state, dispatch] = usePandemicContext();
+    const [clickerDisabled, setClickerDisabaled] = useState(false)
+    const [pharmacyDisabled, setPharmacyDisabaled] = useState(false)
+    const [laboratoryDisabled, setLaboratoryDisabaled] = useState(true)
+    const [hospitalDisabled, setHospitalDisabaled] = useState(true)
+    const [driveThruDisabled, setDriveThruDisabaled] = useState(true)
 
     const clickerUpgrade = () => {
 
@@ -60,9 +66,13 @@ export default function ClickerUpgrades() {
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button><Avatar className={classes.orange}>C</Avatar></button>
-                            <p>Clicker Level: {state.clicker.level}</p>
-                            <p>Profit: ${state.clicker.profit}</p>
+                            {/* Button disabled if clicker is max-level or insufficient fund */}
+                            <button disabled={(state.clicker.level === 30) || (state.status.fund < state.clicker.cost)} onClick={() => {
+                                dispatch({ type: "CLICKER_LEVEL_UP" });
+                            }}
+                            >
+                                <Avatar className={classes.orange}>C</Avatar></button>
+                            <p>Increase the number of cures. Cost: ${numAbb(state.clicker.cost)}</p>
                         </div>
                     </Paper>
                 </Grid>
@@ -70,9 +80,12 @@ export default function ClickerUpgrades() {
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button><Avatar className={classes.orange}>P</Avatar></button>
-                            <p>Pharmacy Level: {state.pharmacy.level}</p>
-                            <p>Profit: ${state.pharmacy.profit}</p>
+                            <button disabled={pharmacyDisabled} onClick={() => {
+                                dispatch({ type: "PHARMACY_LEVEL_UP" });
+                            }}
+                            >
+                                <Avatar className={classes.orange}>P</Avatar></button>
+                            <p>Increase the number of cures. Cost: ${numAbb(state.pharmacy.cost)}</p>
                         </div>
                     </Paper>
                 </Grid>
@@ -80,9 +93,8 @@ export default function ClickerUpgrades() {
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button><Avatar className={classes.orange}>L</Avatar></button>
-                            <p>Laboratory Level: {state.laboratory.level}</p>
-                            <p>Profit: ${state.laboratory.profit}</p>
+                            <button disabled={laboratoryDisabled}><Avatar className={classes.orange}>L</Avatar></button>
+                            <p>Increase the number of cures. Cost: ${numAbb(state.laboratory.cost)}</p>
                         </div>
                     </Paper>
                 </Grid>
@@ -90,9 +102,8 @@ export default function ClickerUpgrades() {
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button><Avatar className={classes.orange}>H</Avatar></button>
-                            <p>Hospital Level: {state.hospital.level}</p>
-                            {/* <p>Profit: ${state.hospital.profit}</p> */}
+                            <button disabled={hospitalDisabled}><Avatar className={classes.orange}>H</Avatar></button>
+                            <p>Decrease the rate of people dying. Cost: ${numAbb(state.hospital.cost)}</p>
                         </div>
                     </Paper>
                 </Grid>
@@ -100,9 +111,8 @@ export default function ClickerUpgrades() {
                 <Grid item xs={12}>
                     <Paper style={style} className={classes.paper}>
                         <div className={classes.root}>
-                            <button><Avatar className={classes.orange}>D</Avatar></button>
-                            <p>Drive-thru Level: {state.drivethru.level}</p>
-                            {/* <p>Profit: ${state.drivethru.profit}</p> */}
+                            <button disabled={driveThruDisabled}><Avatar className={classes.orange}>D</Avatar></button>
+                            <p>Decrease the rate of infection. Cost: ${numAbb(state.drivethru.cost)}</p>
                         </div>
                     </Paper>
                 </Grid>

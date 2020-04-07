@@ -1,6 +1,7 @@
 import React, { createContext, useReducer, useContext } from "react";
 import {
   INITIAL_STATE,
+  EASY_DIFFICULTY,
   MEDIUM_DIFFICULTY,
   HARD_DIFFICULTY,
   CLICKER_EFFECTS_ARRAY,
@@ -20,32 +21,46 @@ const { Provider } = PandemicContext;
 
 const reducer = (state, action) => {
   switch (action.type) {
-  case "USER_LOGIN":
-    return {
-      ...state,
-      token: action.token,
-      player: action.player
-    }
-  case "SET_EASY_DIFFICULTY":
-    return INITIAL_STATE
-  case "SET_MEDIUM_DIFFICULTY":
-    return {
-      ...state,
-      difficulty: "medium",
-      status: MEDIUM_DIFFICULTY
-    };
-  case "SET_HARD_DIFFICULTY":
-    return {
-      ...state,
-      difficulty: "hard",
-      status: HARD_DIFFICULTY
-    };
+    case "USER_LOGIN":
+      return {
+        ...state,
+        token: action.token,
+        player: action.player
+      }
+    case "SET_EASY_DIFFICULTY":
+      return {
+        ...state,
+        difficulty: "easy",
+        status: EASY_DIFFICULTY
+      };
+    case "SET_MEDIUM_DIFFICULTY":
+      return {
+        ...state,
+        difficulty: "medium",
+        status: MEDIUM_DIFFICULTY
+      };
+    case "SET_HARD_DIFFICULTY":
+      return {
+        ...state,
+        difficulty: "hard",
+        status: HARD_DIFFICULTY
+      };
 
-  // Summary:
-  // Every 15 ticks: DEATH
-  // Every 10 ticks: LABORATORY
-  // Every 5 ticks: PHARMACY
-  // Every 1 tick: SPREAD
+    case "CLICK":
+      return {
+        ...state,
+        status: {
+          infected: state.status.infected - state.clicker.effect,
+          death: state.status.death,
+          fund: state.status.fund + (state.clicker.effect * state.clicker.profit)
+        }
+      }
+
+    // Summary:
+    // Every 15 ticks: DEATH
+    // Every 10 ticks: LABORATORY
+    // Every 5 ticks: PHARMACY
+    // Every 1 tick: SPREAD
     case "TICK":
       tickCount++;
       if (state.isComplete) {
@@ -104,17 +119,6 @@ const reducer = (state, action) => {
         }
       };
 
-    // Each "click" reduces status.infected by clicker.effect
-    //  & adds to status.fund by (clicker.effect * clicker.profit)
-    case "CLICK":
-      return {
-        ...state,
-        status: {
-          infected: state.status.infected - state.clicker.effect,
-          death: state.status.death,
-          fund: state.status.fund + (state.clicker.effect * state.clicker.profit)
-        }
-      };
     // When clicker levels, it should increment clicker level,
     //  & update the clicker.effect accordingly
     case "CLICKER_LEVEL_UP":
@@ -126,10 +130,16 @@ const reducer = (state, action) => {
       //
 
       let newClickerEffect = CLICKER_EFFECTS_ARRAY[state.clicker.level];
-      let newClickerCost = CLICKER_COSTS_ARRAY[state.clicker.cost];
+      let newClickerCost = CLICKER_COSTS_ARRAY[state.clicker.level+1];
+      let newFundC = state.status.fund - state.clicker.cost;
 
       return {
         ...state,
+        status: {
+          infected: state.status.infected,
+          death: state.status.death,
+          fund: newFundC
+        },
         clicker: {
           level: state.clicker.level + 1,
           effect: newClickerEffect,
@@ -140,10 +150,16 @@ const reducer = (state, action) => {
 
     case "PHARMACY_LEVEL_UP":
       let newPharmacyEffect = PHARMACY_EFFECTS_ARRAY[state.pharmacy.level];
-      let newPharmacyCost = PHARMACY_COSTS_ARRAY[state.pharmacy.level];
+      let newPharmacyCost = PHARMACY_COSTS_ARRAY[state.pharmacy.level+1];
+      let newFundP = state.status.fund - state.pharmacy.cost;
 
       return {
         ...state,
+        status: {
+          infected: state.status.infected,
+          death: state.status.death,
+          fund: newFundP
+        },
         pharmacy: {
           level: state.pharmacy.level + 1,
           effect: newPharmacyEffect,
@@ -154,10 +170,16 @@ const reducer = (state, action) => {
 
     case "LABORATORY_LEVEL_UP":
       let newLaboratoryEffect = LABORATORY_EFFECTS_ARRAY[state.laboratory.level];
-      let newLaboratoryCost = LABORATORY_COSTS_ARRAY[state.laboratory.level];
+      let newLaboratoryCost = LABORATORY_COSTS_ARRAY[state.laboratory.level+1];
+      let newFundL = state.status.fund - state.laboratory.cost;
 
       return {
         ...state,
+        status: {
+          infected: state.status.infected,
+          death: state.status.death,
+          fund: newFundL
+        },
         laboratory: {
           level: state.laboratory.level + 1,
           effect: newLaboratoryEffect,
@@ -167,10 +189,16 @@ const reducer = (state, action) => {
       }
 
     case "HOSPITAL_LEVEL_UP":
-      let newHospitalCost = HOSPITAL_COSTS_ARRAY[state.hospital.level];
+      let newHospitalCost = HOSPITAL_COSTS_ARRAY[state.hospital.level+1];
+      let newFundH = state.status.fund - state.hospital.cost;
 
       return {
         ...state,
+        status: {
+          infected: state.status.infected,
+          death: state.status.death,
+          fund: newFundH
+        },
         rates: {
           spreadRate: state.rates.spreadRate,
           deathRate: state.rates.deathRate - 0.002
@@ -182,10 +210,16 @@ const reducer = (state, action) => {
       }
 
     case "DRIVE_THRU_LEVEL_UP":
-      let newDrivethruCost = DRIVETHRU_COSTS_ARRAY[state.drivethru.level];
+      let newDrivethruCost = DRIVETHRU_COSTS_ARRAY[state.drivethru.level+1];
+      let newFundD = state.status.fund - state.drivethru.cost;
 
       return {
         ...state,
+        status: {
+          infected: state.status.infected,
+          death: state.status.death,
+          fund: newFundD
+        },
         rates: {
           spreadRate: state.rates.spreadRate - 0.004,
           deathRate: state.rates.deathRate
@@ -209,6 +243,13 @@ const reducer = (state, action) => {
         ...state,
         isComplete: true,
       }
+
+    case "QUIT":
+      return {
+        ...state,
+        token: null,
+        player: null
+      };
 
     default:
       throw new Error(`Invalid action type: ${action.type}`);

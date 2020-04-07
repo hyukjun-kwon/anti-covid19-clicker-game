@@ -9,12 +9,12 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-import FacilityUpgrades from './FacilityUpgrades';
-import ClickerUpgrades from './ClickerUpgrades';
-import SpecialsUpgrades from './SpecialsUpgrades';
+import CurrentTab from './CurrentTab';
+import LevelUpTab from './LevelUpTab';
+import SpecialsTab from './SpecialsTab';
 
 const styles = {
-  height: '200px'
+  height: '355px'
 }
 
 function TabPanel(props) {
@@ -85,19 +85,19 @@ export default function UpgradeTab() {
           onChange={handleChange}
           aria-label="nav tabs example"
         >
-          <LinkTab label="Clicker" href="/drafts" {...a11yProps(0)} />
-          <LinkTab label="Facilities" href="/trash" {...a11yProps(1)} />
+          <LinkTab label="Current" href="/drafts" {...a11yProps(0)} />
+          <LinkTab label="Level-Ups" href="/trash" {...a11yProps(1)} />
           <LinkTab label="Specials" href="/spam" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <TabPanel style={styles} value={value} index={0}>
-        <ClickerUpgrades />
+        <CurrentTab />
       </TabPanel>
       <TabPanel style={styles} value={value} index={1}>
-        <FacilityUpgrades />
+        <LevelUpTab />
       </TabPanel>
       <TabPanel style={styles} value={value} index={2}>
-        <SpecialsUpgrades />
+        <SpecialsTab />
       </TabPanel>
     </div>
   );
