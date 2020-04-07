@@ -16,7 +16,11 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    marginRight: 57
+    marginRight: 57,
+    color: 'white',
+    fontFamily: 'Bangers, cursive',
+    textShadow: '4px 3px 0px #5E7BD6, 2px 2px 2px rgba(227,239,24,0)',
+    fontSize: '20pt'
   },
 }));
 

@@ -18,7 +18,10 @@ const useStyles = makeStyles((theme) => ({
         width: 'auto',
         padding: '3px',
         marginTop: '15px',
-    },
+        color: 'white',
+        fontWeight: 'bold',
+
+    }
 }));
 
 function Main() {
@@ -30,7 +33,7 @@ function Main() {
     }
 
 
-    if (state.status.infected >= 1000000000) { 
+    if (state.status.infected >= 1000000000) {
         dispatch({ type: "LOST" });
     };
 

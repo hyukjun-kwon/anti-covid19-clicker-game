@@ -20,16 +20,31 @@ const useStyles = makeStyles((theme) => ({
     },
     form: {
         width: '100%',
-        marginTop: theme.spacing(7),
+        marginTop: theme.spacing(3),
     },
     submit: {
         margin: theme.spacing(3, 0, -2),
+        fontFamily: 'Bangers, cursive',
+        fontSize: '14pt'
     },
     creator: {
-        marginTop: theme.spacing(25),
+        marginTop: theme.spacing(10),
+        color: 'white',
+        fontFamily: 'Bangers, cursive',
+        textShadow: '4px 3px 0px #5E7BD6, 2px 2px 2px rgba(227,239,24,0)'
     },
     spacing: {
-        marginTop: theme.spacing(-2)
+        marginTop: theme.spacing(-2),
+        color: 'white',
+        fontFamily: 'Bangers, cursive',
+        textShadow: '4px 3px 0px #5E7BD6, 2px 2px 2px rgba(227,239,24,0)'
+    },
+    title: {
+        color: 'white',
+        margin: 0,
+        fontFamily: 'Bangers, cursive',
+        fontSize: '40pt',
+        textShadow: '4px 3px 0px #5E7BD6, 2px 2px 2px rgba(227,239,24,0)',
     }
 }));
 
@@ -70,7 +85,7 @@ function LogIn() {
             password: password
         })
             .then(response => {
-                dispatch({ 
+                dispatch({
                     type: "USER_LOGIN",
                     token: response.data.token,
                     player: response.data.player
@@ -95,9 +110,9 @@ function LogIn() {
 
     return (
         <Container component="main" maxWidth="xs">
-            <h1 align="center">Welcome</h1>
-            <h2 align="center">to</h2>
-            <h1 align="center">ANTI-COVID-19</h1>
+            <h1 align="center" className={classes.title} style={{ marginTop: '50px' }}>Welcome</h1>
+            <h2 align="center" className={classes.title}>to</h2>
+            <h1 align="center" className={classes.title}>ANTI-COVID-19</h1>
             <CssBaseline />
             <div className={classes.paper}>
                 <form className={classes.form} noValidate>
@@ -105,7 +120,7 @@ function LogIn() {
                         <Grid item xs={12}>
                             <TextField
                                 // ref={usernameRef}
-                                onChange={event => setUsername (event.target.value )}
+                                onChange={event => setUsername(event.target.value)}
                                 variant="outlined"
                                 required
                                 fullWidth
@@ -119,7 +134,7 @@ function LogIn() {
                         <Grid item xs={12}>
                             <TextField
                                 // ref={passwordRef}
-                                onChange={event => setPassword ( event.target.value )}
+                                onChange={event => setPassword(event.target.value)}
                                 variant="outlined"
                                 required
                                 fullWidth
