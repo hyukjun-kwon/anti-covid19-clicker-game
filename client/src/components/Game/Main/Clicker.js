@@ -36,7 +36,7 @@ function Clicker() {
     const [isButtonDisabled,setIsButtonDisabled] = useState(false)
     const clickHandler = event => {
         setIsButtonDisabled(true);
-        setTimeout(() => setIsButtonDisabled(false), 3000);
+        setTimeout(() => setIsButtonDisabled(false), 1500);
     }
 
     return (
