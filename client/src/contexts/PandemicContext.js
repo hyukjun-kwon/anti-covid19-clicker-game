@@ -391,6 +391,62 @@ const reducer = (state, action) => {
         isComplete: true,
       };
 
+    case "REINITIALIZE":
+      return {
+        ...state,
+        isComplete: false,
+        won: false,
+        difficulty: "easy",
+        status: {
+          infected: 5000,
+          death: 0,
+          fund: 500,
+        },
+        // spreadRate is how fast infection grows per "tick"
+        // deathRate is what fraction of infected people die per "tick"
+        rates: {
+          spreadRate: 1.02,
+          deathRate: 0.001,
+        },
+        // effect is number of cures per click
+        // profit is how much "fund" it generates for each cure
+        clicker: {
+          level: 1,
+          effect: 1,
+          profit: 20,
+          cost: 500,
+          special1: false,
+          special2: false,
+          special3: false,
+        },
+        // effect is number of cures per tick
+        // profit is how much "fund" it generates for each cure
+        pharmacy: {
+          level: 0,
+          effect: 0,
+          profit: 10,
+          cost: 200,
+          special1: false,
+          special2: false,
+        },
+        laboratory: {
+          level: 0,
+          effect: 0,
+          profit: 5,
+          cost: 5000,
+          special1: false,
+          special2: false,
+        },
+        hospital: {
+          level: 0,
+          cost: 50000,
+        },
+        drivethru: {
+          level: 0,
+          cost: 50000,
+        },
+      };
+
     case "QUIT":
       return {
         ...state,

@@ -76,10 +76,12 @@ const Results = () => {
 }
 
 function WinPage() {
+    const [state, dispatch] = usePandemicContext();
     const classes = useStyles();
     return (
         <div className={classes.root}>
             <Paper elevation={3}>Congratulations! <br /><br />You have defeated COVID-19!<Link to="/"><Button type="submit"
+                onClick={dispatch("REINITIALIZE")}
                 fullWidth
                 variant="contained"
                 color="secondary"
@@ -89,10 +91,12 @@ function WinPage() {
 };
 
 function LosePage() {
+    const [state, dispatch] = usePandemicContext();
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Paper className={classes.results} elevation={3} >Loser! <br /><br />Everyone is dead!<br /><Link to="/"><Button type="submit"
+            <Paper className={classes.results} elevation={3} >Loser! <br /><br />You are Fired!<br /><Link to="/"><Button type="submit"
+                onClick={dispatch("REINITIALIZE")}
                 fullWidth
                 variant="contained"
                 color="secondary"
