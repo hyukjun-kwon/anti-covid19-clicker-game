@@ -16,8 +16,10 @@ const useStyles = makeStyles((theme) => ({
             height: theme.spacing(15),
             paddingTop: theme.spacing(3)
         },
-        marginLeft: 'auto',
-        marginRight: 'auto',
+        position: 'absolute',
+        left: '50%',
+        // marginLeft: 'auto',
+        // marginRight: 'auto',
         top: '45%',
         transform: 'translate(-50%, -50%)',
         textAlign: 'center',
@@ -77,7 +79,7 @@ function WinPage() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Paper elevation={3}>Congratulations! <br /><br />You have defeated COVID-19!<Link to="/home"><Button type="submit"
+            <Paper elevation={3}>Congratulations! <br /><br />You have defeated COVID-19!<Link to="/"><Button type="submit"
                 fullWidth
                 variant="contained"
                 color="secondary"
