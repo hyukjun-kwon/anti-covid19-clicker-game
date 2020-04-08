@@ -88,8 +88,6 @@ export default function HowToPlay() {
                         <p id="transition-modal-description"><span style={facilities}>Laboratory:</span> The Lab will cure a certaom amount of infected every 10 seconds.</p>
                         <p id="transition-modal-description"><span style={facilities}>Hospital:</span> The Hospital will reduce the deaths from the virus.</p>
                         <p id="transition-modal-description"><span style={facilities}>Drive-Thru Testing:</span> Drive-Thru Testing will reduce the rate of spread of the virus.</p>
-                        <hr />
-                        <h2 id="transition-modal-title">Upgrades</h2>
 
                     </div>
                 </Fade>
