@@ -52,7 +52,7 @@ export default function LevelUpTab() {
                             }}
                             >
                                 {((state.clicker.level === 30) || (state.status.fund < state.clicker.cost)) ? <Avatar className={classes.red}>C</Avatar> : <Avatar className={classes.green}>C</Avatar>}</button>
-                            <p>Next level: {state.clicker.level === 30 ? "Max" : state.clicker.level + 1} Increase the number of cures. Cost: ${numAbb(state.clicker.cost)}</p>
+                            <p><b>Clicker</b> Next level: {state.clicker.level === 30 ? "Max" : state.clicker.level + 1}<br/>Cost: ${numAbb(state.clicker.cost)}</p>
                         </div>
                     </Paper>
                 </Grid>
@@ -65,7 +65,7 @@ export default function LevelUpTab() {
                             }}
                             >
                                 {(state.pharmacy.level === 20) || (state.status.fund < state.pharmacy.cost) ? <Avatar className={classes.red}>P</Avatar> : <Avatar className={classes.green}>P</Avatar>}</button>
-                            <p>Next level: {state.pharmacy.level === 20 ? "Max" : state.pharmacy.level + 1} Increase the number of cures. Cost: ${numAbb(state.pharmacy.cost)}</p>
+                            <p><b>Pharmacy</b> Next level: {state.pharmacy.level === 20 ? "Max" : state.pharmacy.level + 1} <br/>Cost: ${numAbb(state.pharmacy.cost)}</p>
                         </div>
                     </Paper>
                 </Grid>
@@ -78,7 +78,7 @@ export default function LevelUpTab() {
                             }}
                             >
                                 {(state.laboratory.level === 10) || (state.status.fund < state.laboratory.cost) ? <Avatar className={classes.red}>L</Avatar> : <Avatar className={classes.green}>L</Avatar>}</button>
-                            <p>Next level: {state.laboratory.level === 10 ? "Max" : state.laboratory.level + 1} Increase the number of cures. Cost: ${numAbb(state.laboratory.cost)}</p>
+                            <p><b>Laboratory</b> Next level: {state.laboratory.level === 10 ? "Max" : state.laboratory.level + 1}<br/>Cost: ${numAbb(state.laboratory.cost)}</p>
                         </div>
                     </Paper>
                 </Grid>
@@ -90,7 +90,7 @@ export default function LevelUpTab() {
                                 dispatch({ type: "HOSPITAL_LEVEL_UP" });
                             }}>
                                 {(state.hospital.level === 3) || (state.status.fund < state.hospital.cost) ? <Avatar className={classes.red}>H</Avatar> : <Avatar className={classes.green}>H</Avatar>}</button>
-                            <p>Next level: {state.hospital.level === 3 ? "Max" : state.hospital.level + 1} Decrease the rate of people dying. Cost: ${numAbb(state.hospital.cost)}</p>
+                            <p><b>Hospital</b> Next level: {state.hospital.level === 3 ? "Max" : state.hospital.level + 1}<br/>Cost: ${numAbb(state.hospital.cost)}</p>
                         </div>
                     </Paper>
                 </Grid>
@@ -102,7 +102,7 @@ export default function LevelUpTab() {
                                 dispatch({ type: "DRIVE_THRU_LEVEL_UP" });
                             }}>
                                 {(state.drivethru.level === 5) || (state.status.fund < state.drivethru.cost) ? <Avatar className={classes.red}>D</Avatar> : <Avatar className={classes.green}>D</Avatar>}</button>
-                            <p>Next level: {state.drivethru.level === 5 ? "Max" : state.drivethru.level + 1} Decrease the rate of infection. Cost: ${numAbb(state.drivethru.cost)}</p>
+                            <p><b>Drive-thru</b> Next level: {state.drivethru.level === 5 ? "Max" : state.drivethru.level + 1}<br/>Cost: ${numAbb(state.drivethru.cost)}</p>
                         </div>
                     </Paper>
                 </Grid>
