@@ -66,25 +66,23 @@ function HowToPlayModal() {
             {/* <h2 id="transition-modal-title">How To Play</h2>
             <p id="transition-modal-description">Here is how to play the game<hr />
               <ul>
-                <li>Click on Virus to create Vaccines</li>
-                <li>Accumulate vaccines to cure the sick</li>
+                <li>Use clicker to create vaccines</li>
+                <li>Each vaccine cures the 1 infected</li>
                 <li>With every cured patient, you earn money</li>
                 <li>Use the money you earn to buy upgrades to help manage the pandemic</li>
               </ul></p> */}
                                       <h1 id="transition-modal-title">How To Play Anti-COVID19</h1>
                         <hr />
-                        <h2 id="transition-modal-title">Game Conditions:</h2>
+                        <h3 id="transition-modal-title">Game Conditions:</h2>
                         <p id="transition-modal-description">Cure all infected people to win. If the number of infected reaches 1 billion, you lose!</p>
                         <hr />
-                        <h1 id="transition-modal-title">Upgrades</h1>
-                        <hr />
                         <h2 id="transition-modal-title">Clicker:</h2>
-                        <p id="transition-modal-description">Each click of the clicker will cure a certain amount of infected and send funds to you in return.</p>
+                        <p id="transition-modal-description">Each click will cure a certain amount of infected and send funds to you in return. Upgarding the clicker will generate more vaccines and money with each click.</p>
                         <hr />
                         <h2 id="transition-modal-title">Facilities:</h2>
-                        <p id="transition-modal-description">Each facility has its own unique perks to fight off the virus. Each with the ability to upgrade to higher levels to better fight off the virus.</p>
-                        <p id="transition-modal-description"><span style={facilities}>Pharmacy:</span> The Pharmacy will grant 50 vaccines reducing the number of infected every 30 seconds.</p>
-                        <p id="transition-modal-description"><span style={facilities}>Laboratory:</span> The Lab will grant 500 vaccines every 3 minutes.</p>
+                        <p id="transition-modal-description">Each facility has its own unique perks to fight off the virus. Upgrading the facilities will enhance their perks.</p>
+                        <p id="transition-modal-description"><span style={facilities}>Pharmacy:</span> The Pharmacy grants a certain amount of vaccines every 5 seconds.</p>
+                        <p id="transition-modal-description"><span style={facilities}>Laboratory:</span> The Lab grants a certain amount of vaccines every 10 seconds.</p>
                         <p id="transition-modal-description"><span style={facilities}>Clinic:</span> The Clinic will reduce the deaths from the virus.</p>
                         <p id="transition-modal-description"><span style={facilities}>Drive-Thru Testing:</span> Drive-Thru Testing will reduce the rate of spread of the virus.</p>
           </div>
