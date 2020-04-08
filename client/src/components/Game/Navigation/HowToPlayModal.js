@@ -71,15 +71,15 @@ function HowToPlayModal() {
                 <li>With every cured patient, you earn money</li>
                 <li>Use the money you earn to buy upgrades to help manage the pandemic</li>
               </ul></p> */}
-                                      <h1 id="transition-modal-title">How To Play Anti-COVID19</h1>
+                                      <h2 id="transition-modal-title">How To Play Anti-COVID19</h2>
                         <hr />
-                        <h3 id="transition-modal-title">Game Conditions:</h2>
+                        <h3 id="transition-modal-title">Game Conditions:</h3>
                         <p id="transition-modal-description">Cure all infected people to win. If the number of infected reaches 1 billion, you lose!</p>
                         <hr />
-                        <h2 id="transition-modal-title">Clicker:</h2>
+                        <h3 id="transition-modal-title">Clicker:</h3>
                         <p id="transition-modal-description">Each click will cure a certain amount of infected and send funds to you in return. Upgarding the clicker will generate more vaccines and money with each click.</p>
                         <hr />
-                        <h2 id="transition-modal-title">Facilities:</h2>
+                        <h3 id="transition-modal-title">Facilities:</h3>
                         <p id="transition-modal-description">Each facility has its own unique perks to fight off the virus. Upgrading the facilities will enhance their perks.</p>
                         <p id="transition-modal-description"><span style={facilities}>Pharmacy:</span> The Pharmacy grants a certain amount of vaccines every 5 seconds.</p>
                         <p id="transition-modal-description"><span style={facilities}>Laboratory:</span> The Lab grants a certain amount of vaccines every 10 seconds.</p>
