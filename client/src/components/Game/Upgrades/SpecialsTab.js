@@ -70,7 +70,11 @@ export default function SpecialsTab() {
                   <Avatar className={classes.green}>C-1</Avatar>
                 )}
               </button>
-              <p><b>Clicker Special 1</b><br/>(Req: Lv. 5, $50K)</p>
+              <p>
+                <b>Clicker Special 1</b>
+                <br />
+                (Req: Lv. 5, $50K)
+              </p>
             </div>
           </Paper>
         </Grid>
@@ -95,7 +99,11 @@ export default function SpecialsTab() {
                   <Avatar className={classes.green}>C-2</Avatar>
                 )}
               </button>
-              <p><b>Clicker Special 2</b><br/>(Req: Lv. 15, $500K)</p>
+              <p>
+                <b>Clicker Special 2</b>
+                <br />
+                (Req: Lv. 15, $500K)
+              </p>
             </div>
           </Paper>
         </Grid>
@@ -122,7 +130,11 @@ export default function SpecialsTab() {
                   <Avatar className={classes.green}>C-3</Avatar>
                 )}
               </button>
-              <p><b>Clicker Special 3</b><br/>(Req: Lv. 25, $5M)</p>
+              <p>
+                <b>Clicker Special 3</b>
+                <br />
+                (Req: Lv. 25, $5M)
+              </p>
             </div>
           </Paper>
         </Grid>
@@ -146,7 +158,11 @@ export default function SpecialsTab() {
                   <Avatar className={classes.green}>P-1</Avatar>
                 )}
               </button>
-              <p><b>Pharmacy Special 1</b><br/>(Req: Lv. 5, $200K)</p>
+              <p>
+                <b>Pharmacy Special 1</b>
+                <br />
+                (Req: Lv. 5, $200K)
+              </p>
             </div>
           </Paper>
         </Grid>
@@ -171,7 +187,11 @@ export default function SpecialsTab() {
                   <Avatar className={classes.green}>P-2</Avatar>
                 )}
               </button>
-              <p><b>Pharmacy Special 2</b><br/>(Req: Lv. 15, $5M)</p>
+              <p>
+                <b>Pharmacy Special 2</b>
+                <br />
+                (Req: Lv. 15, $5M)
+              </p>
             </div>
           </Paper>
         </Grid>
@@ -197,7 +217,11 @@ export default function SpecialsTab() {
                   <Avatar className={classes.green}>L-1</Avatar>
                 )}
               </button>
-              <p><b>Laboratory Special 1</b><br/>(Req: Lv. 3, $2M)</p>
+              <p>
+                <b>Laboratory Special 1</b>
+                <br />
+                (Req: Lv. 3, $2M)
+              </p>
             </div>
           </Paper>
         </Grid>
@@ -224,7 +248,11 @@ export default function SpecialsTab() {
                   <Avatar className={classes.green}>L-2</Avatar>
                 )}
               </button>
-              <p><b>Laboratory Special 2</b><br/>(Req: Lv. 6, $10M)</p>
+              <p>
+                <b>Laboratory Special 2</b>
+                <br />
+                (Req: Lv. 6, $10M)
+              </p>
             </div>
           </Paper>
         </Grid>
