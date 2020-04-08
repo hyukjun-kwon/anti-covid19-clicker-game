@@ -20,7 +20,7 @@ const INITIAL_STATE = {
   clicker: {
     level: 1,
     effect: 1,
-    profit: 10,
+    profit: 20,
     cost: 500,
     special1: false,
     special2: false,
@@ -31,7 +31,7 @@ const INITIAL_STATE = {
   pharmacy: {
     level: 0,
     effect: 0,
-    profit: 5,
+    profit: 10,
     cost: 200,
     special1: false,
     special2: false
@@ -39,7 +39,7 @@ const INITIAL_STATE = {
   laboratory: {
     level: 0,
     effect: 0,
-    profit: 3,
+    profit: 5,
     cost: 5000,
     special1: false,
     special2: false
