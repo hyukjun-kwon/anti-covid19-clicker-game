@@ -84,7 +84,7 @@ export default function HowToPlay() {
                         <hr />
                         <h3 id="transition-modal-title">Facilities:</h3>
                         <p id="transition-modal-description">Each facility has its own unique perks to fight off the virus. Each with the ability to upgrade to higher levels to better fight off the virus.</p>
-                        <p id="transition-modal-description"><span style={facilities}>Pharmacy:</span> The Pharmacy will cure a certain amount of infected eveyr 5 seconds.</p>
+                        <p id="transition-modal-description"><span style={facilities}>Pharmacy:</span> The Pharmacy will cure a certain amount of infected every 5 seconds.</p>
                         <p id="transition-modal-description"><span style={facilities}>Laboratory:</span> The Lab will cure a certaom amount of infected every 10 seconds.</p>
                         <p id="transition-modal-description"><span style={facilities}>Hospital:</span> The Hospital will reduce the deaths from the virus.</p>
                         <p id="transition-modal-description"><span style={facilities}>Drive-Thru Testing:</span> Drive-Thru Testing will reduce the rate of spread of the virus.</p>
