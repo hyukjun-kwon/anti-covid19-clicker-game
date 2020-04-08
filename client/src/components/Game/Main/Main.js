@@ -34,7 +34,7 @@ function Main() {
     }
 
 
-    if (state.status.infected >= 1000000000) {
+    if (state.status.infected >= 1000000000 || state.status.death > 7800000000) {
         dispatch({ type: "LOST" });
     };
 
