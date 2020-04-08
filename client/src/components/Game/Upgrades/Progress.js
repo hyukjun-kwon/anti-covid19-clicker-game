@@ -1,24 +1,24 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import LinearProgress from '@material-ui/core/LinearProgress';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '70%',
-    '& > * + *': {
+    width: "70%",
+    "& > * + *": {
       marginTop: theme.spacing(2),
     },
   },
   p: {
-    marginBottom: theme.spacing(-2)
-  }
+    marginBottom: theme.spacing(-2),
+  },
 }));
 
 export default function Progress({ description }) {
   const classes = useStyles();
   const style = {
-    margin: '0px'
-  }
+    margin: "0px",
+  };
 
   return (
     <div style={style} className={classes.root}>

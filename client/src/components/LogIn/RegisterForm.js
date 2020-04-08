@@ -17,15 +17,13 @@ const useStyles = makeStyles((theme) => ({
 
   center: {
     marginLeft: "auto",
-    marginRight: "auto"
+    marginRight: "auto",
   },
 
   fluid: {
-    width: "100%"
-  }
-
+    width: "100%",
+  },
 }));
-
 
 export default function RegisterForm() {
   const classes = useStyles();
@@ -45,14 +43,18 @@ export default function RegisterForm() {
       })
         .then((response) => {
           console.log(response.data);
-          setAlert(<Alert severity="success">Player successfully Registered</Alert>);
+          setAlert(
+            <Alert severity="success">Player successfully Registered</Alert>
+          );
         })
         .catch((err) => {
           console.log(err);
-          setAlert(<Alert severity="error">
-          <AlertTitle>Registration Error!</AlertTitle>Same username
-          already exists in database
-          </Alert>);
+          setAlert(
+            <Alert severity="error">
+              <AlertTitle>Registration Error!</AlertTitle>Same username already
+              exists in database
+            </Alert>
+          );
         });
     } else {
       setAlert(<Alert severity="warning">Passwords must match</Alert>);
@@ -64,7 +66,7 @@ export default function RegisterForm() {
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <h2>Register</h2>
-      <Grid container spacing={2} className={classes.center} >
+      <Grid container spacing={2} className={classes.center}>
         <Grid item xs={12}>
           <TextField
             onChange={(event) => setUsername(event.target.value)}
@@ -122,8 +124,8 @@ export default function RegisterForm() {
         </Grid>
       </Grid>
       <Grid item xs={12} className={classes.fluid}>
-          {alert}
-        </Grid>
+        {alert}
+      </Grid>
     </form>
   );
 }

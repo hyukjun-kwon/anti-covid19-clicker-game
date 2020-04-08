@@ -12,9 +12,7 @@ function Game() {
   const [state, dispatch] = usePandemicContext();
 
   if (state.token === null) {
-    return (
-        <Redirect to="/" />
-    );
+    return <Redirect to="/" />;
   }
 
   if (state.isComplete) {
@@ -31,15 +29,15 @@ function Game() {
         <Main />
       </Container>
       <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <Upgrades />
     </Fragment>
   );

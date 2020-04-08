@@ -4,23 +4,23 @@ const PlayerSchema = new Schema({
   username: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   easyscore: {
-    type: Number
+    type: Number,
   },
   mediumscore: {
-    type: Number
+    type: Number,
   },
   hardscore: {
-    type: Number
-  }
+    type: Number,
+  },
 });
 
-const Player = model('player', PlayerSchema);
+const Player = model("player", PlayerSchema);
 
 module.exports = Player;

@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
 
-import { usePandemicContext } from '../../../contexts/PandemicContext';
-import numAbb from '../../../utils/numberAbbreviate'
+import { usePandemicContext } from "../../../contexts/PandemicContext";
+import numAbb from "../../../utils/numberAbbreviate";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,13 +14,13 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    fontFamily: 'Bangers, cursive',
+    fontFamily: "Bangers, cursive",
   },
   money: {
-    letterSpacing: '5px',
-    fontFamily: 'Bangers, cursive',
-    fontSize: '16pt'
-  }
+    letterSpacing: "5px",
+    fontFamily: "Bangers, cursive",
+    fontSize: "16pt",
+  },
 }));
 
 export default function Header() {
@@ -34,7 +34,9 @@ export default function Header() {
           <Typography variant="h6" className={classes.title}>
             Upgrades
           </Typography>
-          <p color="inherit" className={classes.money}>${numAbb(state.status.fund)}</p>
+          <p color="inherit" className={classes.money}>
+            ${numAbb(state.status.fund)}
+          </p>
         </Toolbar>
       </AppBar>
     </div>
