@@ -32,6 +32,6 @@
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.7",
-    "node-sass": "^4.13.1"
+    "node-sass": "^7.0.0"
   }
 }
